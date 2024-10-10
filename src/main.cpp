@@ -27,7 +27,7 @@ void Run()
         {
             int arg = 0;
             scanf("%d", &arg);
-            StackPush(&stk, arg);
+            StackPush(stk, arg);
             continue;
         }
     }
