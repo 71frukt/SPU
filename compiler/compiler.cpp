@@ -7,12 +7,11 @@ const char *trans_file_name = "txts/translator.txt";
 const char *asm_file_name   = "txts/program.asm";
 const char *code_file_name  = "txts/program_code.txt";
 
-size_t GetCountOfLines(FILE *text);
 
 typedef struct Comand
 {
     char name[COMAND_NAME_LEN];
-    int code;
+    int key;
 } comand_t;
 
 typedef struct TranstationComands
@@ -21,7 +20,19 @@ typedef struct TranstationComands
     size_t size;
 } trans_comands_t;
 
-void GetComands(const char *file_name, trans_comands_t *trans_comands);
+typedef struct CMD
+{
+    size_t pi;
+    size_t size;
+    int *code;
+} cmd_t;
+
+
+void   GetComands      (const char *file_name, trans_comands_t *trans_comands);
+size_t GetCountOfLines (FILE *text);
+size_t GetCountOfWords (FILE *text);
+void   PrintCMD        (cmd_t *cmd, FILE *file);
+
 
 int main()
 {
@@ -30,6 +41,11 @@ int main()
 
     FILE *asm_file  = fopen(asm_file_name,  "r");    
     FILE *code_file = fopen(code_file_name, "w");
+
+    cmd_t cmd = {};
+    cmd.pi = 0;
+    cmd.size = GetCountOfWords(asm_file);
+    cmd.code = (int *) calloc(cmd.size, sizeof(int));
 
     char cur_comand_name[COMAND_NAME_LEN] = {};
 
@@ -41,13 +57,13 @@ int main()
         {
             if (strcmp(trans_comands.comands[i].name, cur_comand_name) == 0)
             {
-                fprintf(code_file, "%d ", trans_comands.comands[i].code);
+                cmd.code[cmd.pi++] = trans_comands.comands[i].key;
 
                 if (strcmp(cur_comand_name, "push") == 0)
                 {
                     int elem = 0;
                     fscanf(asm_file, "%d", &elem);
-                    fprintf(code_file, "%d ", elem);
+                    cmd.code[cmd.pi++] = elem;
                 }   
 
                 code_is_founded = true;
@@ -59,6 +75,8 @@ int main()
             fprintf(stderr, "Unknown comand: '%s'\n", cur_comand_name);
     }
     
+    PrintCMD(&cmd, code_file);
+
     fclose(asm_file);
     fclose(code_file);
 }
@@ -80,6 +98,25 @@ size_t GetCountOfLines(FILE *text)
     return num_lines;
 }
 
+size_t GetCountOfWords(FILE *text)
+{
+    size_t num_words = 0;
+
+    char cur_word[COMAND_NAME_LEN] = {};
+
+    while (fscanf(text, "%s", cur_word) == 1)
+        num_words++;
+
+    fseek(text, 0, SEEK_SET);
+    return num_words;
+}
+
+void PrintCMD(cmd_t *cmd, FILE *file)
+{
+    for (size_t i = 0; i < cmd->size; i++)
+        fprintf(file, "%d ", cmd->code[i]);
+}
+
 void GetComands(const char *file_name, trans_comands_t *trans_comands)
 {
     FILE *trans_file = fopen(file_name, "r");
@@ -93,7 +130,7 @@ void GetComands(const char *file_name, trans_comands_t *trans_comands)
     for (size_t i = 0; i < num_trans_lines; i++)
     {
         fscanf(trans_file, "%s", comands_tmp[i].name);
-        fscanf(trans_file, "%d", &comands_tmp[i].code);
+        fscanf(trans_file, "%d", &comands_tmp[i].key);
     }
 
     trans_comands->comands = comands_tmp;
