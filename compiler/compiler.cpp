@@ -2,99 +2,172 @@
 #include <stdlib.h>
 #include <string.h>
 
-const int   COMAND_NAME_LEN = 20;
-const int   REG_NAME_LEN    = 2;
-const int   REGISTERS_NUM   = 5;
-const int   POISON          = 0xDEB41C;
+#include "compiler.h"
+#include "compiler_debug.h"
+
 const char *trans_file_name = "txts/translator.txt";
 const char *asm_file_name   = "txts/program.asm";
 const char *code_file_name  = "txts/program_code.txt";
+const char *logfile_name    = "txts/logs/compiler_logs.txt";
 
-typedef struct Comand
-{
-    char name[COMAND_NAME_LEN];
-    int key;
-} comand_t;
-
-typedef struct TranstationComands
-{
-    comand_t *comands;
-    size_t size;
-} trans_comands_t;
-
-typedef struct CMD
-{
-    size_t pi;
-    size_t size;
-    int *code;
-} cmd_t;
-
-void   GetComands      (const char *file_name, trans_comands_t *trans_comands);
-size_t GetCountOfLines (FILE *text);
-size_t GetCountOfWords (FILE *text);
-int    ReadRegister    (char *reg_name);
-void   PrintCMD        (cmd_t *cmd, FILE *file);
-
+const char MARK_SYMBOL = ':';
 
 int main()
 {
-    trans_comands_t trans_comands = {};
-    GetComands(trans_file_name, &trans_comands);
-
     FILE *asm_file  = fopen(asm_file_name,  "r");    
     FILE *code_file = fopen(code_file_name, "w");
+    ON_DEBUG(FILE *logfile = fopen(logfile_name, "w"));
+
+    trans_commands_t trans_commands = {};
+    GetCommands(trans_file_name, &trans_commands);
 
     cmd_t cmd = {};
-    cmd.pi = 0;
+    cmd.ip = 0;
     cmd.size = GetCountOfWords(asm_file);
     cmd.code = (int *) calloc(cmd.size, sizeof(int));
 
-    char cur_comand_name[COMAND_NAME_LEN] = {};
+    marklist_t marklist = {};
+    marklist.size = cmd.size;
+    marklist.ip   = 0;
+    marklist.list = (mark_t *) calloc(marklist.size, sizeof(mark_t));
 
-    while (fscanf(asm_file, "%s", cur_comand_name) == 1)
+    for (size_t i = 0; i < marklist.size; i++)
     {
-        bool code_is_founded = false;
+        // marklist.list[i].name   = {};
+        marklist.list[i].address = POISON;
+    }
 
-        for (size_t i = 0; i < trans_comands.size; i++)
+    char cur_command_name[COMMAND_NAME_LEN] = {};
+
+    while (fscanf(asm_file, "%s", cur_command_name) == 1)
+    {
+        if (strchr(cur_command_name, MARK_SYMBOL))
         {
-            if (strcmp(trans_comands.comands[i].name, cur_comand_name) == 0)
-            {
-                code_is_founded = true;
-
-                cmd.code[cmd.pi++] = trans_comands.comands[i].key;
-
-                if (strcmp(cur_comand_name, "push") == 0 || strcmp(cur_comand_name, "JUMP") == 0)
-                {
-                    int elem = POISON;
-                    fscanf(asm_file, "%d", &elem);
-                    cmd.code[cmd.pi++] = elem;
-                }   
-
-                if (strcmp(cur_comand_name, "PUSHR") == 0 || strcmp(cur_comand_name, "POPR") == 0)
-                {
-                    char reg_name[REG_NAME_LEN] = {};
-                    fscanf(asm_file, "%s", reg_name);
-
-                    int elem = ReadRegister(reg_name);
-
-                    cmd.code[cmd.pi++] = elem;
-                }  
-
-                break;
-            }     
+            marklist.list[marklist.ip++].address = cmd.ip;
+            sscanf(cur_command_name, "%[^:]", marklist.list->name);
+            continue;
         }
 
-        if (!code_is_founded)
-            fprintf(stderr, "Unknown comand: '%s'\n", cur_comand_name);
+        WriteCommandCode(cur_command_name, asm_file, &cmd);
     }
     
     PrintCMD(&cmd, code_file);
 
+    COMPILER_DUMP(logfile, &cmd, &marklist);
+
+    free(trans_commands.commands);
+    free(cmd.code);
+
+    ON_DEBUG(fclose(logfile));
     fclose(asm_file);
     fclose(code_file);
 
     return 0;
 }
+
+void WriteCommandCode(char *cur_command_name, FILE *asm_file, cmd_t *cmd)    
+{
+    if (strcmp(cur_command_name, "push") == 0)
+    {
+        cmd->code[cmd->ip++] = PUSH;
+
+        int elem = POISON;
+        fscanf(asm_file, "%d", &elem);
+        cmd->code[cmd->ip++] = elem;
+    }
+
+    else if (strcmp(cur_command_name, "PUSHR") == 0)
+    {
+        cmd->code[cmd->ip++] = PUSHR;
+
+        char reg_name[REG_NAME_LEN] = {};
+        fscanf(asm_file, "%s", reg_name);
+
+        int elem = ReadRegister(reg_name);
+
+        cmd->code[cmd->ip++] = elem;
+    }
+
+    else if (strcmp(cur_command_name, "POPR") == 0)
+    {
+        cmd->code[cmd->ip++] = POPR;
+
+        char reg_name[REG_NAME_LEN] = {};
+        fscanf(asm_file, "%s", reg_name);
+
+        int elem = ReadRegister(reg_name);
+
+        cmd->code[cmd->ip++] = elem;
+    }
+
+    else if (strcmp(cur_command_name, "JUMP") == 0)
+    {
+        cmd->code[cmd->ip++] = JUMP;
+
+        int elem = POISON;
+        fscanf(asm_file, "%d", &elem);
+        cmd->code[cmd->ip++] = elem;
+    }
+
+    else if (strcmp(cur_command_name, "add") == 0)
+        cmd->code[cmd->ip++] = ADD;
+    
+    else if (strcmp(cur_command_name, "sub") == 0)
+        cmd->code[cmd->ip++] = SUB;
+
+    else if (strcmp(cur_command_name, "mul") == 0)
+        cmd->code[cmd->ip++] = MUL;
+
+    else if (strcmp(cur_command_name, "div") == 0)
+        cmd->code[cmd->ip++] = DIV;
+
+    else if (strcmp(cur_command_name, "out") == 0)
+        cmd->code[cmd->ip++] = OUT;
+
+    else if (strcmp(cur_command_name, "hlt") == 0)
+        cmd->code[cmd->ip++] = HLT;
+
+    else
+        fprintf(stderr, "COMPILE ERROR: Unknown command: '%s'\n", cur_command_name);
+}
+
+/*
+bool WriteCommandCode(char *cur_command_name, FILE *asm_file, trans_commands_t *trans_commands, cmd_t *cmd)    
+{
+    bool command_is_founded = false;
+
+    for (size_t i = 0; i < trans_commands->size; i++) // TODO: multiple if
+    {
+        if (strcmp(trans_commands->commands[i].name, cur_command_name) == 0)
+        {
+            command_is_founded = true;
+
+            cmd->code[cmd->ip++] = trans_commands->commands[i].key;
+
+            if (strcmp(cur_command_name, "push") == 0 || strcmp(cur_command_name, "JUMP") == 0)
+            {
+                int elem = POISON;
+                fscanf(asm_file, "%d", &elem);
+                cmd->code[cmd->ip++] = elem;
+            }   
+
+            if (strcmp(cur_command_name, "PUSHR") == 0 || strcmp(cur_command_name, "POPR") == 0)
+            {
+                char reg_name[REG_NAME_LEN] = {};
+                fscanf(asm_file, "%s", reg_name);
+
+                int elem = ReadRegister(reg_name);
+
+                cmd->code[cmd->ip++] = elem;
+            }  
+
+            break;
+        }     
+    }
+
+    return command_is_founded;
+}
+*/
 
 int ReadRegister(char *reg_name)
 {
@@ -132,7 +205,7 @@ size_t GetCountOfWords(FILE *text)
 {
     size_t num_words = 0;
 
-    char cur_word[COMAND_NAME_LEN] = {};
+    char cur_word[COMMAND_NAME_LEN] = {};
 
     while (fscanf(text, "%s", cur_word) == 1)
         num_words++;
@@ -147,23 +220,23 @@ void PrintCMD(cmd_t *cmd, FILE *file)
         fprintf(file, "%d ", cmd->code[i]);
 }
 
-void GetComands(const char *file_name, trans_comands_t *trans_comands)
+void GetCommands(const char *file_name, trans_commands_t *trans_commands)
 {
     FILE *trans_file = fopen(file_name, "r");
 
     size_t num_trans_lines = GetCountOfLines(trans_file);
 
-    trans_comands->size = num_trans_lines;
+    trans_commands->size = num_trans_lines;
 
-    comand_t *comands_tmp = (comand_t *) calloc(num_trans_lines, sizeof(comand_t));
+    command_t *commands_tmp = (command_t *) calloc(num_trans_lines, sizeof(command_t));
 
     for (size_t i = 0; i < num_trans_lines; i++)
     {
-        fscanf(trans_file, "%s", comands_tmp[i].name);
-        fscanf(trans_file, "%d", &comands_tmp[i].key);
+        fscanf(trans_file, "%s", commands_tmp[i].name);
+        fscanf(trans_file, "%d", &commands_tmp[i].key);
     }
 
-    trans_comands->comands = comands_tmp;
+    trans_commands->commands = commands_tmp;
 
     fclose(trans_file);
 }
