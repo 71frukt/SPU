@@ -33,15 +33,20 @@ int main()
         {
         case PUSH:
         {
+            ON_DEBUG(SPU_DUMP(REGISTERS, &cmd, log_file));
+
             StackElem_t arg = cmd.code[++cmd.pi];
 
             StackPush(stk, arg);
             cmd.pi++;
+            
             break;
         }
 
         case ADD:
         {
+            ON_DEBUG(SPU_DUMP(REGISTERS, &cmd, log_file));
+
             StackElem_t a = 0;
             StackElem_t b = 0; 
             
@@ -50,11 +55,14 @@ int main()
 
             StackPush(stk, a + b); 
             cmd.pi++;
+            
             break;
         }
 
         case MUL:
         {
+            ON_DEBUG(SPU_DUMP(REGISTERS, &cmd, log_file));
+
             StackElem_t a = 0;
             StackElem_t b = 0;
 
@@ -63,11 +71,14 @@ int main()
 
             StackPush(stk, a * b);
             cmd.pi++;
+
             break;
         }
 
         case DIV:
         {
+            ON_DEBUG(SPU_DUMP(REGISTERS, &cmd, log_file));
+
             StackElem_t divisible = 0;
             StackElem_t splitter  = 0;
 
@@ -76,47 +87,72 @@ int main()
 
             StackPush(stk, divisible / splitter);
             cmd.pi++;
+
             break;
         }
 
         case OUT:
         {
+            ON_DEBUG(SPU_DUMP(REGISTERS, &cmd, log_file));
+
             StackElem_t res = 0;
             StackPop(stk, &res);
             fprintf(stderr, "res = %d\n", res);
             cmd.pi++;
+            
             break;
         }
 
         case PUSHR:
         {
+            ON_DEBUG(SPU_DUMP(REGISTERS, &cmd, log_file));
+
             StackElem_t arg = cmd.code[++cmd.pi];
 
             StackPush(stk, REGISTERS[arg]);
             cmd.pi++;
+            
             break;
         }
 
         case POPR:
         {
+            ON_DEBUG(SPU_DUMP(REGISTERS, &cmd, log_file));
+
             StackElem_t arg = cmd.code[++cmd.pi];
 
             StackPop(stk, &REGISTERS[arg]);
             cmd.pi++;
+            
             break;
+        }
+
+        case JUMP:
+        {
+            ON_DEBUG(SPU_DUMP(REGISTERS, &cmd, log_file));
+
+            StackElem_t arg = cmd.code[++cmd.pi];
+            cmd.pi = arg;
+            
+            break;     
         }
 
         case HLT:
         {
+            ON_DEBUG(SPU_DUMP(REGISTERS, &cmd, log_file));
+            
             cmd.pi++;
 
             keep_doing = false;
+            
             break;
         }
 
         default:
         {
             fprintf(code_file, "Syntax error: '%llu'\n", cmd.code[cmd.pi]);
+            
+            ON_DEBUG(SPU_DUMP(REGISTERS, &cmd, log_file));
             break;
         }
         }

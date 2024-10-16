@@ -59,9 +59,11 @@ int main()
         {
             if (strcmp(trans_comands.comands[i].name, cur_comand_name) == 0)
             {
+                code_is_founded = true;
+
                 cmd.code[cmd.pi++] = trans_comands.comands[i].key;
 
-                if (strcmp(cur_comand_name, "push") == 0)
+                if (strcmp(cur_comand_name, "push") == 0 || strcmp(cur_comand_name, "JUMP") == 0)
                 {
                     int elem = POISON;
                     fscanf(asm_file, "%d", &elem);
@@ -78,7 +80,6 @@ int main()
                     cmd.code[cmd.pi++] = elem;
                 }  
 
-                code_is_founded = true;
                 break;
             }     
         }
