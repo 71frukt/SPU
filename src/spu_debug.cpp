@@ -3,7 +3,7 @@
 #include "spu.h"
 #include "spu_debug.h"
 
-void SpuDump(int *registers, cmd_t *cmd, FILE *logfile, const char *file, int line, const char *func)
+void SpuDump(FILE *logfile, int *registers, cmd_t *cmd, const char *file, int line, const char *func)
 {
     fprintf(logfile, "SPU_DUMP called from %s:%d  (%s)\n{\n", file, line, func);
 
@@ -16,8 +16,8 @@ void SpuDump(int *registers, cmd_t *cmd, FILE *logfile, const char *file, int li
 
     fprintf(logfile, "\tCMD  [%p]:\n\t{\n", cmd);
 
-    fprintf(logfile, "\t\tsize = %llu\n", cmd->size);
-    fprintf(logfile, "\t\tpi   = %llu\n\n", cmd->pi);
+    fprintf(logfile, "\t\tpi   = %llu\n", cmd->ip);
+    fprintf(logfile, "\t\tsize = %llu\n\n", cmd->size);
 
     fprintf(logfile, "\t\tcode  [%p]\n\t\t{\n", cmd->code);
     for (size_t i = 0; i < cmd->size; i++)
@@ -27,5 +27,5 @@ void SpuDump(int *registers, cmd_t *cmd, FILE *logfile, const char *file, int li
 
     fprintf(logfile, "\t}\n");
 
-    fprintf(logfile, "}");
+    fprintf(logfile, "}\n");
 }

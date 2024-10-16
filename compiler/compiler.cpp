@@ -5,12 +5,13 @@
 #include "compiler.h"
 #include "compiler_debug.h"
 
+#define MARK_SYMBOL ":"
+
 const char *trans_file_name = "txts/translator.txt";
 const char *asm_file_name   = "txts/program.asm";
 const char *code_file_name  = "txts/program_code.txt";
 const char *logfile_name    = "txts/logs/compiler_logs.txt";
 
-const char MARK_SYMBOL = ':';
 
 int main()
 {
@@ -41,14 +42,17 @@ int main()
 
     while (fscanf(asm_file, "%s", cur_command_name) == 1)
     {
-        if (strchr(cur_command_name, MARK_SYMBOL))
+        if (IsMark(cur_command_name))
         {
             marklist.list[marklist.ip++].address = cmd.ip;
-            sscanf(cur_command_name, "%[^:]", marklist.list->name);
+            sscanf(cur_command_name, "%[^" MARK_SYMBOL "]", marklist.list->name);
+            
             continue;
         }
 
-        WriteCommandCode(cur_command_name, asm_file, &cmd);
+        WriteCommandCode(cur_command_name, &marklist, asm_file, &cmd);
+
+        COMPILER_DUMP(logfile, &cmd, &marklist);
     }
     
     PrintCMD(&cmd, code_file);
@@ -65,7 +69,7 @@ int main()
     return 0;
 }
 
-void WriteCommandCode(char *cur_command_name, FILE *asm_file, cmd_t *cmd)    
+void WriteCommandCode(char *cur_command_name, marklist_t *mark_list, FILE *asm_file, cmd_t *cmd)    
 {
     if (strcmp(cur_command_name, "push") == 0)
     {
@@ -104,9 +108,32 @@ void WriteCommandCode(char *cur_command_name, FILE *asm_file, cmd_t *cmd)
     {
         cmd->code[cmd->ip++] = JUMP;
 
-        int elem = POISON;
-        fscanf(asm_file, "%d", &elem);
-        cmd->code[cmd->ip++] = elem;
+        char arg_str[MARK_NAME_LEN] = {};
+
+        fscanf(asm_file, "%s", arg_str);
+
+        if (IsMark(arg_str))
+        {
+            sscanf(arg_str, "%[^" MARK_SYMBOL "]", arg_str);    // TODO: mark verify
+
+            mark_t *mark = FindMarkInList(arg_str, mark_list);
+
+            if (mark == NULL)
+            {
+                fprintf(stderr, "ZALUPA\n");
+                return;
+            }
+            cmd->code[cmd->ip++] = (int) mark->address;
+
+            return;
+        }
+
+        else
+        {
+            int elem = POISON;
+            sscanf(arg_str, "%d", &elem);
+            cmd->code[cmd->ip++] = elem;
+        }
     }
 
     else if (strcmp(cur_command_name, "add") == 0)
@@ -239,4 +266,26 @@ void GetCommands(const char *file_name, trans_commands_t *trans_commands)
     trans_commands->commands = commands_tmp;
 
     fclose(trans_file);
+}
+
+bool IsMark(char *str)
+{
+    return (strstr(str, MARK_SYMBOL) ? true : false);
+}
+
+void MarkVerify(char *mark)
+{
+    if (strlen(mark) == 0)
+        fprintf(stderr, "ERROR: invalid mark: '%s'\n", mark);
+}
+
+mark_t *FindMarkInList(char *mark_name, marklist_t *marklist)
+{
+    for (size_t i = 0; i < marklist->ip; i++)
+    {
+        if (strcmp(mark_name, marklist->list[i].name) == 0)
+            return &(marklist->list[i]);
+    }
+
+    return NULL;
 }

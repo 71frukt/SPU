@@ -4,12 +4,12 @@
 #include "spu.h"
 
 #ifdef DEBUG
-#define SPU_DUMP(registers, cmd_ptr, logfile)  SpuDump(registers, cmd_ptr, logfile, __FILE__, __LINE__, __func__)
+#define SPU_DUMP(logfile, registers, cmd_ptr)  SpuDump(logfile, registers, cmd_ptr, __FILE__, __LINE__, __func__)
 
 #else
 #define SPU_DUMP 
 #endif
 
-void SpuDump(int *registers, cmd_t *cmd, FILE *logfile, const char *file, int line, const char *func);
+void SpuDump(FILE *logfile, int *registers, cmd_t *cmd, const char *file, int line, const char *func);
 
 #endif

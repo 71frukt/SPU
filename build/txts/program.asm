@@ -1,13 +1,9 @@
 push 30
 push 40
+NEXT:
 push 50
+JUMP NEXT:
+push 2
 mul
-out
-push 334
-POPR  BX
-PUSHR BX
-PUSHR BX
-mul
-POPR  BX
 out
 hlt
