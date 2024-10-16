@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-const int COMAND_NAME_LEN = 20;
+const int   COMAND_NAME_LEN = 20;
+const int   REG_NAME_LEN    = 2;
+const int   REGISTERS_NUM   = 5;
+const int   POISON          = 0xDEB41C;
 const char *trans_file_name = "txts/translator.txt";
 const char *asm_file_name   = "txts/program.asm";
 const char *code_file_name  = "txts/program_code.txt";
-
 
 typedef struct Comand
 {
@@ -27,10 +29,10 @@ typedef struct CMD
     int *code;
 } cmd_t;
 
-
 void   GetComands      (const char *file_name, trans_comands_t *trans_comands);
 size_t GetCountOfLines (FILE *text);
 size_t GetCountOfWords (FILE *text);
+int    ReadRegister    (char *reg_name);
 void   PrintCMD        (cmd_t *cmd, FILE *file);
 
 
@@ -61,10 +63,20 @@ int main()
 
                 if (strcmp(cur_comand_name, "push") == 0)
                 {
-                    int elem = 0;
+                    int elem = POISON;
                     fscanf(asm_file, "%d", &elem);
                     cmd.code[cmd.pi++] = elem;
                 }   
+
+                if (strcmp(cur_comand_name, "PUSHR") == 0 || strcmp(cur_comand_name, "POPR") == 0)
+                {
+                    char reg_name[REG_NAME_LEN] = {};
+                    fscanf(asm_file, "%s", reg_name);
+
+                    int elem = ReadRegister(reg_name);
+
+                    cmd.code[cmd.pi++] = elem;
+                }  
 
                 code_is_founded = true;
                 break;
@@ -79,6 +91,23 @@ int main()
 
     fclose(asm_file);
     fclose(code_file);
+
+    return 0;
+}
+
+int ReadRegister(char *reg_name)
+{
+    int elem = POISON;
+
+    if (reg_name[1] != 'X' || reg_name[0] < 'A' || reg_name[0] > 'A' + REGISTERS_NUM)
+    {
+        fprintf(stderr, "ERROR: incorrect register: '%s'\n", reg_name);
+        return POISON;
+    }
+
+    elem = reg_name[0] - 'A' + 1;       // AX - первый регистр
+
+    return elem;
 }
 
 size_t GetCountOfLines(FILE *text)
