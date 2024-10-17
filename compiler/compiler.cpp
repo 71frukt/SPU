@@ -5,8 +5,6 @@
 #include "compiler.h"
 #include "compiler_debug.h"
 
-#define MARK_SYMBOL ":"
-
 const char *trans_file_name = "txts/translator.txt";
 const char *asm_file_name   = "txts/program.asm";
 const char *code_file_name  = "txts/program_code.txt";
@@ -14,110 +12,46 @@ const char *logfile_name    = "txts/logs/compiler_logs.txt";
 
 // TODO: make errno and compiler_assert
 
-int main()
+void CompilerCtor(compiler_t *compiler)
 {
-    FILE *asm_file  = fopen(asm_file_name,  "r");    
-    FILE *code_file = fopen(code_file_name, "w");
-    ON_DEBUG(FILE *logfile = fopen(logfile_name, "w"));
+    compiler->asm_file  = fopen(asm_file_name,  "r");
+    compiler->code_file = fopen(code_file_name, "w");
+    ON_DEBUG(compiler->logfile = fopen(logfile_name, "w"));
 
-    trans_commands_t trans_commands = {};
-    GetCommands(trans_file_name, &trans_commands);
+    GetCommands(trans_file_name, &compiler->trans_commands);
 
-    cmd_t cmd = {};
-    cmd.ip = 0;
-    cmd.size = GetCountOfWords(asm_file);
-    cmd.code = (int *) calloc(cmd.size, sizeof(int));
+    compiler->cmd.ip = 0;
+    compiler->cmd.size = GetCountOfWords(compiler->asm_file);
+    compiler->cmd.code = (int *)  calloc(compiler->cmd.size, sizeof(int));
 
-    marklist_t marklist = {};
-    marklist.size = cmd.size;
-    marklist.ip   = 0;
-    marklist.list = (mark_t *) calloc(marklist.size, sizeof(mark_t));
+    compiler->marklist.size = compiler->cmd.size;
+    compiler->marklist.ip   = 0;
+    compiler->marklist.list = (mark_t *) calloc(compiler->marklist.size, sizeof(mark_t));
 
-    for (size_t i = 0; i < marklist.size; i++)
+    for (size_t i = 0; i < compiler->marklist.size; i++)
     {
         // marklist.list[i].name   = {};
-        marklist.list[i].address = POISON;
+        compiler->marklist.list[i].address = POISON;
     }
 
-    fixup_t fixup = {};
-    fixup.ip = 0;
-    fixup.size = cmd.size;      // максимум меток = количество команд
-    fixup.data = (fixup_el_t *) calloc(fixup.size, sizeof(fixup_el_t));
+    compiler->fixup.ip = 0;
+    compiler->fixup.size = compiler->cmd.size;      // максимум меток = количество команд
+    compiler->fixup.data = (fixup_el_t *) calloc(compiler->fixup.size, sizeof(fixup_el_t));
     
-    for (size_t i = 0; i < fixup.size; i++)
+    for (size_t i = 0; i < compiler->fixup.size; i++)
     {
-        fixup.data[i].num_in_marklist  = POISON;        
-        fixup.data[i].mark_ip = POISON;
+        compiler->fixup.data[i].num_in_marklist  = POISON;        
+        compiler->fixup.data[i].mark_ip = POISON;
     }
-
-
-    char cur_command_name[COMMAND_NAME_LEN] = {};
-
-    while (fscanf(asm_file, "%s", cur_command_name) == 1)
-    {
-        if (IsMark(cur_command_name))
-        {
-            char mark_name[MARK_NAME_LEN] = {};
-            sscanf(cur_command_name, "%[^" MARK_SYMBOL "]", mark_name);            
-
-            mark_t *mark = FindMarkInList(mark_name, &marklist);
-
-            if (mark == NULL)
-            {    
-                marklist.list[marklist.ip].address = cmd.ip;
-                strncat(marklist.list[marklist.ip].name, mark_name, MARK_NAME_LEN - 1);
-                // sscanf(cur_command_name, "%[^" MARK_SYMBOL "]", marklist.list[marklist.ip].name);
-                marklist.ip++;
-            }
-
-            else if (mark != NULL && mark->address == POISON)
-            {
-                mark->address = cmd.ip;
-            }
-/*
-            else if (mark != NULL && mark->address == POISON)
-            {
-                mark->address = cmd.ip;
-                
-                fixup.data[fixup.ip].mark_ip         = cmd.ip;
-                fixup.data[fixup.ip].num_in_marklist = marklist.ip;
-
-                fixup.ip++;
-            }
-*/
-
-            else if(mark->address != POISON)
-            {
-                fprintf(stderr, "ERROR: redefinition of mark '%s'\n", cur_command_name);
-                ON_DEBUG(fprintf(logfile, "ERROR: redefinition of mark '%s'\n", cur_command_name));
-            }
-            
-            continue;
-        }
-
-        WriteCommandCode(cur_command_name, &marklist, asm_file, &cmd, &fixup);
-
-        COMPILER_DUMP(logfile, &cmd, &marklist, &fixup);
-    }
-    
-    MakeFixUp(&fixup, &cmd, &marklist);
-
-    PrintCMD(&cmd, code_file);
-
-    COMPILER_DUMP(logfile, &cmd, &marklist, &fixup);
-
-    free(trans_commands.commands);
-    free(cmd.code);
-
-    ON_DEBUG(fclose(logfile));
-    fclose(asm_file);
-    fclose(code_file);
-
-    return 0;
 }
 
-void WriteCommandCode(char *cur_command_name, marklist_t *marklist, FILE *asm_file, cmd_t *cmd, fixup_t *fixup)    
+void WriteCommandCode(char *cur_command_name, compiler_t *compiler)    
 {
+    FILE       *asm_file =  compiler->asm_file;
+    cmd_t      *cmd      = &compiler->cmd;
+    fixup_t    *fixup    = &compiler->fixup;
+    marklist_t *marklist = &compiler->marklist;
+
     if (strcmp(cur_command_name, "push") == 0)
     {
         cmd->code[cmd->ip++] = PUSH;
@@ -215,43 +149,6 @@ void WriteCommandCode(char *cur_command_name, marklist_t *marklist, FILE *asm_fi
         fprintf(stderr, "COMPILE ERROR: Unknown command: '%s'\n", cur_command_name);
 }
 
-/*
-bool WriteCommandCode(char *cur_command_name, FILE *asm_file, trans_commands_t *trans_commands, cmd_t *cmd)    
-{
-    bool command_is_founded = false;
-
-    for (size_t i = 0; i < trans_commands->size; i++) // TODO: multiple if
-    {
-        if (strcmp(trans_commands->commands[i].name, cur_command_name) == 0)
-        {
-            command_is_founded = true;
-
-            cmd->code[cmd->ip++] = trans_commands->commands[i].key;
-
-            if (strcmp(cur_command_name, "push") == 0 || strcmp(cur_command_name, "JUMP") == 0)
-            {
-                int elem = POISON;
-                fscanf(asm_file, "%d", &elem);
-                cmd->code[cmd->ip++] = elem;
-            }   
-
-            if (strcmp(cur_command_name, "PUSHR") == 0 || strcmp(cur_command_name, "POPR") == 0)
-            {
-                char reg_name[REG_NAME_LEN] = {};
-                fscanf(asm_file, "%s", reg_name);
-
-                int elem = ReadRegister(reg_name);
-
-                cmd->code[cmd->ip++] = elem;
-            }  
-
-            break;
-        }     
-    }
-
-    return command_is_founded;
-}
-*/
 
 int ReadRegister(char *reg_name)
 {
@@ -298,10 +195,10 @@ size_t GetCountOfWords(FILE *text)
     return num_words;
 }
 
-void PrintCMD(cmd_t *cmd, FILE *file)
+void PrintCMD(compiler_t *compiler)
 {
-    for (size_t i = 0; i < cmd->ip; i++)
-        fprintf(file, "%d ", cmd->code[i]);
+    for (size_t i = 0; i < compiler->cmd.ip; i++)
+        fprintf(compiler->code_file, "%d ", compiler->cmd.code[i]);
 }
 
 void GetCommands(const char *file_name, trans_commands_t *trans_commands)
@@ -330,12 +227,6 @@ bool IsMark(char *str)
     return (strstr(str, MARK_SYMBOL) ? true : false);
 }
 
-void MarkVerify(char *mark)
-{
-    if (strlen(mark) == 0)
-        fprintf(stderr, "ERROR: invalid mark: '%s'\n", mark);
-}
-
 mark_t *FindMarkInList(char *mark_name, marklist_t *marklist)
 {
     for (size_t i = 0; i < marklist->ip; i++)
@@ -357,8 +248,12 @@ fixup_el_t *FindMarkInFixup(char mark_name, fixup_t *fixup)
 }
 */
 
-void MakeFixUp(fixup_t *fixup, cmd_t *cmd, marklist_t *marklist)
+void MakeFixUp(compiler_t *compiler)    //fixup_t *fixup, cmd_t *cmd, marklist_t *marklist
 {
+    cmd_t      *cmd      = &compiler->cmd;
+    fixup_t    *fixup    = &compiler->fixup;
+    marklist_t *marklist = &compiler->marklist;
+
     for (size_t i = 0; i < fixup->ip; i++)
     {
         fixup_el_t cur_fixup_el = fixup->data[i]; 

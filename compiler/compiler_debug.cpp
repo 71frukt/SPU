@@ -2,8 +2,16 @@
 #include "compiler.h"
 #include "compiler_debug.h"
 
-void CompilerDump(FILE *logfile, cmd_t *cmd, marklist_t *marklist, fixup_t *fixup, const char *file, int line, const char *func)
+// void CompilerDump(FILE *logfile, cmd_t *cmd, marklist_t *marklist, fixup_t *fixup, const char *file, int line, const char *func);
+
+void CompilerDump(compiler_t *compiler, const char *file, int line, const char *func)
 {
+    ON_DEBUG(FILE *logfile =  compiler->logfile);
+    FILE       *asm_file   =  compiler->asm_file;
+    cmd_t      *cmd        = &compiler->cmd;
+    fixup_t    *fixup      = &compiler->fixup;
+    marklist_t *marklist   = &compiler->marklist;
+
     fprintf(logfile, "SPU_DUMP called from %s:%d  (%s)\n{\n", file, line, func);
 
     fprintf(logfile, "\tCMD  [%p]:\n\t{\n", cmd);

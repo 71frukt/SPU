@@ -4,13 +4,16 @@
 #define DEBUG
 
 #include <stdio.h>
+#include "stack.h"
+
+#define MARK_SYMBOL ":"
 
 const int   COMMAND_NAME_LEN = 20;
-const int   MARK_NAME_LEN   = 10;
-const int   REG_NAME_LEN    = 2;
+const int   MARK_NAME_LEN    = 10;
+const int   REG_NAME_LEN     = 2;
 
-const int   REGISTERS_NUM   = 5;
-const int   POISON          = 0xDEB41C;
+const int   REGISTERS_NUM    = 5;
+const int   POISON           = 0xDEB41C;
 
 struct command_t
 {
@@ -57,6 +60,19 @@ struct fixup_t
     fixup_el_t *data;
 };
 
+struct compiler_t
+{
+    ON_DEBUG (FILE *logfile);
+
+    FILE *asm_file;    
+    FILE *code_file;
+
+    trans_commands_t trans_commands;
+    cmd_t cmd;
+    fixup_t fixup;
+    marklist_t marklist;
+};
+
 enum FuncCodes
 {
     PUSH  =  1,
@@ -71,15 +87,14 @@ enum FuncCodes
     HLT   =  -1
 };
 
-void     GetCommands      (const char *file_name, trans_commands_t *trans_commands);
-void     WriteCommandCode (char *cur_command_name, marklist_t *marklist, FILE *asm_file, cmd_t *cmd, fixup_t *fixup); 
-size_t   GetCountOfLines  (FILE *text);
-size_t   GetCountOfWords  (FILE *text);
-int      ReadRegister     (char *reg_name);
-void     PrintCMD         (cmd_t *cmd, FILE *file);
-bool     IsMark           (char *str);
-void     MarkVerify       (char *mark);
-mark_t  *FindMarkInList   (char *mark_name, marklist_t *list);
-void     MakeFixUp        (fixup_t *fixup, cmd_t *cmd, marklist_t *marklist);
-
+void    CompilerCtor     (compiler_t *compiler);
+void    PrintCMD         (compiler_t *compiler);
+void    MakeFixUp        (compiler_t *compiler);
+void    GetCommands      (const char *file_name, trans_commands_t *trans_commands);
+void    WriteCommandCode (char *cur_command_name, compiler_t *compiler);
+size_t  GetCountOfLines  (FILE *text);
+size_t  GetCountOfWords  (FILE *text);
+int     ReadRegister     (char *reg_name);
+bool    IsMark           (char *str);
+mark_t *FindMarkInList   (char *mark_name, marklist_t *list);
 #endif
