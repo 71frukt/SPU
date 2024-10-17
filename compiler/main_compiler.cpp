@@ -10,41 +10,6 @@ int main()
 
     CompilerCtor(&compiler);
 
-    // FILE *asm_file  = fopen(asm_file_name,  "r");    
-    // FILE *code_file = fopen(code_file_name, "w");
-    // ON_DEBUG(FILE *logfile = fopen(logfile_name, "w"));
-
-    // trans_commands_t trans_commands = {};
-    // GetCommands(trans_file_name, &trans_commands);
-
-    // cmd_t cmd = {};
-    // cmd.ip = 0;
-    // cmd.size = GetCountOfWords(asm_file);
-    // cmd.code = (int *) calloc(cmd.size, sizeof(int));
-
-    // marklist_t marklist = {};
-    // marklist.size = cmd.size;
-    // marklist.ip   = 0;
-    // marklist.list = (mark_t *) calloc(marklist.size, sizeof(mark_t));
-
-    // for (size_t i = 0; i < marklist.size; i++)
-    // {
-    //     // marklist.list[i].name   = {};
-    //     marklist.list[i].address = POISON;
-    // }
-
-    // fixup_t fixup = {};
-    // fixup.ip = 0;
-    // fixup.size = cmd.size;      // максимум меток = количество команд
-    // fixup.data = (fixup_el_t *) calloc(fixup.size, sizeof(fixup_el_t));
-    
-    // for (size_t i = 0; i < fixup.size; i++)
-    // {
-    //     fixup.data[i].num_in_marklist  = POISON;        
-    //     fixup.data[i].mark_ip = POISON;
-    // }
-
-
     char cur_command_name[COMMAND_NAME_LEN] = {};
 
     while (fscanf(compiler.asm_file, "%s", cur_command_name) == 1)
@@ -90,12 +55,7 @@ int main()
 
     COMPILER_DUMP(&compiler);
 
-    // free(trans_commands.commands);
-    // free(cmd.code);
-// 
-    // ON_DEBUG(fclose(logfile));
-    // fclose(asm_file);
-    // fclose(code_file);
+    CompilerDtor(&compiler);
 
     return 0;
 }

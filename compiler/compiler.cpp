@@ -8,7 +8,9 @@
 const char *trans_file_name = "txts/translator.txt";
 const char *asm_file_name   = "txts/program.asm";
 const char *code_file_name  = "txts/program_code.txt";
-const char *logfile_name    = "txts/logs/compiler_logs.txt";
+ON_DEBUG(const char *logfile_name = "txts/logs/compiler_logs.log");
+
+static int CompilerError_val = 0;
 
 // TODO: make errno and compiler_assert
 
@@ -43,10 +45,39 @@ void CompilerCtor(compiler_t *compiler)
         compiler->fixup.data[i].num_in_marklist  = POISON;        
         compiler->fixup.data[i].mark_ip = POISON;
     }
+
+    COMPILER_ASSERT(compiler);
+}
+
+void CompilerDtor(compiler_t *compiler)
+{
+    COMPILER_ASSERT(compiler);  
+
+    ON_DEBUG(FILE *logfile =  compiler->logfile);
+    FILE       *code_file  =  compiler->code_file;
+    FILE       *asm_file   =  compiler->asm_file;
+
+    trans_commands_t *trans_commands = &compiler->trans_commands;
+    cmd_t            *cmd            = &compiler->cmd;
+    fixup_t          *fixup          = &compiler->fixup;
+    marklist_t       *marklist       = &compiler->marklist;
+
+    ON_DEBUG(fclose(logfile));
+    fclose(code_file);
+    fclose(asm_file);
+
+    free(trans_commands->commands);
+    free(cmd->code);
+    free(fixup->data);
+    free(marklist->list);
+
+    *compiler = {};
 }
 
 void WriteCommandCode(char *cur_command_name, compiler_t *compiler)    
 {
+    COMPILER_ASSERT(compiler);
+
     FILE       *asm_file =  compiler->asm_file;
     cmd_t      *cmd      = &compiler->cmd;
     fixup_t    *fixup    = &compiler->fixup;
@@ -147,6 +178,8 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
     else
         fprintf(stderr, "COMPILE ERROR: Unknown command: '%s'\n", cur_command_name);
+
+    COMPILER_ASSERT(compiler);
 }
 
 
@@ -197,6 +230,8 @@ size_t GetCountOfWords(FILE *text)
 
 void PrintCMD(compiler_t *compiler)
 {
+    COMPILER_ASSERT(compiler);
+
     for (size_t i = 0; i < compiler->cmd.ip; i++)
         fprintf(compiler->code_file, "%d ", compiler->cmd.code[i]);
 }
@@ -213,7 +248,7 @@ void GetCommands(const char *file_name, trans_commands_t *trans_commands)
 
     for (size_t i = 0; i < num_trans_lines; i++)
     {
-        fscanf(trans_file, "%s", commands_tmp[i].name);
+        fscanf(trans_file, "%s",  commands_tmp[i].name);
         fscanf(trans_file, "%d", &commands_tmp[i].key);
     }
 
@@ -238,18 +273,10 @@ mark_t *FindMarkInList(char *mark_name, marklist_t *marklist)
     return NULL;
 }
 
-/*
-fixup_el_t *FindMarkInFixup(char mark_name, fixup_t *fixup)
-{
-    for (size_t i = 0; i < fixup->ip; i++)
-    {
-        if ()
-    }
-}
-*/
-
 void MakeFixUp(compiler_t *compiler)    //fixup_t *fixup, cmd_t *cmd, marklist_t *marklist
 {
+    COMPILER_ASSERT(compiler);
+
     cmd_t      *cmd      = &compiler->cmd;
     fixup_t    *fixup    = &compiler->fixup;
     marklist_t *marklist = &compiler->marklist;
@@ -260,4 +287,6 @@ void MakeFixUp(compiler_t *compiler)    //fixup_t *fixup, cmd_t *cmd, marklist_t
         
         cmd->code[cur_fixup_el.mark_ip] = (int) marklist->list[cur_fixup_el.num_in_marklist].address;
     }
+
+    COMPILER_ASSERT(compiler);
 }
