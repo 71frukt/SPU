@@ -12,6 +12,7 @@ const char *asm_file_name   = "txts/program.asm";
 const char *code_file_name  = "txts/program_code.txt";
 const char *logfile_name    = "txts/logs/compiler_logs.txt";
 
+// TODO: make errno and compiler_assert
 
 int main()
 {
@@ -38,26 +39,72 @@ int main()
         marklist.list[i].address = POISON;
     }
 
+    fixup_t fixup = {};
+    fixup.ip = 0;
+    fixup.size = cmd.size;      // максимум меток = количество команд
+    fixup.data = (fixup_el_t *) calloc(fixup.size, sizeof(fixup_el_t));
+    
+    for (size_t i = 0; i < fixup.size; i++)
+    {
+        fixup.data[i].num_in_marklist  = POISON;        
+        fixup.data[i].mark_ip = POISON;
+    }
+
+
     char cur_command_name[COMMAND_NAME_LEN] = {};
 
     while (fscanf(asm_file, "%s", cur_command_name) == 1)
     {
         if (IsMark(cur_command_name))
         {
-            marklist.list[marklist.ip++].address = cmd.ip;
-            sscanf(cur_command_name, "%[^" MARK_SYMBOL "]", marklist.list->name);
+            char mark_name[MARK_NAME_LEN] = {};
+            sscanf(cur_command_name, "%[^" MARK_SYMBOL "]", mark_name);            
+
+            mark_t *mark = FindMarkInList(mark_name, &marklist);
+
+            if (mark == NULL)
+            {    
+                marklist.list[marklist.ip].address = cmd.ip;
+                strncat(marklist.list[marklist.ip].name, mark_name, MARK_NAME_LEN - 1);
+                // sscanf(cur_command_name, "%[^" MARK_SYMBOL "]", marklist.list[marklist.ip].name);
+                marklist.ip++;
+            }
+
+            else if (mark != NULL && mark->address == POISON)
+            {
+                mark->address = cmd.ip;
+            }
+/*
+            else if (mark != NULL && mark->address == POISON)
+            {
+                mark->address = cmd.ip;
+                
+                fixup.data[fixup.ip].mark_ip         = cmd.ip;
+                fixup.data[fixup.ip].num_in_marklist = marklist.ip;
+
+                fixup.ip++;
+            }
+*/
+
+            else if(mark->address != POISON)
+            {
+                fprintf(stderr, "ERROR: redefinition of mark '%s'\n", cur_command_name);
+                ON_DEBUG(fprintf(logfile, "ERROR: redefinition of mark '%s'\n", cur_command_name));
+            }
             
             continue;
         }
 
-        WriteCommandCode(cur_command_name, &marklist, asm_file, &cmd);
+        WriteCommandCode(cur_command_name, &marklist, asm_file, &cmd, &fixup);
 
-        COMPILER_DUMP(logfile, &cmd, &marklist);
+        COMPILER_DUMP(logfile, &cmd, &marklist, &fixup);
     }
     
+    MakeFixUp(&fixup, &cmd, &marklist);
+
     PrintCMD(&cmd, code_file);
 
-    COMPILER_DUMP(logfile, &cmd, &marklist);
+    COMPILER_DUMP(logfile, &cmd, &marklist, &fixup);
 
     free(trans_commands.commands);
     free(cmd.code);
@@ -69,7 +116,7 @@ int main()
     return 0;
 }
 
-void WriteCommandCode(char *cur_command_name, marklist_t *mark_list, FILE *asm_file, cmd_t *cmd)    
+void WriteCommandCode(char *cur_command_name, marklist_t *marklist, FILE *asm_file, cmd_t *cmd, fixup_t *fixup)    
 {
     if (strcmp(cur_command_name, "push") == 0)
     {
@@ -114,15 +161,25 @@ void WriteCommandCode(char *cur_command_name, marklist_t *mark_list, FILE *asm_f
 
         if (IsMark(arg_str))
         {
-            sscanf(arg_str, "%[^" MARK_SYMBOL "]", arg_str);    // TODO: mark verify
+            sscanf(arg_str, "%[^" MARK_SYMBOL "]", arg_str);   
 
-            mark_t *mark = FindMarkInList(arg_str, mark_list);
+            mark_t *mark = FindMarkInList(arg_str, marklist);
 
             if (mark == NULL)
             {
-                fprintf(stderr, "ZALUPA\n");
-                return;
+                mark = &marklist->list[marklist->ip++];
+                mark->address = POISON;      //создать метку с ядовитым значением чтобы потом доопределить
+                sscanf(arg_str, "%[^" MARK_SYMBOL "]", mark->name);
             }
+
+            if (mark->address == POISON)
+            {                
+                fixup->data[fixup->ip].mark_ip         = cmd->ip;
+                fixup->data[fixup->ip].num_in_marklist = marklist->ip - 1;
+
+                fixup->ip++;
+            }
+
             cmd->code[cmd->ip++] = (int) mark->address;
 
             return;
@@ -243,7 +300,7 @@ size_t GetCountOfWords(FILE *text)
 
 void PrintCMD(cmd_t *cmd, FILE *file)
 {
-    for (size_t i = 0; i < cmd->size; i++)
+    for (size_t i = 0; i < cmd->ip; i++)
         fprintf(file, "%d ", cmd->code[i]);
 }
 
@@ -288,4 +345,24 @@ mark_t *FindMarkInList(char *mark_name, marklist_t *marklist)
     }
 
     return NULL;
+}
+
+/*
+fixup_el_t *FindMarkInFixup(char mark_name, fixup_t *fixup)
+{
+    for (size_t i = 0; i < fixup->ip; i++)
+    {
+        if ()
+    }
+}
+*/
+
+void MakeFixUp(fixup_t *fixup, cmd_t *cmd, marklist_t *marklist)
+{
+    for (size_t i = 0; i < fixup->ip; i++)
+    {
+        fixup_el_t cur_fixup_el = fixup->data[i]; 
+        
+        cmd->code[cur_fixup_el.mark_ip] = (int) marklist->list[cur_fixup_el.num_in_marklist].address;
+    }
 }

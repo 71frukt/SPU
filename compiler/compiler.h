@@ -44,6 +44,19 @@ struct marklist_t
     mark_t *list;
 };
 
+struct fixup_el_t
+{
+    size_t num_in_marklist;
+    size_t mark_ip;
+};
+
+struct fixup_t
+{
+    size_t ip;
+    size_t size;
+    fixup_el_t *data;
+};
+
 enum FuncCodes
 {
     PUSH  =  1,
@@ -58,16 +71,15 @@ enum FuncCodes
     HLT   =  -1
 };
 
-void    GetCommands      (const char *file_name, trans_commands_t *trans_commands);
-void    WriteCommandCode (char *cur_command_name, marklist_t *mark_list, FILE *asm_file, cmd_t *cmd);
-size_t  GetCountOfLines  (FILE *text);
-size_t  GetCountOfWords  (FILE *text);
-int     ReadRegister     (char *reg_name);
-void    PrintCMD         (cmd_t *cmd, FILE *file);
-bool    IsMark           (char *str);
-void    MarkVerify       (char *mark);
-mark_t *FindMarkInList   (char *mark_name, marklist_t *list);
-
-
+void     GetCommands      (const char *file_name, trans_commands_t *trans_commands);
+void     WriteCommandCode (char *cur_command_name, marklist_t *marklist, FILE *asm_file, cmd_t *cmd, fixup_t *fixup); 
+size_t   GetCountOfLines  (FILE *text);
+size_t   GetCountOfWords  (FILE *text);
+int      ReadRegister     (char *reg_name);
+void     PrintCMD         (cmd_t *cmd, FILE *file);
+bool     IsMark           (char *str);
+void     MarkVerify       (char *mark);
+mark_t  *FindMarkInList   (char *mark_name, marklist_t *list);
+void     MakeFixUp        (fixup_t *fixup, cmd_t *cmd, marklist_t *marklist);
 
 #endif
