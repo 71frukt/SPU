@@ -5,6 +5,8 @@
 #include "spu.h"
 #include "spu_debug.h"
 
+extern int SpuErr_val;
+
 int main()
 {
     spu_t spu = {};
@@ -26,10 +28,10 @@ int main()
         {
         case PUSH:
         {
-            SPU_DUMP(&spu);
+            SPU_ASSERT(&spu);
 
             StackElem_t arg = cmd->code[++cmd->ip];
-            
+
             StackPush(stk, arg);
             cmd->ip++;
             
@@ -38,7 +40,7 @@ int main()
 
         case ADD:
         {
-            SPU_DUMP(&spu);
+            SPU_ASSERT(&spu);
 
             StackElem_t a = 0;
             StackElem_t b = 0; 
@@ -54,7 +56,7 @@ int main()
 
         case MUL:
         {
-            SPU_DUMP(&spu);
+            SPU_ASSERT(&spu);
 
             StackElem_t a = 0;
             StackElem_t b = 0;
@@ -70,7 +72,7 @@ int main()
 
         case DIV:
         {
-            SPU_DUMP(&spu);
+            SPU_ASSERT(&spu);
 
             StackElem_t divisible = 0;
             StackElem_t splitter  = 0;
@@ -86,7 +88,7 @@ int main()
 
         case OUT:
         {
-            SPU_DUMP(&spu);
+            SPU_ASSERT(&spu);
 
             StackElem_t res = 0;
             StackPop(stk, &res);
@@ -98,7 +100,7 @@ int main()
 
         case PUSHR:
         {
-            SPU_DUMP(&spu);
+            SPU_ASSERT(&spu);
 
             StackElem_t arg = cmd->code[++cmd->ip];
 
@@ -110,7 +112,7 @@ int main()
 
         case POPR:
         {
-            SPU_DUMP(&spu);
+            SPU_ASSERT(&spu);
 
             StackElem_t arg = cmd->code[++cmd->ip];
 
@@ -122,7 +124,7 @@ int main()
 
         case JUMP:
         {
-            SPU_DUMP(&spu);
+            SPU_ASSERT(&spu);
 
             StackElem_t arg = cmd->code[++cmd->ip];
             cmd->ip = arg;
@@ -132,7 +134,7 @@ int main()
 
         case HLT:
         {
-            SPU_DUMP(&spu);
+            SPU_ASSERT(&spu);
             
             cmd->ip++;
 
@@ -145,13 +147,13 @@ int main()
         {
             fprintf(code_file, "Syntax error: '%llu'\n", cmd->code[cmd->ip]);
             
-            SPU_DUMP(&spu);
+            SPU_ASSERT(&spu);
             break;
         }
         }
     }
     
-    SPU_DUMP(&spu);
+    SPU_ASSERT(&spu);
 
     SpuDtor(&spu);
 

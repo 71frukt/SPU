@@ -1,9 +1,12 @@
 #include <stdio.h>
 
 #include "spu.h"
+#include "spu_debug.h"
 
 const char  *code_file_name = "txts/program_code.txt";
 const char  *logs_file_name = "txts/logs/spu_logs.log";
+
+int SpuErr_val = 0;
 
 void SpuCtor(spu_t *spu)
 {
@@ -14,7 +17,7 @@ void SpuCtor(spu_t *spu)
 
     for (size_t i = 0; i < REGISTERS_NUM; i++)
     {
-        registers[i] = (int) REGISTER_POISON;
+        registers[i] = REGISTER_POISON;
     }
 
     *code_file = fopen(code_file_name, "r");
@@ -27,6 +30,8 @@ void SpuCtor(spu_t *spu)
         if (fscanf(*code_file, "%d", cmd->code + cmd->size) != 1)
             break;
     }
+    
+    SPU_ASSERT(spu);
 }
 
 void SpuDtor(spu_t *spu)
@@ -40,7 +45,7 @@ void SpuDtor(spu_t *spu)
         registers[i] = (int) REGISTER_POISON;
 
     for (size_t i = 0; i < cmd->size; i++)
-        cmd->code[i] = (int) CMD_POISON;
+        cmd->code[i] = CMD_POISON;
 
     *cmd = {};
 

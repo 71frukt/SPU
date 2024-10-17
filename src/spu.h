@@ -8,8 +8,8 @@
 const size_t MAX_CMD_SIZE   = 500;
 const size_t REGISTERS_NUM  = 5;
 
-const size_t REGISTER_POISON = 0xEBA1F04C0;
-const size_t CMD_POISON      = 0xFAFAFAFAF;
+const size_t REGISTER_POISON = 0xEBA1;
+const size_t CMD_POISON      = 0xFAFA;
 
 enum FuncCodes
 {
