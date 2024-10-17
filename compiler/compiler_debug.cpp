@@ -4,6 +4,77 @@
 
 // void CompilerDump(FILE *logfile, cmd_t *cmd, marklist_t *marklist, fixup_t *fixup, const char *file, int line, const char *func);
 
+void CompilerAssert(compiler_t *compiler, int *cmp_err, const char *file, int line, const char *func)
+{
+    *cmp_err = CompilerVerify(compiler);
+
+    if (*cmp_err != 0)
+    {
+        fprintf(stderr, "myassertion failed in\t%s:%d\nErrors:\t", file, line);
+        PrintCompilerErr(*cmp_err);
+    }
+}
+
+void PrintCompilerErr(int error)
+{   
+    #define PRINT_ERROR(err, code)                      \
+    if (err & code)                                     \
+    {                                                   \
+        fprintf(stderr, #code);                         \
+        fprintf(stderr, " ");                           \
+    }                                                   
+    
+    PRINT_ERROR (error, CMP_PTR_ERR);
+    PRINT_ERROR (error, ASM_FILE_ERR);
+    PRINT_ERROR (error, CODE_FILE_ERR);
+    PRINT_ERROR (error, TRANS_ERR);
+    PRINT_ERROR (error, CMD_ERR);
+    PRINT_ERROR (error, FIXUP_ERR);
+    PRINT_ERROR (error, MARKLIST_ERR);
+
+    #undef PRINT_ERROR  
+
+    printf("\n");
+}
+
+int CompilerVerify(compiler_t *compiler)
+{
+    FILE             *asm_file      =  compiler->asm_file;
+    FILE             *code_file     =  compiler->code_file;
+    cmd_t            *cmd           = &compiler->cmd;
+    fixup_t          *fixup         = &compiler->fixup;
+    marklist_t       *marklist      = &compiler->marklist;
+    trans_commands_t *trans_commands = &compiler->trans_commands;
+
+    int res_err = 0;
+
+    if (compiler == NULL)
+    {
+        res_err |= CMP_PTR_ERR;
+        return res_err;
+    }
+
+    if (asm_file == NULL)
+        res_err |= ASM_FILE_ERR;
+    
+    if (code_file == NULL)
+        res_err |= CODE_FILE_ERR;
+
+    if (cmd == NULL || cmd->code == NULL || cmd->ip > cmd->size)
+        res_err |= CMD_ERR;
+
+    if (fixup == NULL || fixup->data == NULL || fixup->ip > fixup->size)
+        res_err |= FIXUP_ERR;
+
+    if (marklist == NULL || marklist->list == NULL || marklist->ip > marklist->size)
+        res_err |= MARKLIST_ERR;
+
+    if (trans_commands == NULL || trans_commands->commands == NULL)
+        res_err |= TRANS_ERR;
+
+    return res_err;
+}
+
 void CompilerDump(compiler_t *compiler, const char *file, int line, const char *func)
 {
     ON_DEBUG(FILE *logfile =  compiler->logfile);

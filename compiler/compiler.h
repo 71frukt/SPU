@@ -88,6 +88,7 @@ enum FuncCodes
 };
 
 void    CompilerCtor     (compiler_t *compiler);
+void    CompilerDtor     (compiler_t *compiler);
 void    PrintCMD         (compiler_t *compiler);
 void    MakeFixUp        (compiler_t *compiler);
 void    GetCommands      (const char *file_name, trans_commands_t *trans_commands);
