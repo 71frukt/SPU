@@ -16,34 +16,43 @@ static int CompilerError_val = 0;
 
 void CompilerCtor(compiler_t *compiler)
 {
-    compiler->asm_file  = fopen(asm_file_name,  "r");
-    compiler->code_file = fopen(code_file_name, "w");
-    ON_DEBUG(compiler->logfile = fopen(logfile_name, "w"));
+    ON_DEBUG(FILE **logfile =  &compiler->logfile);
+    FILE       **code_file  =  &compiler->code_file;
+    FILE       **asm_file   =  &compiler->asm_file;
+
+    trans_commands_t *trans_commands = &compiler->trans_commands;
+    cmd_t            *cmd            = &compiler->cmd;
+    fixup_t          *fixup          = &compiler->fixup;
+    marklist_t       *marklist       = &compiler->marklist;
+
+    *asm_file  = fopen(asm_file_name,  "r");
+    *code_file = fopen(code_file_name, "w");
+    ON_DEBUG(*logfile = fopen(logfile_name, "w"));
 
     GetCommands(trans_file_name, &compiler->trans_commands);
 
-    compiler->cmd.ip = 0;
-    compiler->cmd.size = GetCountOfWords(compiler->asm_file);
-    compiler->cmd.code = (int *)  calloc(compiler->cmd.size, sizeof(int));
+    cmd->ip = 0;
+    cmd->size = GetCountOfWords(*asm_file);
+    cmd->code = (int *)  calloc(cmd->size, sizeof(int));
 
-    compiler->marklist.size = compiler->cmd.size;
-    compiler->marklist.ip   = 0;
-    compiler->marklist.list = (mark_t *) calloc(compiler->marklist.size, sizeof(mark_t));
+    marklist->size = cmd->size;
+    marklist->ip   = 0;
+    marklist->list = (mark_t *) calloc(marklist->size, sizeof(mark_t));
 
-    for (size_t i = 0; i < compiler->marklist.size; i++)
+    for (size_t i = 0; i < marklist->size; i++)
     {
         // marklist.list[i].name   = {};
-        compiler->marklist.list[i].address = POISON;
+        marklist->list[i].address = POISON;
     }
 
-    compiler->fixup.ip = 0;
-    compiler->fixup.size = compiler->cmd.size;      // максимум меток = количество команд
-    compiler->fixup.data = (fixup_el_t *) calloc(compiler->fixup.size, sizeof(fixup_el_t));
+    fixup->ip = 0;
+    fixup->size = cmd->size;      // максимум меток = количество команд
+    fixup->data = (fixup_el_t *) calloc(fixup->size, sizeof(fixup_el_t));
     
-    for (size_t i = 0; i < compiler->fixup.size; i++)
+    for (size_t i = 0; i < fixup->size; i++)
     {
-        compiler->fixup.data[i].num_in_marklist  = POISON;        
-        compiler->fixup.data[i].mark_ip = POISON;
+        fixup->data[i].num_in_marklist  = POISON;        
+        fixup->data[i].mark_ip = POISON;
     }
 
     COMPILER_ASSERT(compiler);

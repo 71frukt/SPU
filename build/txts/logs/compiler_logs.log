@@ -1,0 +1,363 @@
+SPU_DUMP called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000f96cbffcb8]:
+	{
+		ip   = 2
+		size = 12
+
+		code  [00000291c17015e0]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	0
+			[3] 	=	0
+			[4] 	=	0
+			[5] 	=	0
+			[6] 	=	0
+			[7] 	=	0
+			[8] 	=	0
+			[9] 	=	0
+			[10] 	=	0
+			[11] 	=	0
+		}
+	}
+
+	Mark list  [000000f96cbffce8]:
+	{
+		ip   = 0
+		size = 12
+
+		list  [00000291c1701620]
+		{
+		}
+	}
+	Fixup  [000000f96cbffcd0]:
+	{
+		ip   = 0
+		size = 12
+
+		data  [00000291c1701750]
+		{
+
+		}
+	}
+}
+
+SPU_DUMP called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000f96cbffcb8]:
+	{
+		ip   = 4
+		size = 12
+
+		code  [00000291c17015e0]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	0
+			[5] 	=	0
+			[6] 	=	0
+			[7] 	=	0
+			[8] 	=	0
+			[9] 	=	0
+			[10] 	=	0
+			[11] 	=	0
+		}
+	}
+
+	Mark list  [000000f96cbffce8]:
+	{
+		ip   = 0
+		size = 12
+
+		list  [00000291c1701620]
+		{
+		}
+	}
+	Fixup  [000000f96cbffcd0]:
+	{
+		ip   = 0
+		size = 12
+
+		data  [00000291c1701750]
+		{
+
+		}
+	}
+}
+
+SPU_DUMP called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000f96cbffcb8]:
+	{
+		ip   = 6
+		size = 12
+
+		code  [00000291c17015e0]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	0
+			[7] 	=	0
+			[8] 	=	0
+			[9] 	=	0
+			[10] 	=	0
+			[11] 	=	0
+		}
+	}
+
+	Mark list  [000000f96cbffce8]:
+	{
+		ip   = 0
+		size = 12
+
+		list  [00000291c1701620]
+		{
+		}
+	}
+	Fixup  [000000f96cbffcd0]:
+	{
+		ip   = 0
+		size = 12
+
+		data  [00000291c1701750]
+		{
+
+		}
+	}
+}
+
+SPU_DUMP called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000f96cbffcb8]:
+	{
+		ip   = 8
+		size = 12
+
+		code  [00000291c17015e0]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	0
+			[9] 	=	0
+			[10] 	=	0
+			[11] 	=	0
+		}
+	}
+
+	Mark list  [000000f96cbffce8]:
+	{
+		ip   = 0
+		size = 12
+
+		list  [00000291c1701620]
+		{
+		}
+	}
+	Fixup  [000000f96cbffcd0]:
+	{
+		ip   = 0
+		size = 12
+
+		data  [00000291c1701750]
+		{
+
+		}
+	}
+}
+
+SPU_DUMP called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000f96cbffcb8]:
+	{
+		ip   = 9
+		size = 12
+
+		code  [00000291c17015e0]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	0
+			[11] 	=	0
+		}
+	}
+
+	Mark list  [000000f96cbffce8]:
+	{
+		ip   = 0
+		size = 12
+
+		list  [00000291c1701620]
+		{
+		}
+	}
+	Fixup  [000000f96cbffcd0]:
+	{
+		ip   = 0
+		size = 12
+
+		data  [00000291c1701750]
+		{
+
+		}
+	}
+}
+
+SPU_DUMP called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000f96cbffcb8]:
+	{
+		ip   = 10
+		size = 12
+
+		code  [00000291c17015e0]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	0
+			[11] 	=	0
+		}
+	}
+
+	Mark list  [000000f96cbffce8]:
+	{
+		ip   = 1
+		size = 12
+
+		list  [00000291c1701620]
+		{
+			[0] : 'NEXT'	=	9
+		}
+	}
+	Fixup  [000000f96cbffcd0]:
+	{
+		ip   = 0
+		size = 12
+
+		data  [00000291c1701750]
+		{
+
+		}
+	}
+}
+
+SPU_DUMP called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000f96cbffcb8]:
+	{
+		ip   = 11
+		size = 12
+
+		code  [00000291c17015e0]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	-1
+			[11] 	=	0
+		}
+	}
+
+	Mark list  [000000f96cbffce8]:
+	{
+		ip   = 1
+		size = 12
+
+		list  [00000291c1701620]
+		{
+			[0] : 'NEXT'	=	9
+		}
+	}
+	Fixup  [000000f96cbffcd0]:
+	{
+		ip   = 0
+		size = 12
+
+		data  [00000291c1701750]
+		{
+
+		}
+	}
+}
+
+SPU_DUMP called from main_compiler.cpp:56  (main)
+{
+	CMD  [000000f96cbffcb8]:
+	{
+		ip   = 11
+		size = 12
+
+		code  [00000291c17015e0]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	-1
+			[11] 	=	0
+		}
+	}
+
+	Mark list  [000000f96cbffce8]:
+	{
+		ip   = 1
+		size = 12
+
+		list  [00000291c1701620]
+		{
+			[0] : 'NEXT'	=	9
+		}
+	}
+	Fixup  [000000f96cbffcd0]:
+	{
+		ip   = 0
+		size = 12
+
+		data  [00000291c1701750]
+		{
+
+		}
+	}
+}
+

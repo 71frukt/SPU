@@ -2,8 +2,6 @@
 #include "compiler.h"
 #include "compiler_debug.h"
 
-// void CompilerDump(FILE *logfile, cmd_t *cmd, marklist_t *marklist, fixup_t *fixup, const char *file, int line, const char *func);
-
 void CompilerAssert(compiler_t *compiler, int *cmp_err, const char *file, int line, const char *func)
 {
     *cmp_err = CompilerVerify(compiler);
@@ -39,11 +37,11 @@ void PrintCompilerErr(int error)
 
 int CompilerVerify(compiler_t *compiler)
 {
-    FILE             *asm_file      =  compiler->asm_file;
-    FILE             *code_file     =  compiler->code_file;
-    cmd_t            *cmd           = &compiler->cmd;
-    fixup_t          *fixup         = &compiler->fixup;
-    marklist_t       *marklist      = &compiler->marklist;
+    FILE             *asm_file       =  compiler->asm_file;
+    FILE             *code_file      =  compiler->code_file;
+    cmd_t            *cmd            = &compiler->cmd;
+    fixup_t          *fixup          = &compiler->fixup;
+    marklist_t       *marklist       = &compiler->marklist;
     trans_commands_t *trans_commands = &compiler->trans_commands;
 
     int res_err = 0;

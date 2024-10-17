@@ -1,0 +1,288 @@
+SPU_DUMP called from spu.cpp:34  (SpuCtor)
+{
+	Registers  [0000005f1cdfeea0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [0000005f1cdfeeb8]:
+	{
+		pi   = 0
+		size = 11
+
+		code  [0000005f1cdfeec8]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	-1
+		}
+	}
+}
+SPU_DUMP called from main.cpp:31  (main)
+{
+	Registers  [0000005f1cdfeea0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [0000005f1cdfeeb8]:
+	{
+		pi   = 0
+		size = 11
+
+		code  [0000005f1cdfeec8]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	-1
+		}
+	}
+}
+SPU_DUMP called from main.cpp:31  (main)
+{
+	Registers  [0000005f1cdfeea0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [0000005f1cdfeeb8]:
+	{
+		pi   = 2
+		size = 11
+
+		code  [0000005f1cdfeec8]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	-1
+		}
+	}
+}
+SPU_DUMP called from main.cpp:31  (main)
+{
+	Registers  [0000005f1cdfeea0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [0000005f1cdfeeb8]:
+	{
+		pi   = 4
+		size = 11
+
+		code  [0000005f1cdfeec8]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	-1
+		}
+	}
+}
+SPU_DUMP called from main.cpp:115  (main)
+{
+	Registers  [0000005f1cdfeea0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [0000005f1cdfeeb8]:
+	{
+		pi   = 6
+		size = 11
+
+		code  [0000005f1cdfeec8]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	-1
+		}
+	}
+}
+SPU_DUMP called from main.cpp:59  (main)
+{
+	Registers  [0000005f1cdfeea0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = 50
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [0000005f1cdfeeb8]:
+	{
+		pi   = 8
+		size = 11
+
+		code  [0000005f1cdfeec8]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	-1
+		}
+	}
+}
+SPU_DUMP called from main.cpp:91  (main)
+{
+	Registers  [0000005f1cdfeea0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = 50
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [0000005f1cdfeeb8]:
+	{
+		pi   = 9
+		size = 11
+
+		code  [0000005f1cdfeec8]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	-1
+		}
+	}
+}
+SPU_DUMP called from main.cpp:137  (main)
+{
+	Registers  [0000005f1cdfeea0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = 50
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [0000005f1cdfeeb8]:
+	{
+		pi   = 10
+		size = 11
+
+		code  [0000005f1cdfeec8]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	-1
+		}
+	}
+}
+SPU_DUMP called from main.cpp:156  (main)
+{
+	Registers  [0000005f1cdfeea0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = 50
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [0000005f1cdfeeb8]:
+	{
+		pi   = 11
+		size = 11
+
+		code  [0000005f1cdfeec8]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	1
+			[5] 	=	50
+			[6] 	=	7
+			[7] 	=	1
+			[8] 	=	4
+			[9] 	=	0
+			[10] 	=	-1
+		}
+	}
+}
