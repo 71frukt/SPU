@@ -1,6 +1,6 @@
-SPU_DUMP called from spu.cpp:34  (SpuCtor)
+SPU_DUMP called from spu.cpp:40  (SpuCtor)
 {
-	Registers  [0000005f1cdfeea0]:
+	Registers  [000000668adff1e0]:
 	{
 		[0] = -REGISTOR_POISON-
 		[1] = -REGISTOR_POISON-
@@ -9,30 +9,42 @@ SPU_DUMP called from spu.cpp:34  (SpuCtor)
 		[4] = -REGISTOR_POISON-
 	}
 
-	CMD  [0000005f1cdfeeb8]:
+	CMD  [000000668adff1f8]:
 	{
-		pi   = 0
-		size = 11
+		ip   = 0
+		size = 21
 
-		code  [0000005f1cdfeec8]
+		code  [000000668adff208]
 		{
 			[0] 	=	1
 			[1] 	=	30
 			[2] 	=	1
 			[3] 	=	40
-			[4] 	=	1
-			[5] 	=	50
-			[6] 	=	7
-			[7] 	=	1
-			[8] 	=	4
-			[9] 	=	0
-			[10] 	=	-1
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
 		}
 	}
 }
-SPU_DUMP called from main.cpp:31  (main)
+
+
+SPU_DUMP called from main.cpp:32  (main)
 {
-	Registers  [0000005f1cdfeea0]:
+	Registers  [000000668adff1e0]:
 	{
 		[0] = -REGISTOR_POISON-
 		[1] = -REGISTOR_POISON-
@@ -41,30 +53,42 @@ SPU_DUMP called from main.cpp:31  (main)
 		[4] = -REGISTOR_POISON-
 	}
 
-	CMD  [0000005f1cdfeeb8]:
+	CMD  [000000668adff1f8]:
 	{
-		pi   = 0
-		size = 11
+		ip   = 0
+		size = 21
 
-		code  [0000005f1cdfeec8]
+		code  [000000668adff208]
 		{
 			[0] 	=	1
 			[1] 	=	30
 			[2] 	=	1
 			[3] 	=	40
-			[4] 	=	1
-			[5] 	=	50
-			[6] 	=	7
-			[7] 	=	1
-			[8] 	=	4
-			[9] 	=	0
-			[10] 	=	-1
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
 		}
 	}
 }
-SPU_DUMP called from main.cpp:31  (main)
+
+
+SPU_DUMP called from main.cpp:32  (main)
 {
-	Registers  [0000005f1cdfeea0]:
+	Registers  [000000668adff1e0]:
 	{
 		[0] = -REGISTOR_POISON-
 		[1] = -REGISTOR_POISON-
@@ -73,30 +97,42 @@ SPU_DUMP called from main.cpp:31  (main)
 		[4] = -REGISTOR_POISON-
 	}
 
-	CMD  [0000005f1cdfeeb8]:
+	CMD  [000000668adff1f8]:
 	{
-		pi   = 2
-		size = 11
+		ip   = 2
+		size = 21
 
-		code  [0000005f1cdfeec8]
+		code  [000000668adff208]
 		{
 			[0] 	=	1
 			[1] 	=	30
 			[2] 	=	1
 			[3] 	=	40
-			[4] 	=	1
-			[5] 	=	50
-			[6] 	=	7
-			[7] 	=	1
-			[8] 	=	4
-			[9] 	=	0
-			[10] 	=	-1
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
 		}
 	}
 }
-SPU_DUMP called from main.cpp:31  (main)
+
+
+SPU_DUMP called from main.cpp:128  (main)
 {
-	Registers  [0000005f1cdfeea0]:
+	Registers  [000000668adff1e0]:
 	{
 		[0] = -REGISTOR_POISON-
 		[1] = -REGISTOR_POISON-
@@ -105,30 +141,42 @@ SPU_DUMP called from main.cpp:31  (main)
 		[4] = -REGISTOR_POISON-
 	}
 
-	CMD  [0000005f1cdfeeb8]:
+	CMD  [000000668adff1f8]:
 	{
-		pi   = 4
-		size = 11
+		ip   = 4
+		size = 21
 
-		code  [0000005f1cdfeec8]
+		code  [000000668adff208]
 		{
 			[0] 	=	1
 			[1] 	=	30
 			[2] 	=	1
 			[3] 	=	40
-			[4] 	=	1
-			[5] 	=	50
-			[6] 	=	7
-			[7] 	=	1
-			[8] 	=	4
-			[9] 	=	0
-			[10] 	=	-1
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
 		}
 	}
 }
-SPU_DUMP called from main.cpp:115  (main)
+
+
+SPU_DUMP called from main.cpp:155  (main)
 {
-	Registers  [0000005f1cdfeea0]:
+	Registers  [000000668adff1e0]:
 	{
 		[0] = -REGISTOR_POISON-
 		[1] = -REGISTOR_POISON-
@@ -137,152 +185,740 @@ SPU_DUMP called from main.cpp:115  (main)
 		[4] = -REGISTOR_POISON-
 	}
 
-	CMD  [0000005f1cdfeeb8]:
+	CMD  [000000668adff1f8]:
 	{
-		pi   = 6
-		size = 11
+		ip   = 4
+		size = 21
 
-		code  [0000005f1cdfeec8]
+		code  [000000668adff208]
 		{
 			[0] 	=	1
 			[1] 	=	30
 			[2] 	=	1
 			[3] 	=	40
-			[4] 	=	1
-			[5] 	=	50
-			[6] 	=	7
-			[7] 	=	1
-			[8] 	=	4
-			[9] 	=	0
-			[10] 	=	-1
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
 		}
 	}
 }
-SPU_DUMP called from main.cpp:59  (main)
+
+
+SPU_DUMP called from main.cpp:158  (main)
 {
-	Registers  [0000005f1cdfeea0]:
+	Registers  [000000668adff1e0]:
 	{
 		[0] = -REGISTOR_POISON-
-		[1] = 50
+		[1] = -REGISTOR_POISON-
 		[2] = -REGISTOR_POISON-
 		[3] = -REGISTOR_POISON-
 		[4] = -REGISTOR_POISON-
 	}
 
-	CMD  [0000005f1cdfeeb8]:
+	CMD  [000000668adff1f8]:
 	{
-		pi   = 8
-		size = 11
+		ip   = 8
+		size = 21
 
-		code  [0000005f1cdfeec8]
+		code  [000000668adff208]
 		{
 			[0] 	=	1
 			[1] 	=	30
 			[2] 	=	1
 			[3] 	=	40
-			[4] 	=	1
-			[5] 	=	50
-			[6] 	=	7
-			[7] 	=	1
-			[8] 	=	4
-			[9] 	=	0
-			[10] 	=	-1
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
 		}
 	}
 }
-SPU_DUMP called from main.cpp:91  (main)
+
+
+SPU_DUMP called from main.cpp:44  (main)
 {
-	Registers  [0000005f1cdfeea0]:
+	Registers  [000000668adff1e0]:
 	{
 		[0] = -REGISTOR_POISON-
-		[1] = 50
+		[1] = -REGISTOR_POISON-
 		[2] = -REGISTOR_POISON-
 		[3] = -REGISTOR_POISON-
 		[4] = -REGISTOR_POISON-
 	}
 
-	CMD  [0000005f1cdfeeb8]:
+	CMD  [000000668adff1f8]:
 	{
-		pi   = 9
-		size = 11
+		ip   = 8
+		size = 21
 
-		code  [0000005f1cdfeec8]
+		code  [000000668adff208]
 		{
 			[0] 	=	1
 			[1] 	=	30
 			[2] 	=	1
 			[3] 	=	40
-			[4] 	=	1
-			[5] 	=	50
-			[6] 	=	7
-			[7] 	=	1
-			[8] 	=	4
-			[9] 	=	0
-			[10] 	=	-1
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
 		}
 	}
 }
-SPU_DUMP called from main.cpp:137  (main)
+
+
+SPU_DUMP called from main.cpp:32  (main)
 {
-	Registers  [0000005f1cdfeea0]:
+	Registers  [000000668adff1e0]:
 	{
 		[0] = -REGISTOR_POISON-
-		[1] = 50
+		[1] = -REGISTOR_POISON-
 		[2] = -REGISTOR_POISON-
 		[3] = -REGISTOR_POISON-
 		[4] = -REGISTOR_POISON-
 	}
 
-	CMD  [0000005f1cdfeeb8]:
+	CMD  [000000668adff1f8]:
 	{
-		pi   = 10
-		size = 11
+		ip   = 9
+		size = 21
 
-		code  [0000005f1cdfeec8]
+		code  [000000668adff208]
 		{
 			[0] 	=	1
 			[1] 	=	30
 			[2] 	=	1
 			[3] 	=	40
-			[4] 	=	1
-			[5] 	=	50
-			[6] 	=	7
-			[7] 	=	1
-			[8] 	=	4
-			[9] 	=	0
-			[10] 	=	-1
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
 		}
 	}
 }
-SPU_DUMP called from main.cpp:156  (main)
+
+
+SPU_DUMP called from main.cpp:32  (main)
 {
-	Registers  [0000005f1cdfeea0]:
+	Registers  [000000668adff1e0]:
 	{
 		[0] = -REGISTOR_POISON-
-		[1] = 50
+		[1] = -REGISTOR_POISON-
 		[2] = -REGISTOR_POISON-
 		[3] = -REGISTOR_POISON-
 		[4] = -REGISTOR_POISON-
 	}
 
-	CMD  [0000005f1cdfeeb8]:
+	CMD  [000000668adff1f8]:
 	{
-		pi   = 11
-		size = 11
+		ip   = 11
+		size = 21
 
-		code  [0000005f1cdfeec8]
+		code  [000000668adff208]
 		{
 			[0] 	=	1
 			[1] 	=	30
 			[2] 	=	1
 			[3] 	=	40
-			[4] 	=	1
-			[5] 	=	50
-			[6] 	=	7
-			[7] 	=	1
-			[8] 	=	4
-			[9] 	=	0
-			[10] 	=	-1
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
 		}
 	}
 }
+
+
+SPU_DUMP called from main.cpp:128  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 15
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+
+SPU_DUMP called from main.cpp:155  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 15
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+
+SPU_DUMP called from main.cpp:158  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 18
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+
+SPU_DUMP called from main.cpp:60  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 18
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+
+SPU_DUMP called from main.cpp:60  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 19
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+
+SPU_DUMP called from main.cpp:140  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 20
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+
+SPU_DUMP called from main.cpp:147  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 17
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+
+SPU_DUMP called from main.cpp:140  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 17
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+
+SPU_DUMP called from main.cpp:147  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 6
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+
+SPU_DUMP called from main.cpp:92  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 6
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+
+SPU_DUMP called from main.cpp:230  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 7
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+
+SPU_DUMP called from main.cpp:248  (main)
+{
+	Registers  [000000668adff1e0]:
+	{
+		[0] = -REGISTOR_POISON-
+		[1] = -REGISTOR_POISON-
+		[2] = -REGISTOR_POISON-
+		[3] = -REGISTOR_POISON-
+		[4] = -REGISTOR_POISON-
+	}
+
+	CMD  [000000668adff1f8]:
+	{
+		ip   = 8
+		size = 21
+
+		code  [000000668adff208]
+		{
+			[0] 	=	1
+			[1] 	=	30
+			[2] 	=	1
+			[3] 	=	40
+			[4] 	=	9
+			[5] 	=	8
+			[6] 	=	0
+			[7] 	=	-1
+			[8] 	=	2
+			[9] 	=	1
+			[10] 	=	70
+			[11] 	=	1
+			[12] 	=	80
+			[13] 	=	15
+			[14] 	=	18
+			[15] 	=	9
+			[16] 	=	18
+			[17] 	=	10
+			[18] 	=	4
+			[19] 	=	4
+			[20] 	=	10
+		}
+	}
+}
+
+

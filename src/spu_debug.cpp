@@ -88,7 +88,7 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 
     fprintf(logfile, "\tCMD  [%p]:\n\t{\n", cmd);
 
-    fprintf(logfile, "\t\tpi   = %llu\n", cmd->ip);
+    fprintf(logfile, "\t\tip   = %llu\n", cmd->ip);
     fprintf(logfile, "\t\tsize = %llu\n\n", cmd->size);
 
     fprintf(logfile, "\t\tcode  [%p]\n\t\t{\n", cmd->code);
@@ -99,5 +99,5 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 
     fprintf(logfile, "\t}\n");
 
-    fprintf(logfile, "}\n");
+    fprintf(logfile, "}\n\n\n");
 }

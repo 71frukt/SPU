@@ -30,12 +30,12 @@ int main()
                 compiler.marklist.ip++;
             }
 
-            else if (mark != NULL && mark->address == POISON)
+            else if (mark != NULL && mark->address == MARK_POISON)
             {
                 mark->address = compiler.cmd.ip;
             }
 
-            else if(mark->address != POISON)
+            else if(mark->address != MARK_POISON)
             {
                 fprintf(stderr, "ERROR: redefinition of mark '%s'\n", cur_command_name);
                 ON_DEBUG(fprintf(compiler.logfile, "ERROR: redefinition of mark '%s'\n", cur_command_name));

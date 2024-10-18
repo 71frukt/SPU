@@ -129,13 +129,32 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     }
 
 
-    else if (strcmp(cur_command_name, "jump") == 0 || strcmp(cur_command_name, "call") == 0)
+    else if (strstr( "jump call JA JEA JB JEB JE JNE", cur_command_name) != NULL)
     {
         if(strcmp(cur_command_name, "call") == 0)
             cmd->code[cmd->ip++] = CALL;
 
-        else
+        else if (strcmp(cur_command_name, "JUMP") == 0)
             cmd->code[cmd->ip++] = JUMP;
+
+        else if (strcmp(cur_command_name, "JA") == 0)
+            cmd->code[cmd->ip++] = JA;
+
+        else if (strcmp(cur_command_name, "JAE") == 0)
+            cmd->code[cmd->ip++] = JAE;
+
+        else if (strcmp(cur_command_name, "JB") == 0)
+            cmd->code[cmd->ip++] = JB;
+        
+        else if (strcmp(cur_command_name, "JBE") == 0)
+            cmd->code[cmd->ip++] = JBE;
+
+        else if (strcmp(cur_command_name, "JE") == 0)
+            cmd->code[cmd->ip++] = JE;
+
+        else if (strcmp(cur_command_name, "JNE") == 0)
+            cmd->code[cmd->ip++] = JNE;
+
 
         char arg_str[MARK_NAME_LEN] = {};
 

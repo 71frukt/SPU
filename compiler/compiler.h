@@ -87,6 +87,12 @@ enum FuncCodes
     JUMP  =  8,
     CALL  =  9,
     RET   =  10,
+    JA    =  11,
+    JAE   =  12,
+    JB    =  13,
+    JBE   =  14,
+    JE    =  15,
+    JNE   =  16,
     OUT   =  0,
     HLT   =  -1
 };

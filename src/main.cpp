@@ -12,13 +12,14 @@ int main()
     spu_t spu = {};
 
     SpuCtor(&spu);
-    cmd_t *cmd       = &spu.cmd;
-    int   *registers =  spu.registers;
+    
+    cmd_t   *cmd       = &spu.cmd;
+    int     *registers = spu.registers;
+    StackID  data_stk  = spu.data_stk;
+    StackID  func_stk  = spu.func_stk;
+
     FILE  *code_file =  spu.code_file;
     ON_DEBUG(FILE *logfile = spu.logfile);
-
-    StackID stk = {};
-    STACK_CTOR(&stk, 0);
 
     bool keep_doing = true;
 
@@ -32,7 +33,7 @@ int main()
 
             StackElem_t arg = cmd->code[++cmd->ip];
 
-            StackPush(stk, arg);
+            StackPush(data_stk, arg);
             cmd->ip++;
             
             break;
@@ -45,10 +46,10 @@ int main()
             StackElem_t a = 0;
             StackElem_t b = 0; 
             
-            StackPop(stk, &a);
-            StackPop(stk, &b);
+            StackPop(data_stk, &a);
+            StackPop(data_stk, &b);
 
-            StackPush(stk, a + b); 
+            StackPush(data_stk, a + b); 
             cmd->ip++;
             
             break;
@@ -61,10 +62,10 @@ int main()
             StackElem_t a = 0;
             StackElem_t b = 0;
 
-            StackPop(stk, &a);
-            StackPop(stk, &b);
+            StackPop(data_stk, &a);
+            StackPop(data_stk, &b);
 
-            StackPush(stk, a * b);
+            StackPush(data_stk, a * b);
             cmd->ip++;
 
             break;
@@ -77,10 +78,10 @@ int main()
             StackElem_t divisible = 0;
             StackElem_t splitter  = 0;
 
-            StackPop(stk, &divisible);
-            StackPop(stk, &splitter);
+            StackPop(data_stk, &divisible);
+            StackPop(data_stk, &splitter);
 
-            StackPush(stk, divisible / splitter);
+            StackPush(data_stk, divisible / splitter);
             cmd->ip++;
 
             break;
@@ -91,7 +92,7 @@ int main()
             SPU_ASSERT(&spu);
 
             StackElem_t res = 0;
-            StackPop(stk, &res);
+            StackPop(data_stk, &res);
             fprintf(stderr, "res = %d\n", res);
             cmd->ip++;
             
@@ -104,7 +105,7 @@ int main()
 
             StackElem_t arg = cmd->code[++cmd->ip];
 
-            StackPush(stk, registers[arg]);
+            StackPush(data_stk, registers[arg]);
             cmd->ip++;
             
             break;
@@ -116,20 +117,112 @@ int main()
 
             StackElem_t arg = cmd->code[++cmd->ip];
 
-            StackPop(stk, &registers[arg]);
+            StackPop(data_stk, &registers[arg]);
             cmd->ip++;
             
             break;
         }
 
-        case JUMP:
+        case CALL:
         {
             SPU_ASSERT(&spu);
 
-            StackElem_t arg = cmd->code[++cmd->ip];
-            cmd->ip = arg;
-            
+            StackPush(func_stk, cmd->ip + 2);
+            fprintf(stderr, "push: %d\n", cmd->ip + 2);
+
+            goto JUMP_MARK;
+
+            break;
+        }
+
+        case RET:
+        {
+            SPU_ASSERT(&spu);
+
+            int tmp = cmd->ip;
+            StackPop(func_stk, &tmp);
+            cmd->ip = (size_t) tmp; 
+            fprintf(stderr, "pop: %d\n", cmd->ip);
+
+            SPU_ASSERT(&spu);
+            break;
+        }
+
+        case JUMP:
+        {
+            JUMP_MARK:
+
+            SPU_ASSERT(&spu);
+
+            cmd->ip = cmd->code[cmd->ip + 1];
+            SPU_ASSERT(&spu);
             break;     
+        }
+
+        case JA:
+        {
+            if (StkTwoLastElmsCmp(data_stk) == A)
+                goto JUMP_MARK;
+
+            else
+                cmd->ip += 2;
+
+            break;
+        }
+
+        case JAE:
+        {
+            if (StkTwoLastElmsCmp(data_stk) == AE)
+                goto JUMP_MARK;
+
+            else
+                cmd->ip += 2;
+
+            break;
+        }
+
+        case JB:
+        {
+            if (StkTwoLastElmsCmp(data_stk) == B)
+                goto JUMP_MARK;
+
+            else
+                cmd->ip += 2;
+
+            break;
+        }
+
+        case JBE:
+        {
+            if (StkTwoLastElmsCmp(data_stk) == BE)
+                goto JUMP_MARK;
+
+            else
+                cmd->ip += 2;
+
+            break;
+        }
+
+        case JE:
+        {
+            if (StkTwoLastElmsCmp(data_stk) == E)
+                goto JUMP_MARK;
+
+            else
+                cmd->ip += 2;
+
+            break;
+        }
+
+        case JNE:
+        {
+            if (StkTwoLastElmsCmp(data_stk) == NE)
+                goto JUMP_MARK;
+
+            else
+                cmd->ip += 2;
+                
+            break;
         }
 
         case HLT:
@@ -139,7 +232,6 @@ int main()
             cmd->ip++;
 
             keep_doing = false;
-            
             break;
         }
 

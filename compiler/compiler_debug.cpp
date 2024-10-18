@@ -116,7 +116,7 @@ void CompilerDump(compiler_t *compiler, const char *file, int line, const char *
     }
 
     fprintf(logfile, "\t\t}\n");
-    fprintf(logfile, "\t}\n");
+    fprintf(logfile, "\t}\n\n");
 
     fprintf(logfile, "\tFixup  [%p]:\n\t{\n", fixup);
 
@@ -124,19 +124,18 @@ void CompilerDump(compiler_t *compiler, const char *file, int line, const char *
     fprintf(logfile, "\t\tsize = %llu\n\n", fixup->size);
 
     fprintf(logfile, "\t\tdata  [%p]\n\t\t{\n", fixup->data);
-    for (size_t i = 0; i < fixup->ip; i++)
-    {
-        fprintf(logfile, "\t\t\tnum_in_marklist | mark_ip\n");
-        
 
+    fprintf(logfile, "\t\t\tnum_in_marklist | mark_ip\n");
+    for (size_t i = 0; i < fixup->ip; i++)
+    {    
         if (fixup->data[i].mark_ip == MARK_POISON)
-            fprintf(logfile, "\t\t\t\t%llu\t\t\t\t-MARK_POISON-", fixup->data[i].num_in_marklist);
+            fprintf(logfile, "\t\t\t\t%llu\t\t\t\t-MARK_POISON-\n", fixup->data[i].num_in_marklist);
         else
-            fprintf(logfile, "\t\t\t\t%llu\t\t\t\t%llu", fixup->data[i].num_in_marklist, fixup->data[i].mark_ip);
+            fprintf(logfile, "\t\t\t\t%llu\t\t\t\t%llu\n", fixup->data[i].num_in_marklist, fixup->data[i].mark_ip);
     }
 
     fprintf(logfile, "\n\t\t}\n");
     fprintf(logfile, "\t}\n");
     
-    fprintf(logfile, "}\n\n");
+    fprintf(logfile, "}\n\n\n");
 }
