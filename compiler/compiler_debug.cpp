@@ -8,7 +8,7 @@ void CompilerAssert(compiler_t *compiler, int *cmp_err, const char *file, int li
 
     if (*cmp_err != 0)
     {
-        fprintf(stderr, "myassertion failed in\t%s:%d\nErrors:\t", file, line);
+        fprintf(stderr, "my assertion failed in\t%s:%d\nErrors:\t", file, line);
         PrintCompilerErr(*cmp_err);
     }
 }
@@ -89,15 +89,28 @@ void CompilerDump(compiler_t *compiler, const char *file, int line, const char *
     fprintf(logfile, "\t\tsize = %llu\n\n",   cmd->size);
 
     fprintf(logfile, "\t\tcode  [%p]\n\t\t{\n", cmd->code);
-    for (size_t i = 0; i < cmd->size; i++)
+    for (size_t i = 0; i < cmd->ip; i++)
     {
-        fprintf(logfile, "\t\t\t[%llu] \t=\t%d", i, cmd->code[i].val);
+        fprintf(logfile, "\t\t\t[%llu] \t=\t%d", i, cmd->code[i]);
 
-        if (cmd->code[i].val == MARK_POISON)
+
+        if (cmd->code[i] == MARK_POISON)
             fprintf(logfile, "\t(MARK_POISON)");
 
-        if (cmd->code[i].val == CMD_POISON)
+        else if (cmd->code[i] == CMD_POISON)
             fprintf(logfile, "\t(CMD_POISON)");
+
+        else if (cmd->code[i] > 0)  
+        {
+            if (cmd->code[i] & MEM_BIT)
+                fprintf(logfile, " mem_bit ");
+
+            if (cmd->code[i] & REG_BIT)
+                fprintf(logfile, " reg_bit ");
+
+            if (cmd->code[i] & IMM_BIT)
+                fprintf(logfile, " imm_bit ");        
+        }
 
         fprintf(logfile, "\n");
     }
