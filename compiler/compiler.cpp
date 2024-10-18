@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 
 #include "compiler.h"
 #include "compiler_debug.h"
@@ -32,21 +33,18 @@ void CompilerCtor(compiler_t *compiler)
     GetCommands(trans_file_name, &compiler->trans_commands);
 
     cmd->ip = 0;
-    cmd->size = GetCountOfWords(*asm_file);
-    cmd->code = (cmd_el_t *)  calloc(cmd->size, sizeof(cmd_el_t));
+    cmd->size = GetCountOfWords(*asm_file) * 2;      // + Информация о push и pop
+    cmd->code = (int *)  calloc(cmd->size, sizeof(int));
     
     for (size_t i = 0; i < cmd->size; i++)
-        cmd->code[i].val = CMD_POISON;
+        cmd->code[i] = CMD_POISON;
 
     marklist->size = cmd->size;
     marklist->ip   = 0;
     marklist->list = (mark_t *) calloc(marklist->size, sizeof(mark_t));
 
     for (size_t i = 0; i < marklist->size; i++)
-    {
-        // marklist.list[i].name   = {};
         marklist->list[i].address = MARK_POISON;
-    }
 
     fixup->ip = 0;
     fixup->size = cmd->size;      // максимум меток = количество команд
@@ -88,6 +86,7 @@ void CompilerDtor(compiler_t *compiler)
 
 void WriteCommandCode(char *cur_command_name, compiler_t *compiler)    
 {
+    assert(cur_command_name);
     COMPILER_ASSERT(compiler);
 
     FILE       *asm_file =  compiler->asm_file;
@@ -95,65 +94,124 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     fixup_t    *fixup    = &compiler->fixup;
     marklist_t *marklist = &compiler->marklist;
 
-    if (strcmp(cur_command_name, "push") == 0)
+    if (strstr("push pop", cur_command_name) != NULL)
     {
-        cmd->code[cmd->ip++].val = PUSH;
+        int command_code = 0;
 
-        int elem = CMD_POISON;
-        fscanf(asm_file, "%d", &elem);
-        cmd->code[cmd->ip++].val = elem;
+        if (strcmp(cur_command_name, "push"))
+            command_code |= PUSH;
+        else
+            command_code |= POP;
+        
+        int res_imm  = CMD_POISON;
+        int res_reg  = CMD_POISON;
+
+        char  arg_str[MAX_ARG_NAME_LEN] = {};
+        char  tmp_str[MAX_ARG_NAME_LEN] = {};        
+        char *cur_ptr = NULL;
+
+        fscanf(asm_file, "%[^\n]", arg_str);
+
+        fprintf(stderr, "stroka: '%s'\n", arg_str);
+
+        cur_ptr = strchr(arg_str, '[');
+        
+        if (cur_ptr != NULL)
+        {
+            cur_ptr++;  //на следующий символ после '['
+            fprintf(stderr, "MEM!  '%s'\n", cur_ptr);
+
+            command_code |= MEM_BIT;
+        }
+        else
+            cur_ptr = arg_str + 1;      // первый символ всегда пробел
+
+
+        if (sscanf(cur_ptr, "%[A-Z]", tmp_str) == 1)     // есть регистр
+        {
+            fprintf(stderr, "REG!  '%s'\n", tmp_str);
+            if (IsRegister(tmp_str))
+            {
+                command_code |= REG_BIT;
+                int elem = ReadRegister(tmp_str);
+                res_reg = elem;
+            }
+            
+            else 
+                fprintf(stderr, "ERROR: invalid register in push: '%s'\n", tmp_str);
+        }
+
+        char *ptr; 
+        if ((ptr = strchr(cur_ptr, '+')) != NULL)
+            cur_ptr = ptr + 1;
+
+        if (sscanf(cur_ptr, "%d", &res_imm) == 1)    // есть immediate const
+        {
+            fprintf(stderr, "IMM!  '%s'\n", cur_ptr);
+            command_code |= IMM_BIT;
+        }
+
+        cmd->code[cmd->ip++] = command_code;
+
+        if (res_reg != CMD_POISON)
+            cmd->code[cmd->ip++] = res_reg;
+        
+        if (res_imm != CMD_POISON)
+            cmd->code[cmd->ip++] = res_imm;
+
+        fprintf(stderr, "command_code = %d\n\n", command_code);
     }
 
-    else if (strcmp(cur_command_name, "PUSHR") == 0)
-    {
-        cmd->code[cmd->ip++].val = PUSHR;
+    // else if (strcmp(cur_command_name, "PUSHR") == 0)
+    // {
+    //     cmd->code[cmd->ip++] = PUSHR;
 
-        char reg_name[REG_NAME_LEN] = {};
-        fscanf(asm_file, "%s", reg_name);
+    //     char reg_name[REG_NAME_LEN] = {};
+    //     fscanf(asm_file, "%s", reg_name);
 
-        int elem = ReadRegister(reg_name);
+    //     int elem = ReadRegister(reg_name);
 
-        cmd->code[cmd->ip++].val = elem;
-    }
+    //     cmd->code[cmd->ip++] = elem;
+    // }
 
-    else if (strcmp(cur_command_name, "POPR") == 0)
-    {
-        cmd->code[cmd->ip++].val = POPR;
+    // else if (strcmp(cur_command_name, "POP") == 0)
+    // {
+    //     cmd->code[cmd->ip++] = POP;
 
-        char reg_name[REG_NAME_LEN] = {};
-        fscanf(asm_file, "%s", reg_name);
+    //     char reg_name[REG_NAME_LEN] = {};
+    //     fscanf(asm_file, "%s", reg_name);
 
-        int elem = ReadRegister(reg_name);
+    //     int elem = ReadRegister(reg_name);
 
-        cmd->code[cmd->ip++].val = elem;
-    }
+    //     cmd->code[cmd->ip++] = elem;
+    // }
 
 
     else if (strstr( "jump call JA JEA JB JEB JE JNE", cur_command_name) != NULL)
     {
         if(strcmp(cur_command_name, "call") == 0)
-            cmd->code[cmd->ip++].val = CALL;
+            cmd->code[cmd->ip++] = CALL;
 
         else if (strcmp(cur_command_name, "JUMP") == 0)
-            cmd->code[cmd->ip++].val = JUMP;
+            cmd->code[cmd->ip++] = JUMP;
 
         else if (strcmp(cur_command_name, "JA") == 0)
-            cmd->code[cmd->ip++].val = JA;
+            cmd->code[cmd->ip++] = JA;
 
         else if (strcmp(cur_command_name, "JAE") == 0)
-            cmd->code[cmd->ip++].val = JAE;
+            cmd->code[cmd->ip++] = JAE;
 
         else if (strcmp(cur_command_name, "JB") == 0)
-            cmd->code[cmd->ip++].val = JB;
+            cmd->code[cmd->ip++] = JB;
         
         else if (strcmp(cur_command_name, "JBE") == 0)
-            cmd->code[cmd->ip++].val = JBE;
+            cmd->code[cmd->ip++] = JBE;
 
         else if (strcmp(cur_command_name, "JE") == 0)
-            cmd->code[cmd->ip++].val = JE;
+            cmd->code[cmd->ip++] = JE;
 
         else if (strcmp(cur_command_name, "JNE") == 0)
-            cmd->code[cmd->ip++].val = JNE;
+            cmd->code[cmd->ip++] = JNE;
 
 
         char arg_str[MARK_NAME_LEN] = {};
@@ -181,7 +239,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
                 fixup->ip++;
             }
 
-            cmd->code[cmd->ip++].val = (int) mark->address;
+            cmd->code[cmd->ip++] = (int) mark->address;
         }
 
         else
@@ -189,7 +247,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
             int elem = 0;
 
             if (sscanf(arg_str, "%d", &elem) == 1)
-                cmd->code[cmd->ip++].val = elem;
+                cmd->code[cmd->ip++] = elem;
                 
             else
                 fprintf(stderr, "COMPILE ERROR: Invalid mark: '%s'\n", arg_str);
@@ -197,32 +255,25 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     }
 
     else if (strcmp(cur_command_name, "RET") == 0)
-    {
-        cmd->code[cmd->ip++].val = RET;
-        // cmd->code[cmd->ip++].val = JUMP;
-        // int jump_arg = POISON;
-        // StackPop(func_stk, &jump_arg);
-        // cmd->code[cmd->ip++].val = jump_arg;
-        // fprintf(stderr, "RET: new cmd.ip = %d\n", cmd->code[cmd->ip-1]);
-    }
+        cmd->code[cmd->ip++] = RET;
 
     else if (strcmp(cur_command_name, "add") == 0)
-        cmd->code[cmd->ip++].val = ADD;
+        cmd->code[cmd->ip++] = ADD;
     
     else if (strcmp(cur_command_name, "sub") == 0)
-        cmd->code[cmd->ip++].val = SUB;
+        cmd->code[cmd->ip++] = SUB;
 
     else if (strcmp(cur_command_name, "mul") == 0)
-        cmd->code[cmd->ip++].val = MUL;
+        cmd->code[cmd->ip++] = MUL;
 
     else if (strcmp(cur_command_name, "div") == 0)
-        cmd->code[cmd->ip++].val = DIV;
+        cmd->code[cmd->ip++] = DIV;
 
     else if (strcmp(cur_command_name, "out") == 0)
-        cmd->code[cmd->ip++].val = OUT;
+        cmd->code[cmd->ip++] = OUT;
 
     else if (strcmp(cur_command_name, "hlt") == 0)
-        cmd->code[cmd->ip++].val = HLT;
+        cmd->code[cmd->ip++] = HLT;
 
     else
         fprintf(stderr, "COMPILE ERROR: Unknown command: '%s'\n", cur_command_name);
@@ -235,7 +286,7 @@ int ReadRegister(char *reg_name)
 {
     int elem = REGISTER_POISON;
 
-    if (reg_name[1] != 'X' || reg_name[0] < 'A' || reg_name[0] > 'A' + REGISTERS_NUM)
+    if (!IsRegister(reg_name))
     {
         fprintf(stderr, "ERROR: incorrect register: '%s'\n", reg_name);
         return REGISTER_POISON;
@@ -244,6 +295,11 @@ int ReadRegister(char *reg_name)
     elem = reg_name[0] - 'A' + 1;       // AX - первый регистр
 
     return elem;
+}
+
+bool IsRegister(char *reg_name)
+{
+    return (strlen(reg_name) >= 2 && reg_name[1] == 'X' && reg_name[0] >= 'A' && reg_name[0] <= 'A' + REGISTERS_NUM);
 }
 
 size_t GetCountOfLines(FILE *text)
@@ -281,7 +337,7 @@ void PrintCMD(compiler_t *compiler)
     COMPILER_ASSERT(compiler);
 
     for (size_t i = 0; i < compiler->cmd.ip; i++)
-        fprintf(compiler->code_file, "%d ", compiler->cmd.code[i].val);
+        fprintf(compiler->code_file, "%d ", compiler->cmd.code[i]);
 }
 
 void GetCommands(const char *file_name, trans_commands_t *trans_commands)
@@ -333,7 +389,7 @@ void MakeFixUp(compiler_t *compiler)    //fixup_t *fixup, cmd_t *cmd, marklist_t
     {
         fixup_el_t cur_fixup_el = fixup->data[i]; 
         
-        cmd->code[cur_fixup_el.mark_ip].val = (int) marklist->list[cur_fixup_el.num_in_marklist].address;
+        cmd->code[cur_fixup_el.mark_ip] = (int) marklist->list[cur_fixup_el.num_in_marklist].address;
     }
 
     COMPILER_ASSERT(compiler);

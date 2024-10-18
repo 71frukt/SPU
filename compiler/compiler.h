@@ -4,18 +4,22 @@
 #define DEBUG
 
 #include <stdio.h>
+#include "compiler_debug.h"
 
 #define MARK_SYMBOL ":"
 
 const int   COMMAND_NAME_LEN = 20;
 const int   MARK_NAME_LEN    = 10;
+const int   MAX_ARG_NAME_LEN = 10;
 const int   REG_NAME_LEN     = 2;
 
 const int   REGISTERS_NUM    = 5;
 
-const short CMD_POISON       = -0xEBE;
+const int   CMD_POISON       = -0xEBE;
 const int   MARK_POISON      = -0xDEB41C;
 const int   REGISTER_POISON  = -0xACCCCC;
+
+const int   FUNC_CODE_BYTE_SIZE = 12;
 
 struct command_t
 {
@@ -29,19 +33,11 @@ struct trans_commands_t
     size_t    size;
 };
 
-struct cmd_el_t
-{
-    int mem:   1;
-    int reg:   1;
-    int immed: 1;
-    int val:   sizeof(int) * 8 - 3;
-};
-
 struct cmd_t
 {
     size_t    ip;
     size_t    size;
-    cmd_el_t *code;
+    int *code;
 };
 
 struct mark_t
@@ -91,7 +87,7 @@ enum FuncCodes
     MUL   =  4,
     DIV   =  5,
     PUSHR =  6,
-    POPR  =  7,
+    POP   =  7,
     JUMP  =  8,
     CALL  =  9,
     RET   =  10,
@@ -105,16 +101,34 @@ enum FuncCodes
     HLT   =  -1
 };
 
+enum ManagerBits
+{
+    IMM_BIT = 1 << FUNC_CODE_BYTE_SIZE + 1,
+    REG_BIT = 1 << FUNC_CODE_BYTE_SIZE + 2,
+    MEM_BIT = 1 << FUNC_CODE_BYTE_SIZE + 3
+};
+
 void    CompilerCtor     (compiler_t *compiler);
 void    CompilerDtor     (compiler_t *compiler);
-void    PrintCMD         (compiler_t *compiler);
+
+size_t  GetCountOfLines  (FILE *text);
+size_t  GetCountOfWords  (FILE *text);
+
 void    MakeFixUp        (compiler_t *compiler);
 void    GetCommands      (const char *file_name, trans_commands_t *trans_commands);
 void    WriteCommandCode (char *cur_command_name, compiler_t *compiler);
-size_t  GetCountOfLines  (FILE *text);
-size_t  GetCountOfWords  (FILE *text);
+
 int     ReadRegister     (char *reg_name);
-bool    IsMark           (char *str);
+bool    IsRegister       (char *reg_name);
+
 mark_t *FindMarkInList   (char *mark_name, marklist_t *list);
+bool    IsMark           (char *str);
+
+void    PrintCMD         (compiler_t *compiler);
+
+void CompilerAssert   (compiler_t *compiler, int *cmp_err, const char *file, int line, const char *func);
+int  CompilerVerify   (compiler_t *compiler);
+void CompilerDump     (compiler_t *compiler, const char *file, int line, const char *func);
+void PrintCompilerErr (int error);
 
 #endif

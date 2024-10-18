@@ -26,9 +26,4 @@ enum CompilerError
 #define COMPILER_DUMP
 #endif
 
-void CompilerAssert   (compiler_t *compiler, int *cmp_err, const char *file, int line, const char *func);
-int  CompilerVerify   (compiler_t *compiler);
-void CompilerDump     (compiler_t *compiler, const char *file, int line, const char *func);
-void PrintCompilerErr (int error);
-
 #endif
