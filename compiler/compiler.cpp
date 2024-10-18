@@ -33,10 +33,10 @@ void CompilerCtor(compiler_t *compiler)
 
     cmd->ip = 0;
     cmd->size = GetCountOfWords(*asm_file);
-    cmd->code = (int *)  calloc(cmd->size, sizeof(int));
+    cmd->code = (cmd_el_t *)  calloc(cmd->size, sizeof(cmd_el_t));
     
     for (size_t i = 0; i < cmd->size; i++)
-        cmd->code[i] = CMD_POISON;
+        cmd->code[i].val = CMD_POISON;
 
     marklist->size = cmd->size;
     marklist->ip   = 0;
@@ -97,63 +97,63 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
     if (strcmp(cur_command_name, "push") == 0)
     {
-        cmd->code[cmd->ip++] = PUSH;
+        cmd->code[cmd->ip++].val = PUSH;
 
         int elem = CMD_POISON;
         fscanf(asm_file, "%d", &elem);
-        cmd->code[cmd->ip++] = elem;
+        cmd->code[cmd->ip++].val = elem;
     }
 
     else if (strcmp(cur_command_name, "PUSHR") == 0)
     {
-        cmd->code[cmd->ip++] = PUSHR;
+        cmd->code[cmd->ip++].val = PUSHR;
 
         char reg_name[REG_NAME_LEN] = {};
         fscanf(asm_file, "%s", reg_name);
 
         int elem = ReadRegister(reg_name);
 
-        cmd->code[cmd->ip++] = elem;
+        cmd->code[cmd->ip++].val = elem;
     }
 
     else if (strcmp(cur_command_name, "POPR") == 0)
     {
-        cmd->code[cmd->ip++] = POPR;
+        cmd->code[cmd->ip++].val = POPR;
 
         char reg_name[REG_NAME_LEN] = {};
         fscanf(asm_file, "%s", reg_name);
 
         int elem = ReadRegister(reg_name);
 
-        cmd->code[cmd->ip++] = elem;
+        cmd->code[cmd->ip++].val = elem;
     }
 
 
     else if (strstr( "jump call JA JEA JB JEB JE JNE", cur_command_name) != NULL)
     {
         if(strcmp(cur_command_name, "call") == 0)
-            cmd->code[cmd->ip++] = CALL;
+            cmd->code[cmd->ip++].val = CALL;
 
         else if (strcmp(cur_command_name, "JUMP") == 0)
-            cmd->code[cmd->ip++] = JUMP;
+            cmd->code[cmd->ip++].val = JUMP;
 
         else if (strcmp(cur_command_name, "JA") == 0)
-            cmd->code[cmd->ip++] = JA;
+            cmd->code[cmd->ip++].val = JA;
 
         else if (strcmp(cur_command_name, "JAE") == 0)
-            cmd->code[cmd->ip++] = JAE;
+            cmd->code[cmd->ip++].val = JAE;
 
         else if (strcmp(cur_command_name, "JB") == 0)
-            cmd->code[cmd->ip++] = JB;
+            cmd->code[cmd->ip++].val = JB;
         
         else if (strcmp(cur_command_name, "JBE") == 0)
-            cmd->code[cmd->ip++] = JBE;
+            cmd->code[cmd->ip++].val = JBE;
 
         else if (strcmp(cur_command_name, "JE") == 0)
-            cmd->code[cmd->ip++] = JE;
+            cmd->code[cmd->ip++].val = JE;
 
         else if (strcmp(cur_command_name, "JNE") == 0)
-            cmd->code[cmd->ip++] = JNE;
+            cmd->code[cmd->ip++].val = JNE;
 
 
         char arg_str[MARK_NAME_LEN] = {};
@@ -181,7 +181,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
                 fixup->ip++;
             }
 
-            cmd->code[cmd->ip++] = (int) mark->address;
+            cmd->code[cmd->ip++].val = (int) mark->address;
         }
 
         else
@@ -189,7 +189,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
             int elem = 0;
 
             if (sscanf(arg_str, "%d", &elem) == 1)
-                cmd->code[cmd->ip++] = elem;
+                cmd->code[cmd->ip++].val = elem;
                 
             else
                 fprintf(stderr, "COMPILE ERROR: Invalid mark: '%s'\n", arg_str);
@@ -198,31 +198,31 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
     else if (strcmp(cur_command_name, "RET") == 0)
     {
-        cmd->code[cmd->ip++] = RET;
-        // cmd->code[cmd->ip++] = JUMP;
+        cmd->code[cmd->ip++].val = RET;
+        // cmd->code[cmd->ip++].val = JUMP;
         // int jump_arg = POISON;
         // StackPop(func_stk, &jump_arg);
-        // cmd->code[cmd->ip++] = jump_arg;
+        // cmd->code[cmd->ip++].val = jump_arg;
         // fprintf(stderr, "RET: new cmd.ip = %d\n", cmd->code[cmd->ip-1]);
     }
 
     else if (strcmp(cur_command_name, "add") == 0)
-        cmd->code[cmd->ip++] = ADD;
+        cmd->code[cmd->ip++].val = ADD;
     
     else if (strcmp(cur_command_name, "sub") == 0)
-        cmd->code[cmd->ip++] = SUB;
+        cmd->code[cmd->ip++].val = SUB;
 
     else if (strcmp(cur_command_name, "mul") == 0)
-        cmd->code[cmd->ip++] = MUL;
+        cmd->code[cmd->ip++].val = MUL;
 
     else if (strcmp(cur_command_name, "div") == 0)
-        cmd->code[cmd->ip++] = DIV;
+        cmd->code[cmd->ip++].val = DIV;
 
     else if (strcmp(cur_command_name, "out") == 0)
-        cmd->code[cmd->ip++] = OUT;
+        cmd->code[cmd->ip++].val = OUT;
 
     else if (strcmp(cur_command_name, "hlt") == 0)
-        cmd->code[cmd->ip++] = HLT;
+        cmd->code[cmd->ip++].val = HLT;
 
     else
         fprintf(stderr, "COMPILE ERROR: Unknown command: '%s'\n", cur_command_name);
@@ -281,7 +281,7 @@ void PrintCMD(compiler_t *compiler)
     COMPILER_ASSERT(compiler);
 
     for (size_t i = 0; i < compiler->cmd.ip; i++)
-        fprintf(compiler->code_file, "%d ", compiler->cmd.code[i]);
+        fprintf(compiler->code_file, "%d ", compiler->cmd.code[i].val);
 }
 
 void GetCommands(const char *file_name, trans_commands_t *trans_commands)
@@ -333,7 +333,7 @@ void MakeFixUp(compiler_t *compiler)    //fixup_t *fixup, cmd_t *cmd, marklist_t
     {
         fixup_el_t cur_fixup_el = fixup->data[i]; 
         
-        cmd->code[cur_fixup_el.mark_ip] = (int) marklist->list[cur_fixup_el.num_in_marklist].address;
+        cmd->code[cur_fixup_el.mark_ip].val = (int) marklist->list[cur_fixup_el.num_in_marklist].address;
     }
 
     COMPILER_ASSERT(compiler);

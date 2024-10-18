@@ -81,7 +81,7 @@ void CompilerDump(compiler_t *compiler, const char *file, int line, const char *
     fixup_t    *fixup      = &compiler->fixup;
     marklist_t *marklist   = &compiler->marklist;
 
-    fprintf(logfile, "SPU_DUMP called from %s:%d  (%s)\n{\n", file, line, func);
+    fprintf(logfile, "Compiler called from %s:%d  (%s)\n{\n", file, line, func);
 
     fprintf(logfile, "\tCMD  [%p]:\n\t{\n", cmd);
 
@@ -91,11 +91,15 @@ void CompilerDump(compiler_t *compiler, const char *file, int line, const char *
     fprintf(logfile, "\t\tcode  [%p]\n\t\t{\n", cmd->code);
     for (size_t i = 0; i < cmd->size; i++)
     {
-        if (cmd->code[i] == CMD_POISON)
-            fprintf(logfile, "\t\t\t[%llu] \t=\t-CMD_POISON-\n", i);
+        fprintf(logfile, "\t\t\t[%llu] \t=\t%d", i, cmd->code[i].val);
 
-        else
-            fprintf(logfile, "\t\t\t[%llu] \t=\t%d\n", i, cmd->code[i]);
+        if (cmd->code[i].val == MARK_POISON)
+            fprintf(logfile, "\t(MARK_POISON)");
+
+        if (cmd->code[i].val == CMD_POISON)
+            fprintf(logfile, "\t(CMD_POISON)");
+
+        fprintf(logfile, "\n");
     }
 
     fprintf(logfile, "\t\t}\n");

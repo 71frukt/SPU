@@ -13,9 +13,9 @@ const int   REG_NAME_LEN     = 2;
 
 const int   REGISTERS_NUM    = 5;
 
-const int   CMD_POISON       = 0xEBEBEB;
-const int   MARK_POISON      = 0xDEB41C;
-const int   REGISTER_POISON  = 0xEB1A4;
+const short CMD_POISON       = -0xEBE;
+const int   MARK_POISON      = -0xDEB41C;
+const int   REGISTER_POISON  = -0xACCCCC;
 
 struct command_t
 {
@@ -29,11 +29,19 @@ struct trans_commands_t
     size_t    size;
 };
 
+struct cmd_el_t
+{
+    int mem:   1;
+    int reg:   1;
+    int immed: 1;
+    int val:   sizeof(int) * 8 - 3;
+};
+
 struct cmd_t
 {
-    size_t ip;
-    size_t size;
-    int *code;
+    size_t    ip;
+    size_t    size;
+    cmd_el_t *code;
 };
 
 struct mark_t
