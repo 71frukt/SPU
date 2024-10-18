@@ -34,6 +34,9 @@ void CompilerCtor(compiler_t *compiler)
     cmd->ip = 0;
     cmd->size = GetCountOfWords(*asm_file);
     cmd->code = (int *)  calloc(cmd->size, sizeof(int));
+    
+    for (size_t i = 0; i < cmd->size; i++)
+        cmd->code[i] = CMD_POISON;
 
     marklist->size = cmd->size;
     marklist->ip   = 0;
@@ -42,7 +45,7 @@ void CompilerCtor(compiler_t *compiler)
     for (size_t i = 0; i < marklist->size; i++)
     {
         // marklist.list[i].name   = {};
-        marklist->list[i].address = POISON;
+        marklist->list[i].address = MARK_POISON;
     }
 
     fixup->ip = 0;
@@ -51,8 +54,8 @@ void CompilerCtor(compiler_t *compiler)
     
     for (size_t i = 0; i < fixup->size; i++)
     {
-        fixup->data[i].num_in_marklist  = POISON;        
-        fixup->data[i].mark_ip = POISON;
+        fixup->data[i].num_in_marklist  = MARK_POISON;        
+        fixup->data[i].mark_ip = MARK_POISON;
     }
 
     COMPILER_ASSERT(compiler);
@@ -96,7 +99,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     {
         cmd->code[cmd->ip++] = PUSH;
 
-        int elem = POISON;
+        int elem = CMD_POISON;
         fscanf(asm_file, "%d", &elem);
         cmd->code[cmd->ip++] = elem;
     }
@@ -125,9 +128,14 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
         cmd->code[cmd->ip++] = elem;
     }
 
-    else if (strcmp(cur_command_name, "JUMP") == 0)
+
+    else if (strcmp(cur_command_name, "jump") == 0 || strcmp(cur_command_name, "call") == 0)
     {
-        cmd->code[cmd->ip++] = JUMP;
+        if(strcmp(cur_command_name, "call") == 0)
+            cmd->code[cmd->ip++] = CALL;
+
+        else
+            cmd->code[cmd->ip++] = JUMP;
 
         char arg_str[MARK_NAME_LEN] = {};
 
@@ -142,11 +150,11 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
             if (mark == NULL)
             {
                 mark = &marklist->list[marklist->ip++];
-                mark->address = POISON;      //создать метку с ядовитым значением чтобы потом доопределить
+                mark->address = MARK_POISON;      //создать метку с ядовитым значением чтобы потом доопределить
                 sscanf(arg_str, "%[^" MARK_SYMBOL "]", mark->name);
             }
 
-            if (mark->address == POISON)
+            if (mark->address == MARK_POISON)
             {                
                 fixup->data[fixup->ip].mark_ip         = cmd->ip;
                 fixup->data[fixup->ip].num_in_marklist = marklist->ip - 1;
@@ -155,16 +163,28 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
             }
 
             cmd->code[cmd->ip++] = (int) mark->address;
-
-            return;
         }
 
         else
         {
-            int elem = POISON;
-            sscanf(arg_str, "%d", &elem);
-            cmd->code[cmd->ip++] = elem;
+            int elem = 0;
+
+            if (sscanf(arg_str, "%d", &elem) == 1)
+                cmd->code[cmd->ip++] = elem;
+                
+            else
+                fprintf(stderr, "COMPILE ERROR: Invalid mark: '%s'\n", arg_str);
         }
+    }
+
+    else if (strcmp(cur_command_name, "RET") == 0)
+    {
+        cmd->code[cmd->ip++] = RET;
+        // cmd->code[cmd->ip++] = JUMP;
+        // int jump_arg = POISON;
+        // StackPop(func_stk, &jump_arg);
+        // cmd->code[cmd->ip++] = jump_arg;
+        // fprintf(stderr, "RET: new cmd.ip = %d\n", cmd->code[cmd->ip-1]);
     }
 
     else if (strcmp(cur_command_name, "add") == 0)
@@ -194,12 +214,12 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
 int ReadRegister(char *reg_name)
 {
-    int elem = POISON;
+    int elem = REGISTER_POISON;
 
     if (reg_name[1] != 'X' || reg_name[0] < 'A' || reg_name[0] > 'A' + REGISTERS_NUM)
     {
         fprintf(stderr, "ERROR: incorrect register: '%s'\n", reg_name);
-        return POISON;
+        return REGISTER_POISON;
     }
 
     elem = reg_name[0] - 'A' + 1;       // AX - первый регистр

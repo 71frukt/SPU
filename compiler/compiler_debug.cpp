@@ -91,8 +91,8 @@ void CompilerDump(compiler_t *compiler, const char *file, int line, const char *
     fprintf(logfile, "\t\tcode  [%p]\n\t\t{\n", cmd->code);
     for (size_t i = 0; i < cmd->size; i++)
     {
-        if (cmd->code[i] == POISON)
-            fprintf(logfile, "\t\t\t[%llu] \t=\t-POIZON-\n", i);
+        if (cmd->code[i] == CMD_POISON)
+            fprintf(logfile, "\t\t\t[%llu] \t=\t-CMD_POISON-\n", i);
 
         else
             fprintf(logfile, "\t\t\t[%llu] \t=\t%d\n", i, cmd->code[i]);
@@ -109,8 +109,8 @@ void CompilerDump(compiler_t *compiler, const char *file, int line, const char *
     fprintf(logfile, "\t\tlist  [%p]\n\t\t{\n", marklist->list);
     for (size_t i = 0; i < marklist->ip; i++)
     {
-        if (marklist->list[i].address == POISON)
-            fprintf(logfile, "\t\t\t[%llu] : '%s'\t=\t-POISON-\n", i, marklist->list[i].name);
+        if (marklist->list[i].address == MARK_POISON)
+            fprintf(logfile, "\t\t\t[%llu] : '%s'\t=\t-MARK_POISON-\n", i, marklist->list[i].name);
         else
             fprintf(logfile, "\t\t\t[%llu] : '%s'\t=\t%llu\n", i, marklist->list[i].name, marklist->list[i].address);
     }
@@ -129,8 +129,8 @@ void CompilerDump(compiler_t *compiler, const char *file, int line, const char *
         fprintf(logfile, "\t\t\tnum_in_marklist | mark_ip\n");
         
 
-        if (fixup->data[i].mark_ip == POISON)
-            fprintf(logfile, "\t\t\t\t%llu\t\t\t\t-POIZON_", fixup->data[i].num_in_marklist);
+        if (fixup->data[i].mark_ip == MARK_POISON)
+            fprintf(logfile, "\t\t\t\t%llu\t\t\t\t-MARK_POISON-", fixup->data[i].num_in_marklist);
         else
             fprintf(logfile, "\t\t\t\t%llu\t\t\t\t%llu", fixup->data[i].num_in_marklist, fixup->data[i].mark_ip);
     }

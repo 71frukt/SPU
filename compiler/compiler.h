@@ -4,7 +4,6 @@
 #define DEBUG
 
 #include <stdio.h>
-#include "stack.h"
 
 #define MARK_SYMBOL ":"
 
@@ -13,7 +12,10 @@ const int   MARK_NAME_LEN    = 10;
 const int   REG_NAME_LEN     = 2;
 
 const int   REGISTERS_NUM    = 5;
-const int   POISON           = 0xDEB41C;
+
+const int   CMD_POISON       = 0xEBEBEB;
+const int   MARK_POISON      = 0xDEB41C;
+const int   REGISTER_POISON  = 0xEB1A4;
 
 struct command_t
 {
@@ -62,7 +64,7 @@ struct fixup_t
 
 struct compiler_t
 {
-    ON_DEBUG (FILE *logfile);
+    FILE *logfile;
 
     FILE *asm_file;    
     FILE *code_file;
@@ -83,6 +85,8 @@ enum FuncCodes
     PUSHR =  6,
     POPR  =  7,
     JUMP  =  8,
+    CALL  =  9,
+    RET   =  10,
     OUT   =  0,
     HLT   =  -1
 };
@@ -98,4 +102,5 @@ size_t  GetCountOfWords  (FILE *text);
 int     ReadRegister     (char *reg_name);
 bool    IsMark           (char *str);
 mark_t *FindMarkInList   (char *mark_name, marklist_t *list);
+
 #endif

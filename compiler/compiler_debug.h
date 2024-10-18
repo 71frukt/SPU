@@ -17,11 +17,12 @@ enum CompilerError
 };
 
 #ifdef DEBUG
+#define ON_DEBUG(...)  __VA_ARGS__
 #define COMPILER_ASSERT(compiler)  CompilerAssert(compiler, &CompilerError_val, __FILE__, __LINE__, __func__)
 #define COMPILER_DUMP(compiler)    CompilerDump(compiler, __FILE__, __LINE__, __func__)
 
-
 #else
+#define ON_DEBUG(...)
 #define COMPILER_DUMP
 #endif
 
