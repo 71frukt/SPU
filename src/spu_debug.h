@@ -23,11 +23,12 @@ enum SPU_Error
 #define SPU_ASSERT(spu)                                                     \
 {                                                                           \
     SpuAssert(spu, __FILE__, __LINE__, __func__);                           \
-    SPU_DUMP(spu);                                                          \
+    /*SPU_DUMP(spu);*/                                                          \
 }                                                                           \
 
 #else
 #define SPU_DUMP 
+#define SPU_ASSERT(spu)
 #endif
 
 void SpuAssert   (spu_t *compiler, const char *file, int line, const char *func);

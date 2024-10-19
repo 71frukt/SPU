@@ -72,6 +72,8 @@ int SpuVerify(spu_t *spu)
 
 void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 {
+    ON_DEBUG (
+        
     int   *registers =  spu->registers;
     cmd_t *cmd       = &spu->cmd;
     int   *RAM       =  spu->RAM;
@@ -94,31 +96,33 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 
     fprintf(logfile, "\t}\n\n");
 
-    fprintf(logfile, "\tCMD  [%p]:\n\t{\n", cmd);
+    // fprintf(logfile, "\tCMD  [%p]:\n\t{\n", cmd);
+// 
+    // fprintf(logfile, "\t\tip   = %llu\n", cmd->ip);
+    // fprintf(logfile, "\t\tsize = %llu\n\n", cmd->size);
+// 
+    // fprintf(logfile, "\t\tcode  [%p]\n\t\t{\n", cmd->code);
+// 
+    // for (size_t i = 0; i < cmd->size; i++)
+        // fprintf(logfile, "\t\t\t[%llu] \t=\t%d\n", i, cmd->code[i]);
+// 
+    // fprintf(logfile, "\t\t}\n");
+// 
+    // fprintf(logfile, "\t}\n\n");
 
-    fprintf(logfile, "\t\tip   = %llu\n", cmd->ip);
-    fprintf(logfile, "\t\tsize = %llu\n\n", cmd->size);
-
-    fprintf(logfile, "\t\tcode  [%p]\n\t\t{\n", cmd->code);
-
-    for (size_t i = 0; i < cmd->size; i++)
-        fprintf(logfile, "\t\t\t[%llu] \t=\t%d\n", i, cmd->code[i]);
-
-    fprintf(logfile, "\t\t}\n");
-
-    fprintf(logfile, "\t}\n\n");
-
-    fprintf(logfile, "\tRAM  [%p]:\n\t{\t\t\t", RAM);
-
-    for (size_t i = 0; i < RAM_SIZE; i++)
-    {
-        if (i % (int) RAM_SIZE_X == 0)
-            fprintf(logfile, "\n\t\t");
-        
-        fprintf(logfile, "%3d ", RAM[i]); 
-    }
-
-    fprintf(logfile, "\n\t}\n");
+    // fprintf(logfile, "\tRAM  [%p]:\n\t{\t\t\t", RAM);
+// 
+    // for (size_t i = 0; i < RAM_SIZE; i++)
+    // {
+        // if (i % (int) RAM_SIZE_X == 0)
+            // fprintf(logfile, "\n\t\t");
+        // 
+        // fprintf(logfile, "%3d ", RAM[i]); 
+    // }
+// 
+    // fprintf(logfile, "\n\t}\n");
 
     fprintf(logfile, "}\n\n\n");
+
+    );
 }

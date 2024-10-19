@@ -123,8 +123,9 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
             cur_ptr = arg_str + 1;      // первый символ всегда пробел
 
 
-        if (sscanf(cur_ptr, "%[A-Z]", tmp_str) == 1)     // есть регистр
+        if (sscanf(cur_ptr, "%[ A-Z]", tmp_str) == 1)     // есть регистр
         {
+        fprintf(stderr, "REGISTER IN PYK = %s\n", tmp_str);
             if (IsRegister(tmp_str))
             {
                 command_code |= REG_BIT;
@@ -263,6 +264,15 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
     else if (strcmp(cur_command_name, "out") == 0)
         cmd->code[cmd->ip++] = OUT;
+
+    else if (strcmp(cur_command_name, "draw") == 0)
+        cmd->code[cmd->ip++] = DRAW;
+
+    else if (strcmp(cur_command_name, "sqrt") == 0)
+        cmd->code[cmd->ip++] = SQRT;
+
+    else if (strcmp(cur_command_name, "mod") == 0)
+        cmd->code[cmd->ip++] = MOD;
 
     else if (strcmp(cur_command_name, "hlt") == 0)
         cmd->code[cmd->ip++] = HLT;

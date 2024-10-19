@@ -12,8 +12,8 @@ void SpuCtor(spu_t *spu)
 {
     cmd_t    *cmd       = &spu->cmd;
     int      *registers =  spu->registers;
-    StackID  *data_stk  = &spu->data_stk;
     StackID  *func_stk  = &spu->func_stk;
+    StackID  *data_stk  = &spu->data_stk;
 
     FILE    **code_file = &spu->code_file;
     ON_DEBUG(FILE **logfile = &spu->logfile);
@@ -34,8 +34,8 @@ void SpuCtor(spu_t *spu)
             break;
     }
 
-    STACK_CTOR(data_stk, 0);
     STACK_CTOR(func_stk, 0);
+    STACK_CTOR(data_stk, 0);
     
     SPU_ASSERT(spu);
 }
@@ -69,6 +69,8 @@ StackElem_t *GetArg(spu_t *spu)
 {
     SPU_ASSERT(spu);
 
+    SPU_DUMP(spu);
+
     cmd_t *cmd = &spu->cmd;
 
     int func_code = cmd->code[cmd->ip++];
@@ -88,7 +90,6 @@ StackElem_t *GetArg(spu_t *spu)
     if (func_code & REG_BIT)
     {
         reg_ptr = &spu->registers[cmd->code[cmd->ip++]];
-fprintf(stderr, "POINT 1: ip = %d  *reg_ptr = %d\n", cmd->code[cmd->ip-1], *reg_ptr);
         arg_val += *reg_ptr;
     }
 
@@ -112,8 +113,6 @@ fprintf(stderr, "POINT 1: ip = %d  *reg_ptr = %d\n", cmd->code[cmd->ip-1], *reg_
     else
         arg_ptr = &arg_val;
 
-    fprintf(stderr, "*arg_ptr in getarg = %d\t arg_val = %d\n", *arg_ptr, arg_val);
-
     SPU_ASSERT(spu);
 
     return arg_ptr;
@@ -124,10 +123,8 @@ StkElmsCmpVal StkTwoLastElmsCmp(StackID stk)
     StackElem_t val_1 = 0;
     StackElem_t val_2 = 0;
 
-    StackPop  (stk, &val_1);
     StackPop  (stk, &val_2);
-    StackPush (stk,  val_2);
-    StackPush (stk,  val_1);
+    StackPop  (stk, &val_1);
 
     if (val_1 > val_2)
         return A;
@@ -156,4 +153,31 @@ int GetMaskForFunc()
     mask |= 1 << (FUNC_CODE_BYTE_SIZE + 2);
     mask = ~mask;   // mask = 111..110001111111111111
     return mask;
+}
+
+void Draw(spu_t *spu)
+{
+    SPU_ASSERT(spu);
+
+    int *RAM = spu->RAM;
+
+    fprintf(stderr, "NARISUY!!\n");
+
+    for (size_t pos_y = 0; pos_y < RAM_SIZE_Y; pos_y++)
+    {
+        for (size_t pos_x = 0; pos_x < RAM_SIZE_X; pos_x++)
+        {
+            size_t el_num = pos_y * RAM_SIZE_X + pos_x;
+            assert(el_num < RAM_SIZE);
+
+            if (RAM[el_num] != 0)
+                printf("##");
+            else
+                printf("**");
+        }
+
+        printf("\n");
+    }
+
+    SPU_ASSERT(spu);
 }

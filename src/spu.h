@@ -3,12 +3,12 @@
 
 #include "stack.h"
 
-#define DEBUG
+// #define DEBUG
 
-const size_t REGISTERS_NUM  = 5;
+const size_t REGISTERS_NUM  = 4;
 
-const int    RAM_SIZE_X = 20;
-const int    RAM_SIZE_Y = 10;
+const int    RAM_SIZE_X = 100;
+const int    RAM_SIZE_Y = 100;
 const int    RAM_SIZE   = RAM_SIZE_X * RAM_SIZE_Y;
 
 const size_t MAX_CMD_SIZE   = 500;
@@ -27,19 +27,23 @@ enum FuncCodes
 {
     PUSH  =  1,
     POP   =  2,
-    ADD   =  3,
-    SUB   =  4,
-    MUL   =  5,
-    DIV   =  6,
-    JUMP  =  7,
-    CALL  =  8,
-    RET   =  9,
-    JA    =  10,
-    JAE   =  11,
-    JB    =  12,
-    JBE   =  13,
-    JE    =  14,
-    JNE   =  15,
+    JUMP  =  3,
+    CALL  =  4,
+    RET   =  5,
+    JA    =  6,
+    JAE   =  7,
+    JB    =  8,
+    JBE   =  9,
+    JE    =  10,
+    JNE   =  11,
+    DRAW  =  12,
+    ADD   =  13,
+    SUB   =  14,
+    MUL   =  15,
+    DIV   =  16,
+    SQRT  =  17,
+    MOD   =  18,
+    
     OUT   =  0,
     HLT   =  666
 };
@@ -72,6 +76,8 @@ struct spu_t
 
 void SpuCtor(spu_t *spu);
 void SpuDtor(spu_t *spu);
+
+void Draw(spu_t *spu);
 
 StackElem_t *GetArg(spu_t *spu);
 

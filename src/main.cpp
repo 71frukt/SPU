@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 #include "stack.h"
 #include "spu.h"
@@ -23,16 +24,12 @@ int main()
 
     int mask = GetMaskForFunc();   // mask = 111..110001111111111111
 
-fprintf(stderr, "mask: %d\n", mask);
-
     bool keep_doing = true;
 // fprintf(stderr, "-1 & mask: %d\n", (-1) & mask); // 100..001
 
     while (cmd->ip < cmd->size && keep_doing)
     {
         int cur_command = cmd->code[cmd->ip] & mask;
-
-        fprintf(stderr, "cur_command = %d\n", cur_command);
 
         switch (cur_command)    // команда без управл€ющих битов
         {
@@ -41,7 +38,6 @@ fprintf(stderr, "mask: %d\n", mask);
             SPU_ASSERT(&spu);
 
             StackElem_t *arg = GetArg(&spu);
-fprintf(stderr, "arg in push = %d\n\n", *arg);
             StackPush(data_stk, *arg);
 
             break;
@@ -74,6 +70,22 @@ fprintf(stderr, "arg in push = %d\n\n", *arg);
             break;
         }
 
+        case SUB:
+        {
+            SPU_ASSERT(&spu);
+
+            StackElem_t a = 0;
+            StackElem_t b = 0; 
+            
+            StackPop(data_stk, &a);
+            StackPop(data_stk, &b);
+
+            StackPush(data_stk, a - b); 
+            cmd->ip++;
+            
+            break;
+        }
+
         case MUL:
         {
             SPU_ASSERT(&spu);
@@ -97,24 +109,12 @@ fprintf(stderr, "arg in push = %d\n\n", *arg);
             StackElem_t divisible = 0;
             StackElem_t splitter  = 0;
 
-            StackPop(data_stk, &divisible);
             StackPop(data_stk, &splitter);
+            StackPop(data_stk, &divisible);
 
             StackPush(data_stk, divisible / splitter);
             cmd->ip++;
 
-            break;
-        }
-
-        case OUT:
-        {
-            SPU_ASSERT(&spu);
-
-            StackElem_t res = 0;
-            StackPop(data_stk, &res);
-            fprintf(stderr, "res = %d\n", res);
-            cmd->ip++;
-            
             break;
         }
 
@@ -135,7 +135,6 @@ fprintf(stderr, "arg in push = %d\n\n", *arg);
             SPU_ASSERT(&spu);
 
             StackPush(func_stk, cmd->ip + 2);
-            fprintf(stderr, "call push: %d\n", cmd->ip + 2);
 
             goto JUMP_MARK;
 
@@ -149,7 +148,6 @@ fprintf(stderr, "arg in push = %d\n\n", *arg);
             int tmp = cmd->ip;
             StackPop(func_stk, &tmp);
             cmd->ip = (size_t) tmp; 
-            fprintf(stderr, "ret pop: %d\n", cmd->ip);
 
             SPU_ASSERT(&spu);
             break;
@@ -232,6 +230,64 @@ fprintf(stderr, "arg in push = %d\n\n", *arg);
             break;
         }
 
+        case DRAW:
+        {
+            SPU_ASSERT(&spu);
+
+            Draw(&spu);
+
+            cmd->ip++;
+
+            SPU_ASSERT(&spu);
+
+            break;
+        }
+
+        case SQRT:
+        {
+            SPU_ASSERT(&spu);
+
+            StackElem_t elem = 0;
+            StackPop(data_stk, &elem);
+
+            elem = (StackElem_t) sqrt(elem);
+
+            StackPush(data_stk, elem);
+
+            cmd->ip++;
+
+            break;
+            SPU_ASSERT(&spu);
+        }
+
+        case MOD:
+        {
+            SPU_ASSERT(&spu);
+
+            StackElem_t divisible = 0;
+            StackElem_t splitter  = 0;
+
+            StackPop(data_stk, &splitter);
+            StackPop(data_stk, &divisible);
+
+            StackPush(data_stk, divisible % splitter);
+            cmd->ip++;
+
+            break;
+        }
+
+        case OUT:
+        {
+            SPU_ASSERT(&spu);
+
+            StackElem_t res = 0;
+            StackPop(data_stk, &res);
+            cmd->ip++;
+            
+            SPU_ASSERT(&spu);
+            break;
+        }
+
         case HLT:
         {
             SPU_ASSERT(&spu);
@@ -245,7 +301,7 @@ fprintf(stderr, "arg in push = %d\n\n", *arg);
         default:
         {
             fprintf(stderr, "Syntax error: '%llu'\n", cmd->code[cmd->ip]);
-            fprintf(logfile, "Syntax error: '%llu'\n\n", cmd->code[cmd->ip]);
+            ON_DEBUG(fprintf(logfile, "Syntax error: '%llu'\n\n", cmd->code[cmd->ip]));
             
             SPU_ASSERT(&spu);
             break;
