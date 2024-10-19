@@ -32,6 +32,7 @@ void PrintSpuErr(int error)
     PRINT_ERROR (error, CMD_ERR);
     PRINT_ERROR (error, CODE_ERR);
     PRINT_ERROR (error, LOGFILE_ERR);
+    PRINT_ERROR (error, SYNTAX_ERR);
 
     #undef PRINT_ERROR  
 
@@ -86,8 +87,9 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
         fprintf(logfile, "\t\t[%llu] = %d", i, registers[i]);
 
         if (registers[i] == REGISTER_POISON)
-            fprintf(logfile, "\t(REGISTER_POISON)\n", i);
-
+            fprintf(logfile, "\t(REGISTER_POISON)", i);
+        
+        fprintf(logfile, "\n");
     }
 
     fprintf(logfile, "\t}\n\n");
@@ -113,7 +115,7 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
         if (i % (int) RAM_SIZE_X == 0)
             fprintf(logfile, "\n\t\t");
         
-        fprintf(logfile, "%d ", RAM[i]); 
+        fprintf(logfile, "%3d ", RAM[i]); 
     }
 
     fprintf(logfile, "\n\t}\n");

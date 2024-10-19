@@ -40,10 +40,10 @@ fprintf(stderr, "mask: %d\n", mask);
         {
             SPU_ASSERT(&spu);
 
-            StackElem_t arg = GetArg(&spu);
-fprintf(stderr, "arg in push = %d\n", arg);
-            StackPush(data_stk, arg);
-                        
+            StackElem_t *arg = GetArg(&spu);
+fprintf(stderr, "arg in push = %d\n\n", *arg);
+            StackPush(data_stk, *arg);
+
             break;
         }
     
@@ -51,10 +51,9 @@ fprintf(stderr, "arg in push = %d\n", arg);
         {
             SPU_ASSERT(&spu);
 
-            StackElem_t arg = cmd->code[++cmd->ip];
+            StackElem_t *arg = GetArg(&spu);
 
-            StackPop(data_stk, &registers[arg]);
-            cmd->ip++;
+            StackPop(data_stk, arg);
             
             break;
         }

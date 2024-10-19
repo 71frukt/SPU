@@ -65,7 +65,7 @@ void SpuDtor(spu_t *spu)
     ON_DEBUG(fclose(*logfile));
 }
 
-StackElem_t GetArg(spu_t *spu)
+StackElem_t *GetArg(spu_t *spu)
 {
     SPU_ASSERT(spu);
 
@@ -73,28 +73,50 @@ StackElem_t GetArg(spu_t *spu)
 
     int func_code = cmd->code[cmd->ip++];
 
-    StackElem_t arg_val = 0;
+    static StackElem_t arg_val;
+    arg_val = 0;
+
+    StackElem_t *reg_ptr = NULL;
+    StackElem_t *arg_ptr = NULL;
+
+    if ((func_code & REG_BIT) && (func_code & IMM_BIT) && !(func_code & RAM_BIT))
+    {
+        fprintf(stderr, "perhaps you forgot the \"[]\"?\n");
+        SpuErr_val |= SYNTAX_ERR;
+    }
+
+    if (func_code & REG_BIT)
+    {
+        reg_ptr = &spu->registers[cmd->code[cmd->ip++]];
+fprintf(stderr, "POINT 1: ip = %d  *reg_ptr = %d\n", cmd->code[cmd->ip-1], *reg_ptr);
+        arg_val += *reg_ptr;
+    }
 
     if (func_code & IMM_BIT)
         arg_val += cmd->code[cmd->ip++];
     
-    if (func_code & REG_BIT)
-        arg_val += cmd->code[cmd->ip++];
+    // выбираем, чем будет arg_ptr
 
-    if (func_code & MEM_BIT)
+    if (func_code & RAM_BIT)    // записываем в RAM
     {
         if (arg_val < RAM_SIZE)
-            arg_val = spu->RAM[arg_val];
+            arg_ptr = &spu->RAM[arg_val];
         
         else
             SpuErr_val |= RAM_ERR;
-
-        fprintf(stderr, "arg_val in getarg = %d\n", arg_val);
     }
+
+    else if (func_code & REG_BIT)
+        arg_ptr = reg_ptr;
+    
+    else
+        arg_ptr = &arg_val;
+
+    fprintf(stderr, "*arg_ptr in getarg = %d\t arg_val = %d\n", *arg_ptr, arg_val);
 
     SPU_ASSERT(spu);
 
-    return arg_val;
+    return arg_ptr;
 }
 
 StkElmsCmpVal StkTwoLastElmsCmp(StackID stk)

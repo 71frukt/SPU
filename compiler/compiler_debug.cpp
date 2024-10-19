@@ -102,7 +102,7 @@ void CompilerDump(compiler_t *compiler, const char *file, int line, const char *
 
         else if (cmd->code[i] > 0)  
         {
-            if (cmd->code[i] & MEM_BIT)
+            if (cmd->code[i] & RAM_BIT)
                 fprintf(logfile, " mem_bit ");
 
             if (cmd->code[i] & REG_BIT)

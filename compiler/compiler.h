@@ -104,7 +104,7 @@ enum ManagerBits
 {
     IMM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 0),
     REG_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 1),
-    MEM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 2)
+    RAM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 2)
 };
 
 void    CompilerCtor     (compiler_t *compiler);

@@ -12,7 +12,8 @@ enum SPU_Error
     RAM_ERR       = (1 << 2),
     CMD_ERR       = (1 << 3),
     CODE_ERR      = (1 << 4),
-    LOGFILE_ERR   = (1 << 5)
+    LOGFILE_ERR   = (1 << 5),
+    SYNTAX_ERR    = (1 << 6)
 };
 
 #ifdef DEBUG

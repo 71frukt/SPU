@@ -117,7 +117,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
         if (cur_ptr != NULL)
         {
             cur_ptr++;  //на следующий символ после '['
-            command_code |= MEM_BIT;
+            command_code |= RAM_BIT;
         }
         else
             cur_ptr = arg_str + 1;      // первый символ всегда пробел

@@ -1,33 +1,33 @@
 Compiler called from main_compiler.cpp:49  (main)
 {
-	CMD  [000000943abff6c8]:
+	CMD  [000000d5051ff6f8]:
 	{
 		ip   = 2
-		size = 52
+		size = 58
 
-		code  [000001eba04215e0]
+		code  [0000026d618715e0]
 		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
 		}
 	}
 
-	Mark list  [000000943abff6f8]:
+	Mark list  [000000d5051ff728]:
 	{
 		ip   = 0
-		size = 52
+		size = 58
 
-		list  [000001eba04216c0]
+		list  [0000026d618716d0]
 		{
 		}
 	}
 
-	Fixup  [000000943abff6e0]:
+	Fixup  [000000d5051ff710]:
 	{
 		ip   = 0
-		size = 52
+		size = 58
 
-		data  [000001eba0421bb0]
+		data  [0000026d61877460]
 		{
 			num_in_marklist | mark_ip
 
@@ -38,36 +38,36 @@ Compiler called from main_compiler.cpp:49  (main)
 
 Compiler called from main_compiler.cpp:49  (main)
 {
-	CMD  [000000943abff6c8]:
+	CMD  [000000d5051ff6f8]:
 	{
 		ip   = 4
-		size = 52
+		size = 58
 
-		code  [000001eba04215e0]
+		code  [0000026d618715e0]
 		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
 			[2] 	=	8193 imm_bit 
-			[3] 	=	5
+			[3] 	=	65
 		}
 	}
 
-	Mark list  [000000943abff6f8]:
+	Mark list  [000000d5051ff728]:
 	{
 		ip   = 0
-		size = 52
+		size = 58
 
-		list  [000001eba04216c0]
+		list  [0000026d618716d0]
 		{
 		}
 	}
 
-	Fixup  [000000943abff6e0]:
+	Fixup  [000000d5051ff710]:
 	{
 		ip   = 0
-		size = 52
+		size = 58
 
-		data  [000001eba0421bb0]
+		data  [0000026d61877460]
 		{
 			num_in_marklist | mark_ip
 
@@ -78,38 +78,38 @@ Compiler called from main_compiler.cpp:49  (main)
 
 Compiler called from main_compiler.cpp:49  (main)
 {
-	CMD  [000000943abff6c8]:
+	CMD  [000000d5051ff6f8]:
 	{
 		ip   = 6
-		size = 52
+		size = 58
 
-		code  [000001eba04215e0]
+		code  [0000026d618715e0]
 		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
 			[2] 	=	8193 imm_bit 
-			[3] 	=	5
+			[3] 	=	65
 			[4] 	=	8193 imm_bit 
-			[5] 	=	6
+			[5] 	=	123
 		}
 	}
 
-	Mark list  [000000943abff6f8]:
+	Mark list  [000000d5051ff728]:
 	{
 		ip   = 0
-		size = 52
+		size = 58
 
-		list  [000001eba04216c0]
+		list  [0000026d618716d0]
 		{
 		}
 	}
 
-	Fixup  [000000943abff6e0]:
+	Fixup  [000000d5051ff710]:
 	{
 		ip   = 0
-		size = 52
+		size = 58
 
-		data  [000001eba0421bb0]
+		data  [0000026d61877460]
 		{
 			num_in_marklist | mark_ip
 
@@ -120,44 +120,42 @@ Compiler called from main_compiler.cpp:49  (main)
 
 Compiler called from main_compiler.cpp:49  (main)
 {
-	CMD  [000000943abff6c8]:
+	CMD  [000000d5051ff6f8]:
 	{
 		ip   = 8
-		size = 52
+		size = 58
 
-		code  [000001eba04215e0]
+		code  [0000026d618715e0]
 		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
 			[2] 	=	8193 imm_bit 
-			[3] 	=	5
+			[3] 	=	65
 			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
 		}
 	}
 
-	Mark list  [000000943abff6f8]:
+	Mark list  [000000d5051ff728]:
 	{
-		ip   = 1
-		size = 52
+		ip   = 0
+		size = 58
 
-		list  [000001eba04216c0]
+		list  [0000026d618716d0]
 		{
-			[0] : 'PLUS'	=	-MARK_POISON-
 		}
 	}
 
-	Fixup  [000000943abff6e0]:
+	Fixup  [000000d5051ff710]:
 	{
-		ip   = 1
-		size = 52
+		ip   = 0
+		size = 58
 
-		data  [000001eba0421bb0]
+		data  [0000026d61877460]
 		{
 			num_in_marklist | mark_ip
-				0				7
 
 		}
 	}
@@ -166,93 +164,144 @@ Compiler called from main_compiler.cpp:49  (main)
 
 Compiler called from main_compiler.cpp:49  (main)
 {
-	CMD  [000000943abff6c8]:
-	{
-		ip   = 9
-		size = 52
-
-		code  [000001eba04215e0]
-		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
-			[2] 	=	8193 imm_bit 
-			[3] 	=	5
-			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
-			[8] 	=	0
-		}
-	}
-
-	Mark list  [000000943abff6f8]:
-	{
-		ip   = 1
-		size = 52
-
-		list  [000001eba04216c0]
-		{
-			[0] : 'PLUS'	=	-MARK_POISON-
-		}
-	}
-
-	Fixup  [000000943abff6e0]:
-	{
-		ip   = 1
-		size = 52
-
-		data  [000001eba0421bb0]
-		{
-			num_in_marklist | mark_ip
-				0				7
-
-		}
-	}
-}
-
-
-Compiler called from main_compiler.cpp:49  (main)
-{
-	CMD  [000000943abff6c8]:
+	CMD  [000000d5051ff6f8]:
 	{
 		ip   = 10
-		size = 52
+		size = 58
 
-		code  [000001eba04215e0]
+		code  [0000026d618715e0]
 		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
 			[2] 	=	8193 imm_bit 
-			[3] 	=	5
+			[3] 	=	65
 			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
-			[8] 	=	0
-			[9] 	=	666
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
 		}
 	}
 
-	Mark list  [000000943abff6f8]:
+	Mark list  [000000d5051ff728]:
+	{
+		ip   = 0
+		size = 58
+
+		list  [0000026d618716d0]
+		{
+		}
+	}
+
+	Fixup  [000000d5051ff710]:
+	{
+		ip   = 0
+		size = 58
+
+		data  [0000026d61877460]
+		{
+			num_in_marklist | mark_ip
+
+		}
+	}
+}
+
+
+Compiler called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000d5051ff6f8]:
+	{
+		ip   = 12
+		size = 58
+
+		code  [0000026d618715e0]
+		{
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
+			[2] 	=	8193 imm_bit 
+			[3] 	=	65
+			[4] 	=	8193 imm_bit 
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+		}
+	}
+
+	Mark list  [000000d5051ff728]:
+	{
+		ip   = 0
+		size = 58
+
+		list  [0000026d618716d0]
+		{
+		}
+	}
+
+	Fixup  [000000d5051ff710]:
+	{
+		ip   = 0
+		size = 58
+
+		data  [0000026d61877460]
+		{
+			num_in_marklist | mark_ip
+
+		}
+	}
+}
+
+
+Compiler called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000d5051ff6f8]:
+	{
+		ip   = 14
+		size = 58
+
+		code  [0000026d618715e0]
+		{
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
+			[2] 	=	8193 imm_bit 
+			[3] 	=	65
+			[4] 	=	8193 imm_bit 
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	-14595100	(MARK_POISON)
+		}
+	}
+
+	Mark list  [000000d5051ff728]:
 	{
 		ip   = 1
-		size = 52
+		size = 58
 
-		list  [000001eba04216c0]
+		list  [0000026d618716d0]
 		{
 			[0] : 'PLUS'	=	-MARK_POISON-
 		}
 	}
 
-	Fixup  [000000943abff6e0]:
+	Fixup  [000000d5051ff710]:
 	{
 		ip   = 1
-		size = 52
+		size = 58
 
-		data  [000001eba0421bb0]
+		data  [0000026d61877460]
 		{
 			num_in_marklist | mark_ip
-				0				7
+				0				13
 
 		}
 	}
@@ -261,151 +310,51 @@ Compiler called from main_compiler.cpp:49  (main)
 
 Compiler called from main_compiler.cpp:49  (main)
 {
-	CMD  [000000943abff6c8]:
-	{
-		ip   = 11
-		size = 52
-
-		code  [000001eba04215e0]
-		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
-			[2] 	=	8193 imm_bit 
-			[3] 	=	5
-			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
-			[8] 	=	0
-			[9] 	=	666
-			[10] 	=	3
-		}
-	}
-
-	Mark list  [000000943abff6f8]:
-	{
-		ip   = 1
-		size = 52
-
-		list  [000001eba04216c0]
-		{
-			[0] : 'PLUS'	=	10
-		}
-	}
-
-	Fixup  [000000943abff6e0]:
-	{
-		ip   = 1
-		size = 52
-
-		data  [000001eba0421bb0]
-		{
-			num_in_marklist | mark_ip
-				0				7
-
-		}
-	}
-}
-
-
-Compiler called from main_compiler.cpp:49  (main)
-{
-	CMD  [000000943abff6c8]:
-	{
-		ip   = 13
-		size = 52
-
-		code  [000001eba04215e0]
-		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
-			[2] 	=	8193 imm_bit 
-			[3] 	=	5
-			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
-			[8] 	=	0
-			[9] 	=	666
-			[10] 	=	3
-			[11] 	=	8193 imm_bit 
-			[12] 	=	70
-		}
-	}
-
-	Mark list  [000000943abff6f8]:
-	{
-		ip   = 1
-		size = 52
-
-		list  [000001eba04216c0]
-		{
-			[0] : 'PLUS'	=	10
-		}
-	}
-
-	Fixup  [000000943abff6e0]:
-	{
-		ip   = 1
-		size = 52
-
-		data  [000001eba0421bb0]
-		{
-			num_in_marklist | mark_ip
-				0				7
-
-		}
-	}
-}
-
-
-Compiler called from main_compiler.cpp:49  (main)
-{
-	CMD  [000000943abff6c8]:
+	CMD  [000000d5051ff6f8]:
 	{
 		ip   = 15
-		size = 52
+		size = 58
 
-		code  [000001eba04215e0]
+		code  [0000026d618715e0]
 		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
 			[2] 	=	8193 imm_bit 
-			[3] 	=	5
+			[3] 	=	65
 			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
-			[8] 	=	0
-			[9] 	=	666
-			[10] 	=	3
-			[11] 	=	8193 imm_bit 
-			[12] 	=	70
-			[13] 	=	8193 imm_bit 
-			[14] 	=	80
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	-14595100	(MARK_POISON)
+			[14] 	=	0
 		}
 	}
 
-	Mark list  [000000943abff6f8]:
+	Mark list  [000000d5051ff728]:
 	{
 		ip   = 1
-		size = 52
+		size = 58
 
-		list  [000001eba04216c0]
+		list  [0000026d618716d0]
 		{
-			[0] : 'PLUS'	=	10
+			[0] : 'PLUS'	=	-MARK_POISON-
 		}
 	}
 
-	Fixup  [000000943abff6e0]:
+	Fixup  [000000d5051ff710]:
 	{
 		ip   = 1
-		size = 52
+		size = 58
 
-		data  [000001eba0421bb0]
+		data  [0000026d61877460]
 		{
 			num_in_marklist | mark_ip
-				0				7
+				0				13
 
 		}
 	}
@@ -414,55 +363,107 @@ Compiler called from main_compiler.cpp:49  (main)
 
 Compiler called from main_compiler.cpp:49  (main)
 {
-	CMD  [000000943abff6c8]:
+	CMD  [000000d5051ff6f8]:
+	{
+		ip   = 16
+		size = 58
+
+		code  [0000026d618715e0]
+		{
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
+			[2] 	=	8193 imm_bit 
+			[3] 	=	65
+			[4] 	=	8193 imm_bit 
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	-14595100	(MARK_POISON)
+			[14] 	=	0
+			[15] 	=	666
+		}
+	}
+
+	Mark list  [000000d5051ff728]:
+	{
+		ip   = 1
+		size = 58
+
+		list  [0000026d618716d0]
+		{
+			[0] : 'PLUS'	=	-MARK_POISON-
+		}
+	}
+
+	Fixup  [000000d5051ff710]:
+	{
+		ip   = 1
+		size = 58
+
+		data  [0000026d61877460]
+		{
+			num_in_marklist | mark_ip
+				0				13
+
+		}
+	}
+}
+
+
+Compiler called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000d5051ff6f8]:
 	{
 		ip   = 17
-		size = 52
+		size = 58
 
-		code  [000001eba04215e0]
+		code  [0000026d618715e0]
 		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
 			[2] 	=	8193 imm_bit 
-			[3] 	=	5
+			[3] 	=	65
 			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
-			[8] 	=	0
-			[9] 	=	666
-			[10] 	=	3
-			[11] 	=	8193 imm_bit 
-			[12] 	=	70
-			[13] 	=	8193 imm_bit 
-			[14] 	=	80
-			[15] 	=	14
-			[16] 	=	-14595100	(MARK_POISON)
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	-14595100	(MARK_POISON)
+			[14] 	=	0
+			[15] 	=	666
+			[16] 	=	3
 		}
 	}
 
-	Mark list  [000000943abff6f8]:
+	Mark list  [000000d5051ff728]:
 	{
-		ip   = 2
-		size = 52
+		ip   = 1
+		size = 58
 
-		list  [000001eba04216c0]
+		list  [0000026d618716d0]
 		{
-			[0] : 'PLUS'	=	10
-			[1] : 'FUNC'	=	-MARK_POISON-
+			[0] : 'PLUS'	=	16
 		}
 	}
 
-	Fixup  [000000943abff6e0]:
+	Fixup  [000000d5051ff710]:
 	{
-		ip   = 2
-		size = 52
+		ip   = 1
+		size = 58
 
-		data  [000001eba0421bb0]
+		data  [0000026d61877460]
 		{
 			num_in_marklist | mark_ip
-				0				7
-				1				16
+				0				13
 
 		}
 	}
@@ -471,59 +472,55 @@ Compiler called from main_compiler.cpp:49  (main)
 
 Compiler called from main_compiler.cpp:49  (main)
 {
-	CMD  [000000943abff6c8]:
+	CMD  [000000d5051ff6f8]:
 	{
 		ip   = 19
-		size = 52
+		size = 58
 
-		code  [000001eba04215e0]
+		code  [0000026d618715e0]
 		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
 			[2] 	=	8193 imm_bit 
-			[3] 	=	5
+			[3] 	=	65
 			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
-			[8] 	=	0
-			[9] 	=	666
-			[10] 	=	3
-			[11] 	=	8193 imm_bit 
-			[12] 	=	70
-			[13] 	=	8193 imm_bit 
-			[14] 	=	80
-			[15] 	=	14
-			[16] 	=	-14595100	(MARK_POISON)
-			[17] 	=	8
-			[18] 	=	-14595100	(MARK_POISON)
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	-14595100	(MARK_POISON)
+			[14] 	=	0
+			[15] 	=	666
+			[16] 	=	3
+			[17] 	=	8193 imm_bit 
+			[18] 	=	70
 		}
 	}
 
-	Mark list  [000000943abff6f8]:
+	Mark list  [000000d5051ff728]:
 	{
-		ip   = 3
-		size = 52
+		ip   = 1
+		size = 58
 
-		list  [000001eba04216c0]
+		list  [0000026d618716d0]
 		{
-			[0] : 'PLUS'	=	10
-			[1] : 'FUNC'	=	-MARK_POISON-
-			[2] : 'CUB_POW'	=	-MARK_POISON-
+			[0] : 'PLUS'	=	16
 		}
 	}
 
-	Fixup  [000000943abff6e0]:
+	Fixup  [000000d5051ff710]:
 	{
-		ip   = 3
-		size = 52
+		ip   = 1
+		size = 58
 
-		data  [000001eba0421bb0]
+		data  [0000026d61877460]
 		{
 			num_in_marklist | mark_ip
-				0				7
-				1				16
-				2				18
+				0				13
 
 		}
 	}
@@ -532,123 +529,57 @@ Compiler called from main_compiler.cpp:49  (main)
 
 Compiler called from main_compiler.cpp:49  (main)
 {
-	CMD  [000000943abff6c8]:
-	{
-		ip   = 20
-		size = 52
-
-		code  [000001eba04215e0]
-		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
-			[2] 	=	8193 imm_bit 
-			[3] 	=	5
-			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
-			[8] 	=	0
-			[9] 	=	666
-			[10] 	=	3
-			[11] 	=	8193 imm_bit 
-			[12] 	=	70
-			[13] 	=	8193 imm_bit 
-			[14] 	=	80
-			[15] 	=	14
-			[16] 	=	-14595100	(MARK_POISON)
-			[17] 	=	8
-			[18] 	=	-14595100	(MARK_POISON)
-			[19] 	=	9
-		}
-	}
-
-	Mark list  [000000943abff6f8]:
-	{
-		ip   = 3
-		size = 52
-
-		list  [000001eba04216c0]
-		{
-			[0] : 'PLUS'	=	10
-			[1] : 'FUNC'	=	-MARK_POISON-
-			[2] : 'CUB_POW'	=	-MARK_POISON-
-		}
-	}
-
-	Fixup  [000000943abff6e0]:
-	{
-		ip   = 3
-		size = 52
-
-		data  [000001eba0421bb0]
-		{
-			num_in_marklist | mark_ip
-				0				7
-				1				16
-				2				18
-
-		}
-	}
-}
-
-
-Compiler called from main_compiler.cpp:49  (main)
-{
-	CMD  [000000943abff6c8]:
+	CMD  [000000d5051ff6f8]:
 	{
 		ip   = 21
-		size = 52
+		size = 58
 
-		code  [000001eba04215e0]
+		code  [0000026d618715e0]
 		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
 			[2] 	=	8193 imm_bit 
-			[3] 	=	5
+			[3] 	=	65
 			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
-			[8] 	=	0
-			[9] 	=	666
-			[10] 	=	3
-			[11] 	=	8193 imm_bit 
-			[12] 	=	70
-			[13] 	=	8193 imm_bit 
-			[14] 	=	80
-			[15] 	=	14
-			[16] 	=	-14595100	(MARK_POISON)
-			[17] 	=	8
-			[18] 	=	-14595100	(MARK_POISON)
-			[19] 	=	9
-			[20] 	=	5
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	-14595100	(MARK_POISON)
+			[14] 	=	0
+			[15] 	=	666
+			[16] 	=	3
+			[17] 	=	8193 imm_bit 
+			[18] 	=	70
+			[19] 	=	8193 imm_bit 
+			[20] 	=	80
 		}
 	}
 
-	Mark list  [000000943abff6f8]:
+	Mark list  [000000d5051ff728]:
 	{
-		ip   = 3
-		size = 52
+		ip   = 1
+		size = 58
 
-		list  [000001eba04216c0]
+		list  [0000026d618716d0]
 		{
-			[0] : 'PLUS'	=	10
-			[1] : 'FUNC'	=	20
-			[2] : 'CUB_POW'	=	20
+			[0] : 'PLUS'	=	16
 		}
 	}
 
-	Fixup  [000000943abff6e0]:
+	Fixup  [000000d5051ff710]:
 	{
-		ip   = 3
-		size = 52
+		ip   = 1
+		size = 58
 
-		data  [000001eba0421bb0]
+		data  [0000026d61877460]
 		{
 			num_in_marklist | mark_ip
-				0				7
-				1				16
-				2				18
+				0				13
 
 		}
 	}
@@ -657,127 +588,323 @@ Compiler called from main_compiler.cpp:49  (main)
 
 Compiler called from main_compiler.cpp:49  (main)
 {
-	CMD  [000000943abff6c8]:
-	{
-		ip   = 22
-		size = 52
-
-		code  [000001eba04215e0]
-		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
-			[2] 	=	8193 imm_bit 
-			[3] 	=	5
-			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
-			[8] 	=	0
-			[9] 	=	666
-			[10] 	=	3
-			[11] 	=	8193 imm_bit 
-			[12] 	=	70
-			[13] 	=	8193 imm_bit 
-			[14] 	=	80
-			[15] 	=	14
-			[16] 	=	-14595100	(MARK_POISON)
-			[17] 	=	8
-			[18] 	=	-14595100	(MARK_POISON)
-			[19] 	=	9
-			[20] 	=	5
-			[21] 	=	5
-		}
-	}
-
-	Mark list  [000000943abff6f8]:
-	{
-		ip   = 3
-		size = 52
-
-		list  [000001eba04216c0]
-		{
-			[0] : 'PLUS'	=	10
-			[1] : 'FUNC'	=	20
-			[2] : 'CUB_POW'	=	20
-		}
-	}
-
-	Fixup  [000000943abff6e0]:
-	{
-		ip   = 3
-		size = 52
-
-		data  [000001eba0421bb0]
-		{
-			num_in_marklist | mark_ip
-				0				7
-				1				16
-				2				18
-
-		}
-	}
-}
-
-
-Compiler called from main_compiler.cpp:49  (main)
-{
-	CMD  [000000943abff6c8]:
+	CMD  [000000d5051ff6f8]:
 	{
 		ip   = 23
-		size = 52
+		size = 58
 
-		code  [000001eba04215e0]
+		code  [0000026d618715e0]
 		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
 			[2] 	=	8193 imm_bit 
-			[3] 	=	5
+			[3] 	=	65
 			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	-14595100	(MARK_POISON)
-			[8] 	=	0
-			[9] 	=	666
-			[10] 	=	3
-			[11] 	=	8193 imm_bit 
-			[12] 	=	70
-			[13] 	=	8193 imm_bit 
-			[14] 	=	80
-			[15] 	=	14
-			[16] 	=	-14595100	(MARK_POISON)
-			[17] 	=	8
-			[18] 	=	-14595100	(MARK_POISON)
-			[19] 	=	9
-			[20] 	=	5
-			[21] 	=	5
-			[22] 	=	9
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	-14595100	(MARK_POISON)
+			[14] 	=	0
+			[15] 	=	666
+			[16] 	=	3
+			[17] 	=	8193 imm_bit 
+			[18] 	=	70
+			[19] 	=	8193 imm_bit 
+			[20] 	=	80
+			[21] 	=	8
+			[22] 	=	-14595100	(MARK_POISON)
 		}
 	}
 
-	Mark list  [000000943abff6f8]:
+	Mark list  [000000d5051ff728]:
 	{
-		ip   = 3
-		size = 52
+		ip   = 2
+		size = 58
 
-		list  [000001eba04216c0]
+		list  [0000026d618716d0]
 		{
-			[0] : 'PLUS'	=	10
-			[1] : 'FUNC'	=	20
-			[2] : 'CUB_POW'	=	20
+			[0] : 'PLUS'	=	16
+			[1] : 'CUB_POW'	=	-MARK_POISON-
 		}
 	}
 
-	Fixup  [000000943abff6e0]:
+	Fixup  [000000d5051ff710]:
 	{
-		ip   = 3
-		size = 52
+		ip   = 2
+		size = 58
 
-		data  [000001eba0421bb0]
+		data  [0000026d61877460]
 		{
 			num_in_marklist | mark_ip
-				0				7
-				1				16
-				2				18
+				0				13
+				1				22
+
+		}
+	}
+}
+
+
+Compiler called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000d5051ff6f8]:
+	{
+		ip   = 24
+		size = 58
+
+		code  [0000026d618715e0]
+		{
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
+			[2] 	=	8193 imm_bit 
+			[3] 	=	65
+			[4] 	=	8193 imm_bit 
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	-14595100	(MARK_POISON)
+			[14] 	=	0
+			[15] 	=	666
+			[16] 	=	3
+			[17] 	=	8193 imm_bit 
+			[18] 	=	70
+			[19] 	=	8193 imm_bit 
+			[20] 	=	80
+			[21] 	=	8
+			[22] 	=	-14595100	(MARK_POISON)
+			[23] 	=	9
+		}
+	}
+
+	Mark list  [000000d5051ff728]:
+	{
+		ip   = 2
+		size = 58
+
+		list  [0000026d618716d0]
+		{
+			[0] : 'PLUS'	=	16
+			[1] : 'CUB_POW'	=	-MARK_POISON-
+		}
+	}
+
+	Fixup  [000000d5051ff710]:
+	{
+		ip   = 2
+		size = 58
+
+		data  [0000026d61877460]
+		{
+			num_in_marklist | mark_ip
+				0				13
+				1				22
+
+		}
+	}
+}
+
+
+Compiler called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000d5051ff6f8]:
+	{
+		ip   = 25
+		size = 58
+
+		code  [0000026d618715e0]
+		{
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
+			[2] 	=	8193 imm_bit 
+			[3] 	=	65
+			[4] 	=	8193 imm_bit 
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	-14595100	(MARK_POISON)
+			[14] 	=	0
+			[15] 	=	666
+			[16] 	=	3
+			[17] 	=	8193 imm_bit 
+			[18] 	=	70
+			[19] 	=	8193 imm_bit 
+			[20] 	=	80
+			[21] 	=	8
+			[22] 	=	-14595100	(MARK_POISON)
+			[23] 	=	9
+			[24] 	=	5
+		}
+	}
+
+	Mark list  [000000d5051ff728]:
+	{
+		ip   = 2
+		size = 58
+
+		list  [0000026d618716d0]
+		{
+			[0] : 'PLUS'	=	16
+			[1] : 'CUB_POW'	=	24
+		}
+	}
+
+	Fixup  [000000d5051ff710]:
+	{
+		ip   = 2
+		size = 58
+
+		data  [0000026d61877460]
+		{
+			num_in_marklist | mark_ip
+				0				13
+				1				22
+
+		}
+	}
+}
+
+
+Compiler called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000d5051ff6f8]:
+	{
+		ip   = 26
+		size = 58
+
+		code  [0000026d618715e0]
+		{
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
+			[2] 	=	8193 imm_bit 
+			[3] 	=	65
+			[4] 	=	8193 imm_bit 
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	-14595100	(MARK_POISON)
+			[14] 	=	0
+			[15] 	=	666
+			[16] 	=	3
+			[17] 	=	8193 imm_bit 
+			[18] 	=	70
+			[19] 	=	8193 imm_bit 
+			[20] 	=	80
+			[21] 	=	8
+			[22] 	=	-14595100	(MARK_POISON)
+			[23] 	=	9
+			[24] 	=	5
+			[25] 	=	5
+		}
+	}
+
+	Mark list  [000000d5051ff728]:
+	{
+		ip   = 2
+		size = 58
+
+		list  [0000026d618716d0]
+		{
+			[0] : 'PLUS'	=	16
+			[1] : 'CUB_POW'	=	24
+		}
+	}
+
+	Fixup  [000000d5051ff710]:
+	{
+		ip   = 2
+		size = 58
+
+		data  [0000026d61877460]
+		{
+			num_in_marklist | mark_ip
+				0				13
+				1				22
+
+		}
+	}
+}
+
+
+Compiler called from main_compiler.cpp:49  (main)
+{
+	CMD  [000000d5051ff6f8]:
+	{
+		ip   = 27
+		size = 58
+
+		code  [0000026d618715e0]
+		{
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
+			[2] 	=	8193 imm_bit 
+			[3] 	=	65
+			[4] 	=	8193 imm_bit 
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	-14595100	(MARK_POISON)
+			[14] 	=	0
+			[15] 	=	666
+			[16] 	=	3
+			[17] 	=	8193 imm_bit 
+			[18] 	=	70
+			[19] 	=	8193 imm_bit 
+			[20] 	=	80
+			[21] 	=	8
+			[22] 	=	-14595100	(MARK_POISON)
+			[23] 	=	9
+			[24] 	=	5
+			[25] 	=	5
+			[26] 	=	9
+		}
+	}
+
+	Mark list  [000000d5051ff728]:
+	{
+		ip   = 2
+		size = 58
+
+		list  [0000026d618716d0]
+		{
+			[0] : 'PLUS'	=	16
+			[1] : 'CUB_POW'	=	24
+		}
+	}
+
+	Fixup  [000000d5051ff710]:
+	{
+		ip   = 2
+		size = 58
+
+		data  [0000026d61877460]
+		{
+			num_in_marklist | mark_ip
+				0				13
+				1				22
 
 		}
 	}
@@ -786,63 +913,65 @@ Compiler called from main_compiler.cpp:49  (main)
 
 Compiler called from main_compiler.cpp:56  (main)
 {
-	CMD  [000000943abff6c8]:
+	CMD  [000000d5051ff6f8]:
 	{
-		ip   = 23
-		size = 52
+		ip   = 27
+		size = 58
 
-		code  [000001eba04215e0]
+		code  [0000026d618715e0]
 		{
-			[0] 	=	40961 mem_bit  imm_bit 
-			[1] 	=	125
+			[0] 	=	8193 imm_bit 
+			[1] 	=	5
 			[2] 	=	8193 imm_bit 
-			[3] 	=	5
+			[3] 	=	65
 			[4] 	=	8193 imm_bit 
-			[5] 	=	6
-			[6] 	=	8
-			[7] 	=	10
-			[8] 	=	0
-			[9] 	=	666
-			[10] 	=	3
-			[11] 	=	8193 imm_bit 
-			[12] 	=	70
-			[13] 	=	8193 imm_bit 
-			[14] 	=	80
-			[15] 	=	14
-			[16] 	=	20
-			[17] 	=	8
-			[18] 	=	20
-			[19] 	=	9
-			[20] 	=	5
-			[21] 	=	5
-			[22] 	=	9
+			[5] 	=	123
+			[6] 	=	8193 imm_bit 
+			[7] 	=	5
+			[8] 	=	16386 reg_bit 
+			[9] 	=	2
+			[10] 	=	49154 mem_bit  reg_bit 
+			[11] 	=	2
+			[12] 	=	8
+			[13] 	=	16
+			[14] 	=	0
+			[15] 	=	666
+			[16] 	=	3
+			[17] 	=	8193 imm_bit 
+			[18] 	=	70
+			[19] 	=	8193 imm_bit 
+			[20] 	=	80
+			[21] 	=	8
+			[22] 	=	24
+			[23] 	=	9
+			[24] 	=	5
+			[25] 	=	5
+			[26] 	=	9
 		}
 	}
 
-	Mark list  [000000943abff6f8]:
+	Mark list  [000000d5051ff728]:
 	{
-		ip   = 3
-		size = 52
+		ip   = 2
+		size = 58
 
-		list  [000001eba04216c0]
+		list  [0000026d618716d0]
 		{
-			[0] : 'PLUS'	=	10
-			[1] : 'FUNC'	=	20
-			[2] : 'CUB_POW'	=	20
+			[0] : 'PLUS'	=	16
+			[1] : 'CUB_POW'	=	24
 		}
 	}
 
-	Fixup  [000000943abff6e0]:
+	Fixup  [000000d5051ff710]:
 	{
-		ip   = 3
-		size = 52
+		ip   = 2
+		size = 58
 
-		data  [000001eba0421bb0]
+		data  [0000026d61877460]
 		{
 			num_in_marklist | mark_ip
-				0				7
-				1				16
-				2				18
+				0				13
+				1				22
 
 		}
 	}

@@ -48,7 +48,7 @@ enum ManagerBits
 {
     IMM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 0),
     REG_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 1),
-    MEM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 2)    //TODO RAM_BIT
+    RAM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 2)    //TODO RAM_BIT
 };
 
 struct cmd_t
@@ -73,7 +73,7 @@ struct spu_t
 void SpuCtor(spu_t *spu);
 void SpuDtor(spu_t *spu);
 
-StackElem_t GetArg(spu_t *spu);
+StackElem_t *GetArg(spu_t *spu);
 
 StkElmsCmpVal StkTwoLastElmsCmp(StackID stk);
 
