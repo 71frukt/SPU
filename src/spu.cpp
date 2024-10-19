@@ -65,6 +65,38 @@ void SpuDtor(spu_t *spu)
     ON_DEBUG(fclose(*logfile));
 }
 
+StackElem_t GetArg(spu_t *spu)
+{
+    SPU_ASSERT(spu);
+
+    cmd_t *cmd = &spu->cmd;
+
+    int func_code = cmd->code[cmd->ip++];
+
+    StackElem_t arg_val = 0;
+
+    if (func_code & IMM_BIT)
+        arg_val += cmd->code[cmd->ip++];
+    
+    if (func_code & REG_BIT)
+        arg_val += cmd->code[cmd->ip++];
+
+    if (func_code & MEM_BIT)
+    {
+        if (arg_val < RAM_SIZE)
+            arg_val = spu->RAM[arg_val];
+        
+        else
+            SpuErr_val |= RAM_ERR;
+
+        fprintf(stderr, "arg_val in getarg = %d\n", arg_val);
+    }
+
+    SPU_ASSERT(spu);
+
+    return arg_val;
+}
+
 StkElmsCmpVal StkTwoLastElmsCmp(StackID stk)
 {
     StackElem_t val_1 = 0;
@@ -92,4 +124,14 @@ StkElmsCmpVal StkTwoLastElmsCmp(StackID stk)
 
     else
         return NE;
+}
+
+int GetMaskForFunc()
+{
+    int mask = 0;
+    mask |= 1 << (FUNC_CODE_BYTE_SIZE + 0);
+    mask |= 1 << (FUNC_CODE_BYTE_SIZE + 1);
+    mask |= 1 << (FUNC_CODE_BYTE_SIZE + 2);
+    mask = ~mask;   // mask = 111..110001111111111111
+    return mask;
 }

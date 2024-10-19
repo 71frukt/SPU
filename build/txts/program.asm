@@ -1,5 +1,7 @@
-push 30
-push 40
+push [125]
+
+push 5
+push 6
 
 call PLUS:
 
@@ -7,17 +9,17 @@ out
 hlt
 
 PLUS:
-add
-push 70
-push 80
+    add
+    push 70
+    push 80
 
-JE FUNC:
+    JE FUNC:
 
-call CUB_POW:
+    call CUB_POW:
 RET
 
 FUNC:
-CUB_POW:
-mul
-mul
-RET
+    CUB_POW:
+        mul
+        mul
+    RET

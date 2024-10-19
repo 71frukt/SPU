@@ -19,7 +19,7 @@ const int   CMD_POISON       = -0xEBE;
 const int   MARK_POISON      = -0xDEB41C;
 const int   REGISTER_POISON  = -0xACCCCC;
 
-const int   FUNC_CODE_BYTE_SIZE = 12;
+const int   FUNC_CODE_BYTE_SIZE = 13;
 
 struct command_t
 {
@@ -82,30 +82,29 @@ struct compiler_t
 enum FuncCodes
 {
     PUSH  =  1,
-    ADD   =  2,
-    SUB   =  3,
-    MUL   =  4,
-    DIV   =  5,
-    PUSHR =  6,
-    POP   =  7,
-    JUMP  =  8,
-    CALL  =  9,
-    RET   =  10,
-    JA    =  11,
-    JAE   =  12,
-    JB    =  13,
-    JBE   =  14,
-    JE    =  15,
-    JNE   =  16,
+    POP   =  2,
+    ADD   =  3,
+    SUB   =  4,
+    MUL   =  5,
+    DIV   =  6,
+    JUMP  =  7,
+    CALL  =  8,
+    RET   =  9,
+    JA    =  10,
+    JAE   =  11,
+    JB    =  12,
+    JBE   =  13,
+    JE    =  14,
+    JNE   =  15,
     OUT   =  0,
-    HLT   =  -1
+    HLT   =  666
 };
 
 enum ManagerBits
 {
-    IMM_BIT = 1 << FUNC_CODE_BYTE_SIZE + 1,
-    REG_BIT = 1 << FUNC_CODE_BYTE_SIZE + 2,
-    MEM_BIT = 1 << FUNC_CODE_BYTE_SIZE + 3
+    IMM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 0),
+    REG_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 1),
+    MEM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 2)
 };
 
 void    CompilerCtor     (compiler_t *compiler);

@@ -1,16 +1,19 @@
 #include <stdio.h>
+#include <math.h>
 
 #include "spu.h"
 #include "spu_debug.h"
 
-void SpuAssert(spu_t *spu, int *spu_err, const char *file, int line, const char *func)
-{
-    *spu_err = SpuVerify(spu);
+extern int SpuErr_val;
 
-    if (*spu_err != 0)
+void SpuAssert(spu_t *spu, const char *file, int line, const char *func)
+{
+    SpuErr_val |= SpuVerify(spu);
+
+    if (SpuErr_val != 0)
     {
-        fprintf(stderr, "myassertion failed in\t%s:%d\nErrors:\t", file, line);
-        PrintSpuErr(*spu_err);
+        fprintf(stderr, "my assertion failed in\t%s:%d\nErrors:\t", file, line);
+        PrintSpuErr(SpuErr_val);
     }
 }
 
@@ -25,6 +28,7 @@ void PrintSpuErr(int error)
     
     PRINT_ERROR (error, SPU_PTR_ERR);
     PRINT_ERROR (error, REGISTERS_ERR);
+    PRINT_ERROR (error, RAM_ERR);
     PRINT_ERROR (error, CMD_ERR);
     PRINT_ERROR (error, CODE_ERR);
     PRINT_ERROR (error, LOGFILE_ERR);
@@ -37,6 +41,7 @@ void PrintSpuErr(int error)
 int SpuVerify(spu_t *spu)
 {
     cmd_t *cmd       = &spu->cmd;
+    int   *RAM       =  spu->RAM;
     int   *registers =  spu->registers;
     FILE  *code_file =  spu->code_file;
     ON_DEBUG(FILE *logfile = spu->logfile);
@@ -68,6 +73,7 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 {
     int   *registers =  spu->registers;
     cmd_t *cmd       = &spu->cmd;
+    int   *RAM       =  spu->RAM;
     FILE  *code_file =  spu->code_file;
     FILE  *logfile   =  spu->logfile;
 
@@ -77,11 +83,11 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 
     for (size_t i = 0; i < REGISTERS_NUM; i++)
     {
-        if (registers[i] == REGISTER_POISON)
-            fprintf(logfile, "\t\t[%llu] = -REGISTOR_POISON-\n", i);
+        fprintf(logfile, "\t\t[%llu] = %d", i, registers[i]);
 
-        else
-            fprintf(logfile, "\t\t[%llu] = %d\n", i, registers[i]);
+        if (registers[i] == REGISTER_POISON)
+            fprintf(logfile, "\t(REGISTER_POISON)\n", i);
+
     }
 
     fprintf(logfile, "\t}\n\n");
@@ -92,12 +98,25 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
     fprintf(logfile, "\t\tsize = %llu\n\n", cmd->size);
 
     fprintf(logfile, "\t\tcode  [%p]\n\t\t{\n", cmd->code);
+
     for (size_t i = 0; i < cmd->size; i++)
         fprintf(logfile, "\t\t\t[%llu] \t=\t%d\n", i, cmd->code[i]);
 
     fprintf(logfile, "\t\t}\n");
 
-    fprintf(logfile, "\t}\n");
+    fprintf(logfile, "\t}\n\n");
+
+    fprintf(logfile, "\tRAM  [%p]:\n\t{\t\t\t", RAM);
+
+    for (size_t i = 0; i < RAM_SIZE; i++)
+    {
+        if (i % (int) RAM_SIZE_X == 0)
+            fprintf(logfile, "\n\t\t");
+        
+        fprintf(logfile, "%d ", RAM[i]); 
+    }
+
+    fprintf(logfile, "\n\t}\n");
 
     fprintf(logfile, "}\n\n\n");
 }

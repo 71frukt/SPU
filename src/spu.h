@@ -5,11 +5,18 @@
 
 #define DEBUG
 
-const size_t MAX_CMD_SIZE   = 500;
 const size_t REGISTERS_NUM  = 5;
+
+const int    RAM_SIZE_X = 20;
+const int    RAM_SIZE_Y = 10;
+const int    RAM_SIZE   = RAM_SIZE_X * RAM_SIZE_Y;
+
+const size_t MAX_CMD_SIZE   = 500;
 
 const size_t REGISTER_POISON = 0xEBA1;
 const size_t CMD_POISON      = 0xFAFA;
+
+const int   FUNC_CODE_BYTE_SIZE = 13;
 
 enum StkElmsCmpVal
 {
@@ -19,23 +26,29 @@ enum StkElmsCmpVal
 enum FuncCodes
 {
     PUSH  =  1,
-    ADD   =  2,
-    SUB   =  3,
-    MUL   =  4,
-    DIV   =  5,
-    PUSHR =  6,
-    POPR  =  7,
-    JUMP  =  8,
-    CALL  =  9,
-    RET   =  10,
-    JA    =  11,
-    JAE   = 12,
-    JB    = 13,
-    JBE   = 14,
-    JE    = 15,
-    JNE   = 16,
+    POP   =  2,
+    ADD   =  3,
+    SUB   =  4,
+    MUL   =  5,
+    DIV   =  6,
+    JUMP  =  7,
+    CALL  =  8,
+    RET   =  9,
+    JA    =  10,
+    JAE   =  11,
+    JB    =  12,
+    JBE   =  13,
+    JE    =  14,
+    JNE   =  15,
     OUT   =  0,
-    HLT   =  -1
+    HLT   =  666
+};
+
+enum ManagerBits
+{
+    IMM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 0),
+    REG_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 1),
+    MEM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 2)    //TODO RAM_BIT
 };
 
 struct cmd_t
@@ -47,6 +60,7 @@ struct cmd_t
 
 struct spu_t
 {
+    int RAM[RAM_SIZE];
     int registers[REGISTERS_NUM];
     cmd_t cmd;
     StackID data_stk;
@@ -59,6 +73,10 @@ struct spu_t
 void SpuCtor(spu_t *spu);
 void SpuDtor(spu_t *spu);
 
+StackElem_t GetArg(spu_t *spu);
+
 StkElmsCmpVal StkTwoLastElmsCmp(StackID stk);
+
+int GetMaskForFunc();
 
 #endif

@@ -21,19 +21,39 @@ int main()
     FILE  *code_file =  spu.code_file;
     ON_DEBUG(FILE *logfile = spu.logfile);
 
+    int mask = GetMaskForFunc();   // mask = 111..110001111111111111
+
+fprintf(stderr, "mask: %d\n", mask);
+
     bool keep_doing = true;
+// fprintf(stderr, "-1 & mask: %d\n", (-1) & mask); // 100..001
 
     while (cmd->ip < cmd->size && keep_doing)
     {
-        switch (cmd->code[cmd->ip])
+        int cur_command = cmd->code[cmd->ip] & mask;
+
+        fprintf(stderr, "cur_command = %d\n", cur_command);
+
+        switch (cur_command)    // команда без управл€ющих битов
         {
         case PUSH:
         {
             SPU_ASSERT(&spu);
 
+            StackElem_t arg = GetArg(&spu);
+fprintf(stderr, "arg in push = %d\n", arg);
+            StackPush(data_stk, arg);
+                        
+            break;
+        }
+    
+        case POP:
+        {
+            SPU_ASSERT(&spu);
+
             StackElem_t arg = cmd->code[++cmd->ip];
 
-            StackPush(data_stk, arg);
+            StackPop(data_stk, &registers[arg]);
             cmd->ip++;
             
             break;
@@ -99,36 +119,24 @@ int main()
             break;
         }
 
-        case PUSHR:
-        {
-            SPU_ASSERT(&spu);
+        // case PUSHR:
+        // {
+        //     SPU_ASSERT(&spu);
 
-            StackElem_t arg = cmd->code[++cmd->ip];
+        //     StackElem_t arg = cmd->code[++cmd->ip];
 
-            StackPush(data_stk, registers[arg]);
-            cmd->ip++;
+        //     StackPush(data_stk, registers[arg]);
+        //     cmd->ip++;
             
-            break;
-        }
-
-        case POPR:
-        {
-            SPU_ASSERT(&spu);
-
-            StackElem_t arg = cmd->code[++cmd->ip];
-
-            StackPop(data_stk, &registers[arg]);
-            cmd->ip++;
-            
-            break;
-        }
+        //     break;
+        // }
 
         case CALL:
         {
             SPU_ASSERT(&spu);
 
             StackPush(func_stk, cmd->ip + 2);
-            fprintf(stderr, "push: %d\n", cmd->ip + 2);
+            fprintf(stderr, "call push: %d\n", cmd->ip + 2);
 
             goto JUMP_MARK;
 
@@ -142,7 +150,7 @@ int main()
             int tmp = cmd->ip;
             StackPop(func_stk, &tmp);
             cmd->ip = (size_t) tmp; 
-            fprintf(stderr, "pop: %d\n", cmd->ip);
+            fprintf(stderr, "ret pop: %d\n", cmd->ip);
 
             SPU_ASSERT(&spu);
             break;
@@ -237,7 +245,8 @@ int main()
 
         default:
         {
-            fprintf(code_file, "Syntax error: '%llu'\n", cmd->code[cmd->ip]);
+            fprintf(stderr, "Syntax error: '%llu'\n", cmd->code[cmd->ip]);
+            fprintf(logfile, "Syntax error: '%llu'\n\n", cmd->code[cmd->ip]);
             
             SPU_ASSERT(&spu);
             break;

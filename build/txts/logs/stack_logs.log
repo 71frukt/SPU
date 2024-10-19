@@ -1,830 +1,834 @@
 
 RECALLOC!
-Stack_t[0000021e84bb1530] at stack.cpp:247 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:247 born at spu.cpp:38:
 {
 	size     = 0
 	capacity = 0
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15c0	&right:       0000021e84bb15c8 
-	&data[0]   : 0000021e84bb15c8	&data[capa] : 0000021e84bb15c8
+	&left canar: 00000121d23215c0	&right:       00000121d23215c8 
+	&data[0]   : 00000121d23215c8	&data[capa] : 00000121d23215c8
 
-	data hash  = 4724798656786912770
+	data hash  = 2692027476673758799
 
-	data [0000021e84bb1530]: { 
+	data [00000121d2321530]: { 
 	}
 }
 
-Stack_t[0000021e84bb1530] at stack.cpp:87 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:87 born at spu.cpp:38:
 {
 	size     = 0
 	capacity = 0
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15c0	&right:       0000021e84bb15c8 
-	&data[0]   : 0000021e84bb15c8	&data[capa] : 0000021e84bb15c8
+	&left canar: 00000121d23215c0	&right:       00000121d23215c8 
+	&data[0]   : 00000121d23215c8	&data[capa] : 00000121d23215c8
 
-	data hash  = 4724798656786912770
+	data hash  = 2692027476673758799
 
-	data [0000021e84bb1530]: { 
+	data [00000121d2321530]: { 
 	}
 }
 
-Stack_t[0000021e84bb1530] at stack.cpp:126 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:126 born at spu.cpp:38:
 {
 	size     = 0
 	capacity = 0
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15c0	&right:       0000021e84bb15c8 
-	&data[0]   : 0000021e84bb15c8	&data[capa] : 0000021e84bb15c8
+	&left canar: 00000121d23215c0	&right:       00000121d23215c8 
+	&data[0]   : 00000121d23215c8	&data[capa] : 00000121d23215c8
 
-	data hash  = 4724798656786912770
+	data hash  = 2692027476673758799
 
-	data [0000021e84bb1530]: { 
+	data [00000121d2321530]: { 
 	}
 }
 
-Stack_t[0000021e84bb1530] at stack.cpp:190 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:190 born at spu.cpp:38:
 {
 	size     = 0
 	capacity = 0
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15c0	&right:       0000021e84bb15c8 
-	&data[0]   : 0000021e84bb15c8	&data[capa] : 0000021e84bb15c8
+	&left canar: 00000121d23215c0	&right:       00000121d23215c8 
+	&data[0]   : 00000121d23215c8	&data[capa] : 00000121d23215c8
 
-	data hash  = 4724798656786912770
+	data hash  = 2692027476673758799
 
-	data [0000021e84bb1530]: { 
+	data [00000121d2321530]: { 
 	}
 }
 
 
 RECALLOC!
-Stack_t[0000021e84bb1530] at stack.cpp:247 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:247 born at spu.cpp:38:
 {
 	size     = 0
 	capacity = 2
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb1510	&right:       0000021e84bb1520 
-	&data[0]   : 0000021e84bb1518	&data[capa] : 0000021e84bb1520
+	&left canar: 00000121d2321510	&right:       00000121d2321520 
+	&data[0]   : 00000121d2321518	&data[capa] : 00000121d2321520
 
-	data hash  = 2445948428212518836
+	data hash  = 413177248099364865
 
-	data [0000021e84bb1530]: { 
+	data [00000121d2321530]: { 
 		data[0] = -POISON-
 		data[1] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1530] at stack.cpp:139 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:139 born at spu.cpp:38:
 {
 	size     = 1
 	capacity = 2
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb1510	&right:       0000021e84bb1520 
-	&data[0]   : 0000021e84bb1518	&data[capa] : 0000021e84bb1520
+	&left canar: 00000121d2321510	&right:       00000121d2321520 
+	&data[0]   : 00000121d2321518	&data[capa] : 00000121d2321520
 
-	data hash  = -2387512464434912639
+	data hash  = -4317162531548584176
 
-	data [0000021e84bb1530]: { 
-		data[0] = 6 
+	data [00000121d2321530]: { 
+		data[0] = 8 
 		data[1] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1530] at stack.cpp:126 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:126 born at spu.cpp:38:
 {
 	size     = 1
 	capacity = 2
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb1510	&right:       0000021e84bb1520 
-	&data[0]   : 0000021e84bb1518	&data[capa] : 0000021e84bb1520
+	&left canar: 00000121d2321510	&right:       00000121d2321520 
+	&data[0]   : 00000121d2321518	&data[capa] : 00000121d2321520
 
-	data hash  = -2387512464434912639
+	data hash  = -4317162531548584176
 
-	data [0000021e84bb1530]: { 
-		data[0] = 6 
+	data [00000121d2321530]: { 
+		data[0] = 8 
 		data[1] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1530] at stack.cpp:139 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:139 born at spu.cpp:38:
 {
 	size     = 2
 	capacity = 2
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb1510	&right:       0000021e84bb1520 
-	&data[0]   : 0000021e84bb1518	&data[capa] : 0000021e84bb1520
+	&left canar: 00000121d2321510	&right:       00000121d2321520 
+	&data[0]   : 00000121d2321518	&data[capa] : 00000121d2321520
 
-	data hash  = 2542012533451696215
+	data hash  = -6651411832002117400
 
-	data [0000021e84bb1530]: { 
-		data[0] = 6 
-		data[1] = 17 
+	data [00000121d2321530]: { 
+		data[0] = 8 
+		data[1] = 19 
 	}
 }
 
-Stack_t[0000021e84bb1530] at stack.cpp:148 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:148 born at spu.cpp:38:
 {
 	size     = 2
 	capacity = 2
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb1510	&right:       0000021e84bb1520 
-	&data[0]   : 0000021e84bb1518	&data[capa] : 0000021e84bb1520
+	&left canar: 00000121d2321510	&right:       00000121d2321520 
+	&data[0]   : 00000121d2321518	&data[capa] : 00000121d2321520
 
-	data hash  = 2542012533451696215
+	data hash  = -6651411832002117400
 
-	data [0000021e84bb1530]: { 
-		data[0] = 6 
-		data[1] = 17 
+	data [00000121d2321530]: { 
+		data[0] = 8 
+		data[1] = 19 
 	}
 }
 
-Stack_t[0000021e84bb1530] at stack.cpp:172 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:172 born at spu.cpp:38:
 {
 	size     = 1
 	capacity = 2
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb1510	&right:       0000021e84bb1520 
-	&data[0]   : 0000021e84bb1518	&data[capa] : 0000021e84bb1520
+	&left canar: 00000121d2321510	&right:       00000121d2321520 
+	&data[0]   : 00000121d2321518	&data[capa] : 00000121d2321520
 
-	data hash  = -2387512464434912639
+	data hash  = -4317162531548584176
 
-	data [0000021e84bb1530]: { 
-		data[0] = 6 
+	data [00000121d2321530]: { 
+		data[0] = 8 
 		data[1] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1530] at stack.cpp:148 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:148 born at spu.cpp:38:
 {
 	size     = 1
 	capacity = 2
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb1510	&right:       0000021e84bb1520 
-	&data[0]   : 0000021e84bb1518	&data[capa] : 0000021e84bb1520
+	&left canar: 00000121d2321510	&right:       00000121d2321520 
+	&data[0]   : 00000121d2321518	&data[capa] : 00000121d2321520
 
-	data hash  = -2387512464434912639
+	data hash  = -4317162531548584176
 
-	data [0000021e84bb1530]: { 
-		data[0] = 6 
+	data [00000121d2321530]: { 
+		data[0] = 8 
 		data[1] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1530] at stack.cpp:172 born at spu.cpp:38:
+Stack_t[00000121d2321530] at stack.cpp:172 born at spu.cpp:38:
 {
 	size     = 0
 	capacity = 2
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb1510	&right:       0000021e84bb1520 
-	&data[0]   : 0000021e84bb1518	&data[capa] : 0000021e84bb1520
+	&left canar: 00000121d2321510	&right:       00000121d2321520 
+	&data[0]   : 00000121d2321518	&data[capa] : 00000121d2321520
 
-	data hash  = 4989555929022934390
+	data hash  = 2956784748909780419
 
-	data [0000021e84bb1530]: { 
+	data [00000121d2321530]: { 
 		data[0] = -POISON-
 		data[1] = -POISON-
 	}
 }
 
-}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:126 born at spu.cpp:37:
-{
-	size     = 0
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = -6293385402924940012
-
-	data [0000021e84bb1480]: { 
-		data[0] = -POISON-
-		data[1] = -POISON-
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:139 born at spu.cpp:37:
-{
-	size     = 1
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = 8076165893310202463
-
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = -POISON-
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:126 born at spu.cpp:37:
-{
-	size     = 1
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = 8076165893310202463
-
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = -POISON-
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:139 born at spu.cpp:37:
-{
-	size     = 2
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = 4983112722278562410
-
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:126 born at spu.cpp:37:
-{
-	size     = 2
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = 4983112722278562410
-
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:190 born at spu.cpp:37:
-{
-	size     = 2
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = 4983112722278562410
-
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
-	}
-}
-
-
-RECALLOC!
-Stack_t[0000021e84bb1480] at stack.cpp:247 born at spu.cpp:37:
-{
-	size     = 2
-	capacity = 4
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
-
-	data hash  = 8561926579595330604
-
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
+[0] = 0 
+		data[1] = 5 
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:205 born at spu.cpp:37:
-{
-	size     = 2
-	capacity = 4
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
-
-	data hash  = 8561926579595330604
-
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
-		data[2] = -POISON-
-		data[3] = -POISON-
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:139 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:139 born at spu.cpp:37:
 {
 	size     = 3
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 5000339367118333633
+	data hash  = 7153795518053026941
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
-		data[2] = 80 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 5 
+		data[2] = 6 
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:148 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:148 born at spu.cpp:37:
 {
 	size     = 3
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 5000339367118333633
+	data hash  = 7153795518053026941
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
-		data[2] = 80 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 5 
+		data[2] = 6 
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:172 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:172 born at spu.cpp:37:
 {
 	size     = 2
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8561926579595330604
+	data hash  = -3915880162198677646
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 5 
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:148 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:148 born at spu.cpp:37:
 {
 	size     = 2
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8561926579595330604
+	data hash  = -3915880162198677646
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 5 
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:172 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:172 born at spu.cpp:37:
 {
 	size     = 1
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8222238222262016417
+	data hash  = 4884732767010384744
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
+	data [00000121d2321480]: { 
+		data[0] = 0 
 		data[1] = -POISON-
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:126 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:126 born at spu.cpp:37:
 {
 	size     = 1
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8222238222262016417
+	data hash  = 4884732767010384744
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
+	data [00000121d2321480]: { 
+		data[0] = 0 
 		data[1] = -POISON-
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:139 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:139 born at spu.cpp:37:
 {
 	size     = 2
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8561926579595330604
+	data hash  = 6293110024750083320
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:126 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:126 born at spu.cpp:37:
 {
 	size     = 2
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8561926579595330604
+	data hash  = 6293110024750083320
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:139 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:139 born at spu.cpp:37:
 {
 	size     = 3
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 5000339367118333633
+	data hash  = 2215917247275674179
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
-		data[2] = 80 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:148 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:126 born at spu.cpp:37:
 {
 	size     = 3
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 5000339367118333633
+	data hash  = 2215917247275674179
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
-		data[2] = 80 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:172 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:139 born at spu.cpp:37:
+{
+	size     = 4
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = -302519268037573032
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
+		data[3] = 80 
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:148 born at spu.cpp:37:
+{
+	size     = 4
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = -302519268037573032
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
+		data[3] = 80 
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:172 born at spu.cpp:37:
+{
+	size     = 3
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = 2215917247275674179
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:148 born at spu.cpp:37:
+{
+	size     = 3
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = 2215917247275674179
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:172 born at spu.cpp:37:
 {
 	size     = 2
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8561926579595330604
+	data hash  = 6293110024750083320
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:148 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:126 born at spu.cpp:37:
 {
 	size     = 2
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8561926579595330604
+	data hash  = 6293110024750083320
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 70 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:172 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:139 born at spu.cpp:37:
 {
-	size     = 1
+	size     = 3
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8222238222262016417
+	data hash  = 2215917247275674179
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = -POISON-
-		data[2] = -POISON-
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:126 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:126 born at spu.cpp:37:
 {
-	size     = 1
+	size     = 3
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8222238222262016417
+	data hash  = 2215917247275674179
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = -POISON-
-		data[2] = -POISON-
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:139 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:139 born at spu.cpp:37:
+{
+	size     = 4
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = -302519268037573032
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
+		data[3] = 80 
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:148 born at spu.cpp:37:
+{
+	size     = 4
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = -302519268037573032
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
+		data[3] = 80 
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:172 born at spu.cpp:37:
+{
+	size     = 3
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = 2215917247275674179
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:148 born at spu.cpp:37:
+{
+	size     = 3
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = 2215917247275674179
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 70 
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:172 born at spu.cpp:37:
 {
 	size     = 2
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = -8438339448210854842
+	data hash  = 6293110024750083320
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 5600 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:148 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:126 born at spu.cpp:37:
 {
 	size     = 2
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = -8438339448210854842
+	data hash  = 6293110024750083320
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = 5600 
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:172 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:139 born at spu.cpp:37:
+{
+	size     = 3
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = -7802110488508221667
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 5600 
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:148 born at spu.cpp:37:
+{
+	size     = 3
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = -7802110488508221667
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = 5600 
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:172 born at spu.cpp:37:
+{
+	size     = 2
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = 6293110024750083320
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = -POISON-
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:148 born at spu.cpp:37:
+{
+	size     = 2
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = 6293110024750083320
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 11 
+		data[2] = -POISON-
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:172 born at spu.cpp:37:
 {
 	size     = 1
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8222238222262016417
+	data hash  = 4884732767010384744
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
+	data [00000121d2321480]: { 
+		data[0] = 0 
 		data[1] = -POISON-
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
-Stack_t[0000021e84bb1480] at stack.cpp:148 born at spu.cpp:37:
+Stack_t[00000121d2321480] at stack.cpp:126 born at spu.cpp:37:
 {
 	size     = 1
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8222238222262016417
+	data hash  = 4884732767010384744
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
+	data [00000121d2321480]: { 
+		data[0] = 0 
 		data[1] = -POISON-
 		data[2] = -POISON-
 		data[3] = -POISON-
 	}
 }
 
+Stack_t[00000121d2321480] at stack.cpp:139 born at spu.cpp:37:
+{
+	size     = 2
+	capacity = 4
 
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-POP_RECALLOC!
-Stack_t[0000021e84bb1480] at stack.cpp:190 born at spu.cpp:37:
+	data hash  = -5300574091527567155
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 61600 
+		data[2] = -POISON-
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:148 born at spu.cpp:37:
+{
+	size     = 2
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
+
+	data hash  = -5300574091527567155
+
+	data [00000121d2321480]: { 
+		data[0] = 0 
+		data[1] = 61600 
+		data[2] = -POISON-
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[00000121d2321480] at stack.cpp:172 born at spu.cpp:37:
 {
 	size     = 1
 	capacity = 4
 
 	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f8 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f8
+	&left canar: 00000121d23215e0	&right:       00000121d23215f8 
+	&data[0]   : 00000121d23215e8	&data[capa] : 00000121d23215f8
 
-	data hash  = 8222238222262016417
+	data hash  = 4884732767010384744
 
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
+	data [00000121d2321480]: { 
+		data[0] = 0 
 		data[1] = -POISON-
 		data[2] = -POISON-
 		data[3] = -POISON-
-	}
-}
-
-
-RECALLOC!
-Stack_t[0000021e84bb1480] at stack.cpp:247 born at spu.cpp:37:
-{
-	size     = 1
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = 8076165893310202463
-
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = -POISON-
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:205 born at spu.cpp:37:
-{
-	size     = 1
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = 8076165893310202463
-
-	data [0000021e84bb1480]: { 
-		data[0] = 70 
-		data[1] = -POISON-
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:172 born at spu.cpp:37:
-{
-	size     = 0
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = -6293385402924940012
-
-	data [0000021e84bb1480]: { 
-		data[0] = -POISON-
-		data[1] = -POISON-
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:126 born at spu.cpp:37:
-{
-	size     = 0
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = -6293385402924940012
-
-	data [0000021e84bb1480]: { 
-		data[0] = -POISON-
-		data[1] = -POISON-
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:139 born at spu.cpp:37:
-{
-	size     = 1
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = -1426429948783189863
-
-	data [0000021e84bb1480]: { 
-		data[0] = 392000 
-		data[1] = -POISON-
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:148 born at spu.cpp:37:
-{
-	size     = 1
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = -1426429948783189863
-
-	data [0000021e84bb1480]: { 
-		data[0] = 392000 
-		data[1] = -POISON-
-	}
-}
-
-Stack_t[0000021e84bb1480] at stack.cpp:172 born at spu.cpp:37:
-{
-	size     = 0
-	capacity = 2
-
-	left canar : 3735928559			right canar:  3735928559
-	&left canar: 0000021e84bb15e0	&right:       0000021e84bb15f0 
-	&data[0]   : 0000021e84bb15e8	&data[capa] : 0000021e84bb15f0
-
-	data hash  = -6293385402924940012
-
-	data [0000021e84bb1480]: { 
-		data[0] = -POISON-
-		data[1] = -POISON-
 	}
 }
 

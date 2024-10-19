@@ -33,7 +33,7 @@ void CompilerCtor(compiler_t *compiler)
     GetCommands(trans_file_name, &compiler->trans_commands);
 
     cmd->ip = 0;
-    cmd->size = GetCountOfWords(*asm_file) * 2;      // + Информация о push и pop
+    cmd->size = GetCountOfWords(*asm_file);
     cmd->code = (int *)  calloc(cmd->size, sizeof(int));
     
     for (size_t i = 0; i < cmd->size; i++)
@@ -98,7 +98,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     {
         int command_code = 0;
 
-        if (strcmp(cur_command_name, "push"))
+        if (strcmp(cur_command_name, "push") == 0)
             command_code |= PUSH;
         else
             command_code |= POP;
@@ -112,15 +112,11 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
         fscanf(asm_file, "%[^\n]", arg_str);
 
-        fprintf(stderr, "stroka: '%s'\n", arg_str);
-
         cur_ptr = strchr(arg_str, '[');
         
         if (cur_ptr != NULL)
         {
             cur_ptr++;  //на следующий символ после '['
-            fprintf(stderr, "MEM!  '%s'\n", cur_ptr);
-
             command_code |= MEM_BIT;
         }
         else
@@ -129,7 +125,6 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
         if (sscanf(cur_ptr, "%[A-Z]", tmp_str) == 1)     // есть регистр
         {
-            fprintf(stderr, "REG!  '%s'\n", tmp_str);
             if (IsRegister(tmp_str))
             {
                 command_code |= REG_BIT;
@@ -146,20 +141,17 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
             cur_ptr = ptr + 1;
 
         if (sscanf(cur_ptr, "%d", &res_imm) == 1)    // есть immediate const
-        {
-            fprintf(stderr, "IMM!  '%s'\n", cur_ptr);
             command_code |= IMM_BIT;
-        }
 
         cmd->code[cmd->ip++] = command_code;
+
+        fprintf(stderr, "command code = %d\n", command_code);
 
         if (res_reg != CMD_POISON)
             cmd->code[cmd->ip++] = res_reg;
         
         if (res_imm != CMD_POISON)
             cmd->code[cmd->ip++] = res_imm;
-
-        fprintf(stderr, "command_code = %d\n\n", command_code);
     }
 
     // else if (strcmp(cur_command_name, "PUSHR") == 0)
