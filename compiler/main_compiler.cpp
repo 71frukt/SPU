@@ -23,7 +23,7 @@ int main()
             int num_in_marklist = FindMarkInList(mark_name, &compiler.marklist);
             mark_t *mark = &compiler.marklist.list[num_in_marklist];
 
-fprintf(stderr, "main: mark name = '%s'   num in marklist = %d\n\n", mark_name, num_in_marklist);
+// fprintf(stderr, "main: mark name = '%s'   num in marklist = %d\n\n", mark_name, num_in_marklist);
 
             if (num_in_marklist < 0)
             {    
