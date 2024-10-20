@@ -125,7 +125,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
         if (sscanf(cur_ptr, "%[ A-Z]", tmp_str) == 1)     // есть регистр
         {
-        fprintf(stderr, "REGISTER IN PYK = %s\n", tmp_str);
+        // fprintf(stderr, "REGISTER IN PYK = %s\n", tmp_str);
             if (IsRegister(tmp_str))
             {
                 command_code |= REG_BIT;
@@ -215,20 +215,21 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
         {
             sscanf(arg_str, "%[^" MARK_SYMBOL "]", arg_str);   
 
-            mark_t *mark = FindMarkInList(arg_str, marklist);
-
-            if (mark == NULL)
+            int num_in_marklist = FindMarkInList(arg_str, marklist);
+            mark_t *mark = &marklist->list[num_in_marklist];
+fprintf(stderr, "jump etc:  mark name = '%s'   num in marklist = %d\n\n", arg_str, num_in_marklist);
+            if (num_in_marklist < 0)
             {
-                mark = &marklist->list[marklist->ip++];
+                mark = &marklist->list[marklist->ip];
                 mark->address = MARK_POISON;      //создать метку с ядовитым значением чтобы потом доопределить
                 sscanf(arg_str, "%[^" MARK_SYMBOL "]", mark->name);
+                num_in_marklist = marklist->ip++;
             }
 
             if (mark->address == MARK_POISON)
             {                
                 fixup->data[fixup->ip].mark_ip         = cmd->ip;
-                fixup->data[fixup->ip].num_in_marklist = marklist->ip - 1;
-
+                fixup->data[fixup->ip].num_in_marklist = num_in_marklist;
                 fixup->ip++;
             }
 
@@ -371,21 +372,23 @@ bool IsMark(char *str)
     return (strstr(str, MARK_SYMBOL) ? true : false);
 }
 
-mark_t *FindMarkInList(char *mark_name, marklist_t *marklist)
+int FindMarkInList(char *mark_name, marklist_t *marklist)
 {
-    for (size_t i = 0; i < marklist->ip; i++)
+    for (int i = 0; i < marklist->ip; i++)
     {
         if (strcmp(mark_name, marklist->list[i].name) == 0)
-            return &(marklist->list[i]);
+            return i;
     }
 
-    return NULL;
+    fprintf (stderr, "NE NASHOL!\n");
+
+    return -1;
 }
 
 void MakeFixUp(compiler_t *compiler)    //fixup_t *fixup, cmd_t *cmd, marklist_t *marklist
 {
     COMPILER_ASSERT(compiler);
-
+// fprintf(stderr, "\n\n\nFIXUP!\n\n");
     cmd_t      *cmd      = &compiler->cmd;
     fixup_t    *fixup    = &compiler->fixup;
     marklist_t *marklist = &compiler->marklist;
@@ -393,7 +396,7 @@ void MakeFixUp(compiler_t *compiler)    //fixup_t *fixup, cmd_t *cmd, marklist_t
     for (size_t i = 0; i < fixup->ip; i++)
     {
         fixup_el_t cur_fixup_el = fixup->data[i]; 
-        
+// fprintf(stderr, "i = %llu: cur_fixup_el.mark_ip = %llu,  mark address = %d\n", i, cur_fixup_el.mark_ip,(int) marklist->list[cur_fixup_el.num_in_marklist].address);
         cmd->code[cur_fixup_el.mark_ip] = (int) marklist->list[cur_fixup_el.num_in_marklist].address;
     }
 

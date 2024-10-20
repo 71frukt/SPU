@@ -18,7 +18,7 @@ int main()
     StackID  func_stk  = spu.func_stk;
 
     // FILE  *code_file =  spu.code_file;
-    ON_DEBUG(FILE *logfile = spu.logfile);
+    ON_SPU_DEBUG(FILE *logfile = spu.logfile);
 
     int mask = GetMaskForFunc();   // mask = 111..110001111111111111
 
@@ -28,7 +28,7 @@ int main()
     while (cmd->ip < cmd->size && keep_doing)
     {
         int cur_command = cmd->code[cmd->ip] & mask;
-
+// fprintf(stderr, "cur_com = %d\n", cur_command);
         switch (cur_command)    // команда без управл€ющих битов
         {
         case PUSH:
@@ -221,8 +221,8 @@ int main()
         {
             SPU_ASSERT(&spu);
 
-            DrawInWindow(&spu);
-            // DrawInConsole(&spu);
+            DrawInWindow();
+            // DrawInConsole();
 
             cmd->ip++;
 
@@ -276,9 +276,10 @@ int main()
         case SPU_OUT:
         {
             SPU_ASSERT(&spu);
-
+fprintf(stderr, "OUT!\n");
             StackElem_t res = 0;
             StackPop(data_stk, &res);
+            fprintf(stderr, "res = %d\n", res);
             cmd->ip++;
             
             SPU_ASSERT(&spu);
@@ -292,13 +293,14 @@ int main()
             cmd->ip++;
 
             keep_doing = false;
+            printf("END\n");
             break;
         }
 
         default:
         {
             fprintf(stderr, "Syntax error: '%d'\n", cmd->code[cmd->ip]);
-            ON_DEBUG(fprintf(logfile, "Syntax error: '%d'\n\n", cmd->code[cmd->ip]));
+            ON_SPU_DEBUG(fprintf(logfile, "Syntax error: '%d'\n\n", cmd->code[cmd->ip]));
             
             SPU_ASSERT(&spu);
             break;

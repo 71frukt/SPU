@@ -19,9 +19,13 @@ int main()
             char mark_name[MARK_NAME_LEN] = {};
             sscanf(cur_command_name, "%[^" MARK_SYMBOL "]", mark_name);            
 
-            mark_t *mark = FindMarkInList(mark_name, &compiler.marklist);
+            // mark_t *mark = FindMarkInList(mark_name, &compiler.marklist);
+            int num_in_marklist = FindMarkInList(mark_name, &compiler.marklist);
+            mark_t *mark = &compiler.marklist.list[num_in_marklist];
 
-            if (mark == NULL)
+fprintf(stderr, "main: mark name = '%s'   num in marklist = %d\n\n", mark_name, num_in_marklist);
+
+            if (num_in_marklist < 0)
             {    
                 size_t list_ip = compiler.marklist.ip;
                 compiler.marklist.list[list_ip].address = compiler.cmd.ip;
@@ -30,7 +34,7 @@ int main()
                 compiler.marklist.ip++;
             }
 
-            else if (mark != NULL && mark->address == MARK_POISON)
+            else if (num_in_marklist >= 0 && mark->address == MARK_POISON)
             {
                 mark->address = compiler.cmd.ip;
             }

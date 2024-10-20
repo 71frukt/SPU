@@ -34,8 +34,8 @@ void SpuCtor(spu_t *spu)
             break;
     }
 
-    STACK_CTOR(func_stk, 0);
-    STACK_CTOR(data_stk, 0);
+    STACK_CTOR(func_stk, 20);
+    STACK_CTOR(data_stk, 20);
     
     SPU_ASSERT(spu);
 }
@@ -68,6 +68,8 @@ void SpuDtor(spu_t *spu)
 StackElem_t *GetArg(spu_t *spu)
 {
     SPU_ASSERT(spu);
+
+    SPU_DUMP(spu);
 
     cmd_t *cmd = &spu->cmd;
 

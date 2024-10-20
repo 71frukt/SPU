@@ -38,6 +38,8 @@ void PrintSpuErr(int error)
 
 int SpuVerify(spu_t *spu)
 {
+    assert(spu);
+
     int res_err = 0;
     if (spu == NULL)
         res_err |= SPU_PTR_ERR;

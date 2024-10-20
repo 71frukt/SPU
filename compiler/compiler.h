@@ -8,9 +8,9 @@
 
 #define MARK_SYMBOL ":"
 
-const int   COMMAND_NAME_LEN = 20;
-const int   MARK_NAME_LEN    = 10;
-const int   MAX_ARG_NAME_LEN = 10;
+const int   COMMAND_NAME_LEN = 30;
+const int   MARK_NAME_LEN    = 30;
+const int   MAX_ARG_NAME_LEN = 30;
 const int   REG_NAME_LEN     = 2;
 
 const int   REGISTERS_NUM    = 5;
@@ -125,7 +125,7 @@ void    WriteCommandCode (char *cur_command_name, compiler_t *compiler);
 int     ReadRegister     (char *reg_name);
 bool    IsRegister       (char *reg_name);
 
-mark_t *FindMarkInList   (char *mark_name, marklist_t *list);
+int     FindMarkInList   (char *mark_name, marklist_t *marklist);
 bool    IsMark           (char *str);
 
 void    PrintCMD         (compiler_t *compiler);

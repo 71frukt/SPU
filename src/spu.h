@@ -88,8 +88,8 @@ struct spu_t
 void SpuCtor(spu_t *spu);
 void SpuDtor(spu_t *spu);
 
-void DrawInConsole(spu_t *spu);
-void DrawInWindow (spu_t *spu);
+void DrawInConsole();
+void DrawInWindow ();
 void SpuCreateWindow();
 
 StackElem_t *GetArg(spu_t *spu);

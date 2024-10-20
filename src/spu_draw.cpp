@@ -10,12 +10,12 @@ void SpuCreateWindow()
     txSetFillColor(TX_LIGHTBLUE);
 }
 
-void DrawInWindow(spu_t *spu)
+void DrawInWindow()
 {
-    SPU_ASSERT(spu);
     fprintf(stderr, "NARISUY V OKNE!!\n");
+    txSleep(2000);
 
-    txSleep(100);
+    txSetFillColor(TX_LIGHTBLUE);
 
     for (size_t pos_y = 0; pos_y < RAM_SIZE_Y; pos_y++)
     {
@@ -34,15 +34,14 @@ void DrawInWindow(spu_t *spu)
 // fprintf(stderr, "%f %f %f %f\n", x0, x1, y0, y1)
                 txRectangle(x0, y0, x1, y1);
             }
-
         }
     }
+
+    fprintf(stderr, "END DRAW\n");
 }
 
-void DrawInConsole(spu_t *spu)
+void DrawInConsole()
 {
-    SPU_ASSERT(spu);
-
     fprintf(stderr, "NARISUY V KONSOLI!!\n");
 
     for (size_t pos_y = 0; pos_y < RAM_SIZE_Y; pos_y++)
@@ -60,6 +59,4 @@ void DrawInConsole(spu_t *spu)
 
         printf("\n");
     }
-
-    SPU_ASSERT(spu);
 }
