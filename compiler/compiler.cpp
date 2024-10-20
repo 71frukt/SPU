@@ -263,7 +263,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
         cmd->code[cmd->ip++] = DIV;
 
     else if (strcmp(cur_command_name, "out") == 0)
-        cmd->code[cmd->ip++] = OUT;
+        cmd->code[cmd->ip++] = SPU_OUT;
 
     else if (strcmp(cur_command_name, "draw") == 0)
         cmd->code[cmd->ip++] = DRAW;

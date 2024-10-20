@@ -1,6 +1,12 @@
 #ifndef SPU_H
 #define SPU_H
 
+#include "TXLib.h"
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
 #include "stack.h"
 
 #define SPU_DEBUG
@@ -8,8 +14,8 @@
 
 const size_t REGISTERS_NUM  = 4;
 
-const int    RAM_SIZE_X = 100;
-const int    RAM_SIZE_Y = 100;
+const int    RAM_SIZE_X = 80;
+const int    RAM_SIZE_Y = 80;
 const int    RAM_SIZE   = RAM_SIZE_X * RAM_SIZE_Y;
 
 const size_t MAX_CMD_SIZE   = 500;
@@ -45,7 +51,7 @@ enum FuncCodes
     SQRT  =  17,
     MOD   =  18,
     
-    OUT   =  0,
+    SPU_OUT   =  0,
     HLT   =  666
 };
 
@@ -53,7 +59,7 @@ enum ManagerBits
 {
     IMM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 0),
     REG_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 1),
-    RAM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 2)    //TODO RAM_BIT
+    RAM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 2)
 };
 
 struct cmd_t
@@ -65,7 +71,6 @@ struct cmd_t
 
 struct spu_t
 {
-    int RAM[RAM_SIZE];
     int registers[REGISTERS_NUM];
     cmd_t cmd;
     StackID data_stk;

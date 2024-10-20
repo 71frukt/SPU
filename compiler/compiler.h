@@ -100,7 +100,7 @@ enum FuncCodes
     SQRT  =  17,
     MOD   =  18,
 
-    OUT   =  0,
+    SPU_OUT   =  0,
     HLT   =  666
 };
 

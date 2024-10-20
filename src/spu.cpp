@@ -1,7 +1,7 @@
-#include <stdio.h>
-
 #include "spu.h"
 #include "spu_debug.h"
+
+extern StackElem_t RAM[];
 
 const char  *code_file_name = "txts/program_code.txt";
 const char  *logs_file_name = "txts/logs/spu_logs.log";
@@ -73,11 +73,11 @@ StackElem_t *GetArg(spu_t *spu)
 
     int func_code = cmd->code[cmd->ip++];
 
-    static StackElem_t arg_val;
+    static int arg_val;
     arg_val = 0;
 
-    StackElem_t *reg_ptr = NULL;
-    StackElem_t *arg_ptr = NULL;
+    int *reg_ptr = NULL;
+    int *arg_ptr = NULL;
 
     if ((func_code & REG_BIT) && (func_code & IMM_BIT) && !(func_code & RAM_BIT))
     {
@@ -92,14 +92,15 @@ StackElem_t *GetArg(spu_t *spu)
     }
 
     if (func_code & IMM_BIT)
-        arg_val += cmd->code[cmd->ip++];
+        arg_val += (int) cmd->code[cmd->ip++];
     
     // выбираем, чем будет arg_ptr
 
     if (func_code & RAM_BIT)    // записываем в RAM
     {
+        // fprintf(stderr, "arg_val = %d\n", arg_val);
         if (arg_val < RAM_SIZE)
-            arg_ptr = &spu->RAM[arg_val];
+            arg_ptr = (int *) &RAM[arg_val];
         
         else
             SpuErr_val |= RAM_ERR;
@@ -113,7 +114,7 @@ StackElem_t *GetArg(spu_t *spu)
 
     SPU_ASSERT(spu);
 
-    return arg_ptr;
+    return (StackElem_t*) arg_ptr;
 }
 
 StkElmsCmpVal StkTwoLastElmsCmp(StackID stk)
@@ -156,8 +157,6 @@ int GetMaskForFunc()
 void Draw(spu_t *spu)
 {
     SPU_ASSERT(spu);
-
-    int *RAM = spu->RAM;
 
     fprintf(stderr, "NARISUY!!\n");
 

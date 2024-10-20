@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <math.h>
-
 #include "spu.h"
 #include "spu_debug.h"
 
@@ -12,7 +9,7 @@ void SpuAssert(spu_t *spu, const char *file, int line, const char *func)
 
     if (SpuErr_val != 0)
     {
-        fprintf(stderr, "my assertion failed in\t%s:%d\nErrors:\t", file, line);
+        fprintf(stderr, "my assertion failed in\t%s:%d\t(%s)\nErrors:\t", file, line, func);
         PrintSpuErr(SpuErr_val);
     }
 }
@@ -42,7 +39,6 @@ void PrintSpuErr(int error)
 int SpuVerify(spu_t *spu)
 {
     cmd_t *cmd       = &spu->cmd;
-    int   *RAM       =  spu->RAM;
     int   *registers =  spu->registers;
     FILE  *code_file =  spu->code_file;
     ON_SPU_DEBUG(FILE *logfile = spu->logfile);
@@ -75,9 +71,8 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
     ON_SPU_DEBUG (
         
     int   *registers =  spu->registers;
-    cmd_t *cmd       = &spu->cmd;
-    int   *RAM       =  spu->RAM;
-    FILE  *code_file =  spu->code_file;
+    // cmd_t *cmd       = &spu->cmd;
+    // FILE  *code_file =  spu->code_file;
     FILE  *logfile   =  spu->logfile;
 
     fprintf(logfile, "SPU_DUMP called from %s:%d  (%s)\n{\n", file, line, func);
@@ -89,7 +84,7 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
         fprintf(logfile, "\t\t[%llu] = %d", i, registers[i]);
 
         if (registers[i] == REGISTER_POISON)
-            fprintf(logfile, "\t(REGISTER_POISON)", i);
+            fprintf(logfile, "\t(REGISTER_POISON)");
         
         fprintf(logfile, "\n");
     }

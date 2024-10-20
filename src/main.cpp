@@ -1,25 +1,23 @@
-#include <stdio.h>
-#include <string.h>
-#include <math.h>
-
-#include "stack.h"
 #include "spu.h"
+#include "stack.h"
 #include "spu_debug.h"
 
 extern int SpuErr_val;
 
+StackElem_t RAM[RAM_SIZE] = {};
+
 int main()
 {
-    spu_t spu = {};
+    spu_t spu;
 
     SpuCtor(&spu);
     
     cmd_t   *cmd       = &spu.cmd;
-    int     *registers = spu.registers;
+    // int     *registers = spu.registers;
     StackID  data_stk  = spu.data_stk;
     StackID  func_stk  = spu.func_stk;
 
-    FILE  *code_file =  spu.code_file;
+    // FILE  *code_file =  spu.code_file;
     ON_DEBUG(FILE *logfile = spu.logfile);
 
     int mask = GetMaskForFunc();   // mask = 111..110001111111111111
@@ -134,7 +132,7 @@ int main()
         {
             SPU_ASSERT(&spu);
 
-            StackPush(func_stk, cmd->ip + 2);
+            StackPush(func_stk, (StackElem_t)(cmd->ip + 2));
 
             goto JUMP_MARK;
 
@@ -145,7 +143,7 @@ int main()
         {
             SPU_ASSERT(&spu);
 
-            int tmp = cmd->ip;
+            StackElem_t tmp = (StackElem_t)cmd->ip;
             StackPop(func_stk, &tmp);
             cmd->ip = (size_t) tmp; 
 
@@ -257,8 +255,8 @@ int main()
 
             cmd->ip++;
 
-            break;
             SPU_ASSERT(&spu);
+            break;
         }
 
         case MOD:
@@ -277,7 +275,7 @@ int main()
             break;
         }
 
-        case OUT:
+        case SPU_OUT:
         {
             SPU_ASSERT(&spu);
 
@@ -301,8 +299,8 @@ int main()
 
         default:
         {
-            fprintf(stderr, "Syntax error: '%llu'\n", cmd->code[cmd->ip]);
-            ON_DEBUG(fprintf(logfile, "Syntax error: '%llu'\n\n", cmd->code[cmd->ip]));
+            fprintf(stderr, "Syntax error: '%d'\n", cmd->code[cmd->ip]);
+            ON_DEBUG(fprintf(logfile, "Syntax error: '%d'\n\n", cmd->code[cmd->ip]));
             
             SPU_ASSERT(&spu);
             break;

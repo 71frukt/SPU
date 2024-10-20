@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "compiler.h"
 #include "compiler_debug.h"
 
