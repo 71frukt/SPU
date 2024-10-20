@@ -3,7 +3,8 @@
 
 #include "stack.h"
 
-// #define DEBUG
+#define SPU_DEBUG
+#include "spu_debug.h"
 
 const size_t REGISTERS_NUM  = 4;
 
@@ -71,7 +72,7 @@ struct spu_t
     StackID func_stk;
 
     FILE *code_file;
-    ON_DEBUG(FILE *logfile); 
+    ON_SPU_DEBUG(FILE *logfile); 
 };
 
 void SpuCtor(spu_t *spu);
@@ -84,5 +85,10 @@ StackElem_t *GetArg(spu_t *spu);
 StkElmsCmpVal StkTwoLastElmsCmp(StackID stk);
 
 int GetMaskForFunc();
+
+void SpuAssert   (spu_t *compiler, const char *file, int line, const char *func);
+int  SpuVerify   (spu_t *spu);
+void SpuDump     (spu_t *spu, const char *file, int line, const char *func);
+void PrintSpuErr (int error);
 
 #endif

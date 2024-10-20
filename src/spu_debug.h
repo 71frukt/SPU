@@ -16,7 +16,9 @@ enum SPU_Error
     SYNTAX_ERR    = (1 << 6)
 };
 
-#ifdef DEBUG
+#ifdef SPU_DEBUG
+
+#define ON_SPU_DEBUG(...)  __VA_ARGS__
 
 #define SPU_DUMP(spu_ptr)  SpuDump(spu_ptr, __FILE__, __LINE__, __func__)
 
@@ -27,13 +29,9 @@ enum SPU_Error
 }                                                                           \
 
 #else
+#define ON_SPU_DEBUG(...)
 #define SPU_DUMP 
 #define SPU_ASSERT(spu)
 #endif
-
-void SpuAssert   (spu_t *compiler, const char *file, int line, const char *func);
-int  SpuVerify   (spu_t *spu);
-void SpuDump     (spu_t *spu, const char *file, int line, const char *func);
-void PrintSpuErr (int error);
 
 #endif

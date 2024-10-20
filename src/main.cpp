@@ -156,7 +156,6 @@ int main()
         case JUMP:
         {
             JUMP_MARK:
-
             SPU_ASSERT(&spu);
 
             cmd->ip = cmd->code[cmd->ip + 1];
@@ -188,6 +187,8 @@ int main()
 
         case JB:
         {
+            SPU_DUMP(&spu);
+
             if (StkTwoLastElmsCmp(data_stk) == B)
                 goto JUMP_MARK;
 

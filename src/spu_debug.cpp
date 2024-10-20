@@ -45,7 +45,7 @@ int SpuVerify(spu_t *spu)
     int   *RAM       =  spu->RAM;
     int   *registers =  spu->registers;
     FILE  *code_file =  spu->code_file;
-    ON_DEBUG(FILE *logfile = spu->logfile);
+    ON_SPU_DEBUG(FILE *logfile = spu->logfile);
 
     int res_err = 0;
 
@@ -61,7 +61,7 @@ int SpuVerify(spu_t *spu)
     if (code_file == NULL)
         res_err |= CODE_ERR;
 
-    ON_DEBUG(
+    ON_SPU_DEBUG(
         if (logfile == NULL)
             res_err |= LOGFILE_ERR;
     )
@@ -72,7 +72,7 @@ int SpuVerify(spu_t *spu)
 
 void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 {
-    ON_DEBUG (
+    ON_SPU_DEBUG (
         
     int   *registers =  spu->registers;
     cmd_t *cmd       = &spu->cmd;

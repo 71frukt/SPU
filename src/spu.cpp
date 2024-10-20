@@ -16,7 +16,7 @@ void SpuCtor(spu_t *spu)
     StackID  *data_stk  = &spu->data_stk;
 
     FILE    **code_file = &spu->code_file;
-    ON_DEBUG(FILE **logfile = &spu->logfile);
+    ON_SPU_DEBUG(FILE **logfile = &spu->logfile);
 
     for (size_t i = 0; i < REGISTERS_NUM; i++)
     {
@@ -24,7 +24,7 @@ void SpuCtor(spu_t *spu)
     }
 
     *code_file = fopen(code_file_name, "r");
-    ON_DEBUG(*logfile = fopen(logs_file_name, "w"));
+    ON_SPU_DEBUG(*logfile = fopen(logs_file_name, "w"));
 
     *cmd = {};
 
@@ -48,7 +48,7 @@ void SpuDtor(spu_t *spu)
     StackID  *func_stk  = &spu->func_stk;
 
     FILE    **code_file = &spu->code_file;
-    ON_DEBUG(FILE **logfile = &spu->logfile);
+    ON_SPU_DEBUG(FILE **logfile = &spu->logfile);
 
     for (size_t i = 0; i < REGISTERS_NUM; i++)
         registers[i] = (int) REGISTER_POISON;
@@ -62,14 +62,12 @@ void SpuDtor(spu_t *spu)
     StackDtor(*data_stk);
 
     fclose(*code_file);
-    ON_DEBUG(fclose(*logfile));
+    ON_SPU_DEBUG(fclose(*logfile));
 }
 
 StackElem_t *GetArg(spu_t *spu)
 {
     SPU_ASSERT(spu);
-
-    SPU_DUMP(spu);
 
     cmd_t *cmd = &spu->cmd;
 
