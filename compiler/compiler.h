@@ -81,27 +81,28 @@ struct compiler_t
 
 enum FuncCodes
 {
-    PUSH  =  1,
-    POP   =  2,
-    JUMP  =  3,
-    CALL  =  4,
-    RET   =  5,
-    JA    =  6,
-    JAE   =  7,
-    JB    =  8,
-    JBE   =  9,
-    JE    =  10,
-    JNE   =  11,
-    DRAW  =  12,
-    ADD   =  13,
-    SUB   =  14,
-    MUL   =  15,
-    DIV   =  16,
-    SQRT  =  17,
-    MOD   =  18,
+    PUSH   = 1,
+    POP    = 2,
+    JUMP   = 3,
+    CALL   = 4,
+    RET    = 5,
+    JA     = 6,
+    JAE    = 7,
+    JB     = 8,
+    JBE    = 9,
+    JE     = 10,
+    JNE    = 11,
+    ADD    = 12,
+    SUB    = 13,
+    MUL    = 14,
+    DIV    = 15,
+    SQRT   = 16,
+    MOD    = 17,
+    CRTWND = 18,
+    DRAW   = 19,
 
-    SPU_OUT   =  0,
-    HLT   =  666
+    SPU_OUT = 0,
+    HLT = 666
 };
 
 enum ManagerBits

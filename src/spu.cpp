@@ -93,12 +93,11 @@ StackElem_t *GetArg(spu_t *spu)
 
     if (func_code & IMM_BIT)
         arg_val += (int) cmd->code[cmd->ip++];
-    
+
     // выбираем, чем будет arg_ptr
 
     if (func_code & RAM_BIT)    // записываем в RAM
     {
-        // fprintf(stderr, "arg_val = %d\n", arg_val);
         if (arg_val < RAM_SIZE)
             arg_ptr = (int *) &RAM[arg_val];
         
@@ -152,29 +151,4 @@ int GetMaskForFunc()
     mask |= 1 << (FUNC_CODE_BYTE_SIZE + 2);
     mask = ~mask;   // mask = 111..110001111111111111
     return mask;
-}
-
-void Draw(spu_t *spu)
-{
-    SPU_ASSERT(spu);
-
-    fprintf(stderr, "NARISUY!!\n");
-
-    for (size_t pos_y = 0; pos_y < RAM_SIZE_Y; pos_y++)
-    {
-        for (size_t pos_x = 0; pos_x < RAM_SIZE_X; pos_x++)
-        {
-            size_t el_num = pos_y * RAM_SIZE_X + pos_x;
-            assert(el_num < RAM_SIZE);
-
-            if (RAM[el_num] != 0)
-                printf("##");
-            else
-                printf("**");
-        }
-
-        printf("\n");
-    }
-
-    SPU_ASSERT(spu);
 }

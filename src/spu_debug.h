@@ -24,8 +24,8 @@ enum SPU_Error
 
 #define SPU_ASSERT(spu)                                                     \
 {                                                                           \
-    SPU_DUMP(spu);                                                          \
     SpuAssert(spu, __FILE__, __LINE__, __func__);                           \
+    SPU_DUMP(spu);                                                          \
 }                                                                           \
 
 #else

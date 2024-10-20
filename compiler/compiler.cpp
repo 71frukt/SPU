@@ -265,11 +265,14 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     else if (strcmp(cur_command_name, "out") == 0)
         cmd->code[cmd->ip++] = SPU_OUT;
 
-    else if (strcmp(cur_command_name, "draw") == 0)
-        cmd->code[cmd->ip++] = DRAW;
-
     else if (strcmp(cur_command_name, "sqrt") == 0)
         cmd->code[cmd->ip++] = SQRT;
+        
+    else if (strcmp(cur_command_name, "crtwnd") == 0)
+        cmd->code[cmd->ip++] = CRTWND;
+
+    else if (strcmp(cur_command_name, "draw") == 0)
+        cmd->code[cmd->ip++] = DRAW;
 
     else if (strcmp(cur_command_name, "mod") == 0)
         cmd->code[cmd->ip++] = MOD;

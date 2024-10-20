@@ -38,16 +38,16 @@ void PrintSpuErr(int error)
 
 int SpuVerify(spu_t *spu)
 {
+    int res_err = 0;
+    if (spu == NULL)
+        res_err |= SPU_PTR_ERR;
+
     cmd_t *cmd       = &spu->cmd;
     int   *registers =  spu->registers;
     FILE  *code_file =  spu->code_file;
     ON_SPU_DEBUG(FILE *logfile = spu->logfile);
 
-    int res_err = 0;
 
-    if (spu == NULL)
-        res_err |= SPU_PTR_ERR;
-    
     if (cmd == NULL || cmd->code == NULL || cmd->ip > cmd->size)
         res_err |= CMD_ERR;
 

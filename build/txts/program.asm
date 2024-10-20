@@ -1,3 +1,5 @@
+crtwnd
+
 call CENTER_IP:
 pop CX
 
@@ -7,7 +9,7 @@ pop [CX]
 
 push 0
 pop BX
-
+ 
 CYCLE:
 
 call PushCenterDist:
@@ -83,21 +85,21 @@ DRAW:
 RET
 
     CENTER_IP:
-push 5555
+push 3333
 RET
 
     RADIUS: 
-push 40 
+push 35 
 RET
 
     RAM_SIZE_X:
-push 100
+push 80
 RET
 
     RAM_SIZE_Y:
-push 100
+push 80
 RET
 
     RAM_SIZE:
-push 10000
+push 6400
 RET

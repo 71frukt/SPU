@@ -116,18 +116,6 @@ int main()
             break;
         }
 
-        // case PUSHR:
-        // {
-        //     SPU_ASSERT(&spu);
-
-        //     StackElem_t arg = cmd->code[++cmd->ip];
-
-        //     StackPush(data_stk, registers[arg]);
-        //     cmd->ip++;
-            
-        //     break;
-        // }
-
         case CALL:
         {
             SPU_ASSERT(&spu);
@@ -233,12 +221,22 @@ int main()
         {
             SPU_ASSERT(&spu);
 
-            Draw(&spu);
+            DrawInWindow(&spu);
+            // DrawInConsole(&spu);
 
             cmd->ip++;
 
             SPU_ASSERT(&spu);
 
+            break;
+        }
+
+        case CRTWND:
+        {
+            SpuCreateWindow();
+            cmd->ip++;
+
+            SPU_ASSERT(&spu);
             break;
         }
 
