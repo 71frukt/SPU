@@ -60,19 +60,25 @@ jump NEW_FIELD:
 hlt
 
     START_FIELD:
-push 11
+call RAM_SIZE_X:
+push 1
+add
 RET
 
     END_FIELD:
-push 88
+call RAM_CAPA:
+call RAM_SIZE_X:
+sub
+push 2
+sub
 RET
 
     RAM_CAPA:
-push 100
+push 1600
 RET
 
     RAM_SIZE_X:
-push 10
+push 40
 RET
 
 CountNegr:

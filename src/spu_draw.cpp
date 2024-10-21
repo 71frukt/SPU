@@ -14,7 +14,7 @@ void DrawInWindow()
 {
     // fprintf(stderr, "NARISUY V OKNE!!\n");
 
-    txSleep(500);
+    txSleep(SLEEP_TIME);
     
     txSetFillColor(TX_BLACK);
     txClear();

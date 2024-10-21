@@ -14,9 +14,11 @@
 
 const size_t REGISTERS_NUM  = 10;
 
-const int    RAM_SIZE_X    = 10;
-const int    RAM_SIZE_Y    = 10;
-const int    PIXEL_SIZE    = 10;                         // одна €чейка RAM - пиксель (PIXEL_SIZE х PIXEL_SIZE)
+const int    RAM_SIZE_X      = 40;
+const int    RAM_SIZE_Y      = 40;
+const int    PIXEL_SIZE      = 10;                         // одна €чейка RAM - пиксель (PIXEL_SIZE х PIXEL_SIZE)
+const double START_CELL_FREQ = 0.3;
+const int    SLEEP_TIME      = 100;                         // в миллисекундах
 
 const int    RAM_SIZE      = RAM_SIZE_X * RAM_SIZE_Y;
 const int    WINDOW_SIZE_X = RAM_SIZE_X * PIXEL_SIZE;
