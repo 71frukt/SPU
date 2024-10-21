@@ -4,7 +4,7 @@
 
 extern int SpuErr_val;
 
-int RAM[RAM_SIZE] = {};
+StackElem_t RAM[RAM_SIZE] = {};
 
 int main()
 {
@@ -162,7 +162,9 @@ int main()
 
         case JAE:
         {
-            if (StkTwoLastElmsCmp(data_stk) == AE)
+            StkElmsCmpVal cmp = StkTwoLastElmsCmp(data_stk);
+
+            if (cmp == A || cmp == E)
                 goto JUMP_MARK;
 
             else
@@ -173,9 +175,9 @@ int main()
 
         case JB:
         {
-            SPU_DUMP(&spu);
+            StkElmsCmpVal cmp = StkTwoLastElmsCmp(data_stk);
 
-            if (StkTwoLastElmsCmp(data_stk) == B)
+            if (cmp == B)
                 goto JUMP_MARK;
 
             else
@@ -186,7 +188,9 @@ int main()
 
         case JBE:
         {
-            if (StkTwoLastElmsCmp(data_stk) == BE)
+            StkElmsCmpVal cmp = StkTwoLastElmsCmp(data_stk);
+
+            if (cmp == B || cmp == E)
                 goto JUMP_MARK;
 
             else
@@ -208,7 +212,7 @@ int main()
 
         case JNE:
         {
-            if (StkTwoLastElmsCmp(data_stk) == NE)
+            if (StkTwoLastElmsCmp(data_stk) != E)
                 goto JUMP_MARK;
 
             else

@@ -126,23 +126,14 @@ StkElmsCmpVal StkTwoLastElmsCmp(StackID stk)
     StackPop  (stk, &val_2);
     StackPop  (stk, &val_1);
 
-    else if (val_1 == val_2)
-        return E;
-
-    else if (val_1 >= val_2)
-        return AE;
-
     if (val_1 > val_2)
         return A;
     
-    else if (val_1 <= val_2)
-        return BE;   
-
     else if (val_1 < val_2)
-        return B;
+        return B;  
 
     else
-        return NE;
+        return E;
 }
 
 int GetMaskForFunc()
