@@ -146,7 +146,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
         cmd->code[cmd->ip++] = command_code;
 
-        fprintf(stderr, "command code = %d\n", command_code);
+        // fprintf(stderr, "command code = %d\n", command_code);
 
         if (res_reg != CMD_POISON)
             cmd->code[cmd->ip++] = res_reg;
@@ -180,12 +180,12 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     // }
 
 
-    else if (strstr( "jump call JA JEA JB JEB JE JNE", cur_command_name) != NULL)
+    else if (strstr( "jump call JA JAE JB JBE JE JNE", cur_command_name) != NULL)
     {
         if(strcmp(cur_command_name, "call") == 0)
             cmd->code[cmd->ip++] = CALL;
 
-        else if (strcmp(cur_command_name, "JUMP") == 0)
+        else if (strcmp(cur_command_name, "jump") == 0)
             cmd->code[cmd->ip++] = JUMP;
 
         else if (strcmp(cur_command_name, "JA") == 0)
@@ -217,7 +217,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
             int num_in_marklist = FindMarkInList(arg_str, marklist);
             mark_t *mark = &marklist->list[num_in_marklist];
-fprintf(stderr, "jump etc:  mark name = '%s'   num in marklist = %d\n\n", arg_str, num_in_marklist);
+// fprintf(stderr, "jump etc:  mark name = '%s'   num in marklist = %d\n\n", arg_str, num_in_marklist);
             if (num_in_marklist < 0)
             {
                 mark = &marklist->list[marklist->ip];
@@ -274,6 +274,9 @@ fprintf(stderr, "jump etc:  mark name = '%s'   num in marklist = %d\n\n", arg_st
 
     else if (strcmp(cur_command_name, "draw") == 0)
         cmd->code[cmd->ip++] = DRAW;
+
+    else if (strcmp(cur_command_name, "setrndram") == 0)
+        cmd->code[cmd->ip++] = SETRNDRAM;    
 
     else if (strcmp(cur_command_name, "mod") == 0)
         cmd->code[cmd->ip++] = MOD;
@@ -379,8 +382,6 @@ int FindMarkInList(char *mark_name, marklist_t *marklist)
         if (strcmp(mark_name, marklist->list[i].name) == 0)
             return i;
     }
-
-    fprintf (stderr, "NE NASHOL!\n");
 
     return -1;
 }

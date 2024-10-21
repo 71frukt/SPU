@@ -4,14 +4,14 @@
 
 extern int SpuErr_val;
 
-StackElem_t RAM[RAM_SIZE] = {};
+int RAM[RAM_SIZE] = {};
 
 int main()
 {
     spu_t spu;
-
     SpuCtor(&spu);
-    
+    SPU_DUMP(&spu);
+
     cmd_t   *cmd       = &spu.cmd;
     // int     *registers = spu.registers;
     StackID  data_stk  = spu.data_stk;
@@ -75,8 +75,8 @@ int main()
             StackElem_t a = 0;
             StackElem_t b = 0; 
             
-            StackPop(data_stk, &a);
             StackPop(data_stk, &b);
+            StackPop(data_stk, &a);
 
             StackPush(data_stk, a - b); 
             cmd->ip++;
@@ -240,6 +240,15 @@ int main()
             break;
         }
 
+        case SETRNDRAM:
+        {
+            fprintf(stderr, "random!\n");
+            SetRandomRam();
+            cmd->ip++;
+            SPU_ASSERT(&spu);
+            break;
+        }
+
         case SQRT:
         {
             SPU_ASSERT(&spu);
@@ -276,7 +285,7 @@ int main()
         case SPU_OUT:
         {
             SPU_ASSERT(&spu);
-fprintf(stderr, "OUT!\n");
+// fprintf(stderr, "OUT!\n");
             StackElem_t res = 0;
             StackPop(data_stk, &res);
             fprintf(stderr, "res = %d\n", res);

@@ -1,6 +1,6 @@
 #include "spu.h"
 
-extern StackElem_t RAM[];
+extern int RAM[];
 
 void SpuCreateWindow()
 {
@@ -12,10 +12,12 @@ void SpuCreateWindow()
 
 void DrawInWindow()
 {
-    fprintf(stderr, "NARISUY V OKNE!!\n");
-    txSleep(2000);
+    // fprintf(stderr, "NARISUY V OKNE!!\n");
 
+    txSetFillColor(TX_BLACK);
+    txClear();
     txSetFillColor(TX_LIGHTBLUE);
+
 
     for (size_t pos_y = 0; pos_y < RAM_SIZE_Y; pos_y++)
     {
@@ -26,6 +28,9 @@ void DrawInWindow()
 
             if (RAM[el_num] != 0)
             {
+                txSetFillColor(TX_LIGHTBLUE);
+                txSetFillColor(TX_LIGHTBLUE);
+
                 double x0 = (double) pos_x * PIXEL_SIZE;
                 double y0 = (double) pos_y * PIXEL_SIZE;
 
@@ -36,27 +41,31 @@ void DrawInWindow()
             }
         }
     }
-
-    fprintf(stderr, "END DRAW\n");
 }
 
 void DrawInConsole()
-{
-    fprintf(stderr, "NARISUY V KONSOLI!!\n");
+{   
+    fprintf(stderr, "\tRAM  [%p]:\n\t{\t\t\t", RAM);
 
-    for (size_t pos_y = 0; pos_y < RAM_SIZE_Y; pos_y++)
+    for (size_t i = 0; i < RAM_SIZE; i++)
     {
-        for (size_t pos_x = 0; pos_x < RAM_SIZE_X; pos_x++)
-        {
-            size_t el_num = pos_y * RAM_SIZE_X + pos_x;
-            assert(el_num < RAM_SIZE);
-
-            if (RAM[el_num] != 0)
-                printf("##");
-            else
-                printf("**");
-        }
-
-        printf("\n");
+        if (i % (int) RAM_SIZE_X == 0)
+            fprintf(stderr, "\n\t\t");
+        
+        fprintf(stderr, "%3d ", RAM[i]); 
     }
+
+    fprintf(stderr, "\n\t}\n");
+
+    fprintf(stderr, "}\n\n\n");
+
+
+    // for (size_t i = 0; i < RAM_SIZE; i++)
+    // {
+    //     if (i % (int) RAM_SIZE_X == 0)
+    //         printf("\n\t\t");
+        
+    //     printf("%3d ", RAM[i]); 
+    // }
+    // printf("\n");
 }

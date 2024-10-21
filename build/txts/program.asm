@@ -3,37 +3,36 @@ crtwnd
 call CENTER_IP:
 pop CX
 
-push 1
+push 5
+pop [CX]
+
+
+push 0
 pop BX
 
 CYCLE:
-    call PushCenterDist:
-    call RADIUS:
 
-    JA SKIP:
+call PushCenterDist:
+call RADIUS:
 
-    push 1
-    pop [BX]
+JA NEXT:
+push 1
+pop [BX]
 
-    SKIP:
-    push BX
-    push 1
-    add
-    pop BX
+NEXT:
+push BX
+push 1
+add
+pop BX
 
-    push BX
-    call RAM_CAPA:
+push BX
+call RAM_SIZE:
+
 JB CYCLE:
 
 draw
 
-push 777
-out
-
 hlt
-
-CYCLE:
-
 
 PushCenterDist:
                 push BX
@@ -79,43 +78,24 @@ PushCenterDist:
     sqrt
 RET
 
-ClearRAM:
-
-    push 0
-    pop AX
-
-    ClearNextPixel:
-        push 0
-        pop [AX]
-
-        push AX
-        push 1
-        add
-        pop AX
 
 
-        push AX
-        call RAM_CAPA:
-
-    JB ClearNextPixel:
-
-    push 444
-    out
+DRAW:
+    draw
 RET
 
-
     CENTER_IP:
-push 3333
+push 555
 RET
 
     RADIUS: 
-push 35 
-RET
-
-    RAM_CAPA:
-push 6400
+push 30 
 RET
 
     RAM_SIZE_X:
-push 80
+push 100
+RET
+
+    RAM_SIZE:
+push 10000
 RET

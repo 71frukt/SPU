@@ -1,14 +1,22 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
-        "cstring": "cpp"
+        "cstring": "cpp",
+        "system_error": "cpp"
     },
     "cSpell.words": [
+        "CAPA",
+        "crtwnd",
+        "HWND",
+        "KONSOLI",
         "marklist",
         "NARISUY",
+        "Negr",
+        "OKNE",
         "POPR",
         "PUSHR",
         "RECALLOC",
+        "SETRNDRAM",
         "STKVARS",
         "stroka",
         "txts"

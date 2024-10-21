@@ -2,6 +2,7 @@
 #include "spu_debug.h"
 
 extern int SpuErr_val;
+extern int RAM[];
 
 void SpuAssert(spu_t *spu, const char *file, int line, const char *func)
 {
@@ -67,13 +68,12 @@ int SpuVerify(spu_t *spu)
     return res_err;
 }
 
-
+ON_SPU_DEBUG(
 void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 {
-    ON_SPU_DEBUG (
-        
+       
     int   *registers =  spu->registers;
-    // cmd_t *cmd       = &spu->cmd;
+    cmd_t *cmd       = &spu->cmd;
     // FILE  *code_file =  spu->code_file;
     FILE  *logfile   =  spu->logfile;
 
@@ -97,7 +97,7 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 // 
     // fprintf(logfile, "\t\tip   = %llu\n", cmd->ip);
     // fprintf(logfile, "\t\tsize = %llu\n\n", cmd->size);
-// 
+
     // fprintf(logfile, "\t\tcode  [%p]\n\t\t{\n", cmd->code);
 // 
     // for (size_t i = 0; i < cmd->size; i++)
@@ -106,7 +106,7 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
     // fprintf(logfile, "\t\t}\n");
 // 
     // fprintf(logfile, "\t}\n\n");
-
+// 
     // fprintf(logfile, "\tRAM  [%p]:\n\t{\t\t\t", RAM);
 // 
     // for (size_t i = 0; i < RAM_SIZE; i++)
@@ -115,11 +115,12 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
             // fprintf(logfile, "\n\t\t");
         // 
         // fprintf(logfile, "%3d ", RAM[i]); 
+        // fprintf(stderr, "i = %llu, RAM_SIZE = %d\n", i, RAM_SIZE);
     // }
 // 
     // fprintf(logfile, "\n\t}\n");
 
     fprintf(logfile, "}\n\n\n");
 
-    );
 }
+)

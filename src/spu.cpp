@@ -1,7 +1,7 @@
 #include "spu.h"
 #include "spu_debug.h"
 
-extern StackElem_t RAM[];
+extern int RAM[];
 
 const char  *code_file_name = "txts/program_code.txt";
 const char  *logs_file_name = "txts/logs/spu_logs.log";
@@ -153,4 +153,18 @@ int GetMaskForFunc()
     mask |= 1 << (FUNC_CODE_BYTE_SIZE + 2);
     mask = ~mask;   // mask = 111..110001111111111111
     return mask;
+}
+
+void SetRandomRam()
+{
+    fprintf(stderr, "Start rand!\n");
+
+    for (size_t i = 0; i < RAM_SIZE; i++)
+    {
+        RAM[i] = rand() % 2;
+
+        fprintf(stderr, "[%llu]\tram = %d\n", i, RAM[i]);
+    }
+
+    fprintf(stderr, "endrand\n");
 }

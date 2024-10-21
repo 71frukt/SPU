@@ -100,6 +100,7 @@ enum FuncCodes
     MOD    = 17,
     CRTWND = 18,
     DRAW   = 19,
+    SETRNDRAM = 20,
 
     SPU_OUT = 0,
     HLT = 666

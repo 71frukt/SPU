@@ -12,10 +12,10 @@
 #define SPU_DEBUG
 #include "spu_debug.h"
 
-const size_t REGISTERS_NUM  = 4;
+const size_t REGISTERS_NUM  = 5;
 
-const int    RAM_SIZE_X    = 80;
-const int    RAM_SIZE_Y    = 80;
+const int    RAM_SIZE_X    = 100;
+const int    RAM_SIZE_Y    = 100;
 const int    PIXEL_SIZE    = 5;                         // одна €чейка RAM - пиксель 5 х 5
 
 const int    RAM_SIZE      = RAM_SIZE_X * RAM_SIZE_Y;
@@ -28,6 +28,8 @@ const size_t REGISTER_POISON = 0xEBA1;
 const size_t CMD_POISON      = 0xFAFA;
 
 const int   FUNC_CODE_BYTE_SIZE = 13;
+
+const int RANDOM_CONST = 5;
 
 enum StkElmsCmpVal
 {
@@ -55,6 +57,7 @@ enum FuncCodes
     MOD    = 17,
     CRTWND = 18,
     DRAW   = 19,
+    SETRNDRAM = 20,
 
     SPU_OUT = 0,
     HLT = 666
@@ -97,6 +100,7 @@ StackElem_t *GetArg(spu_t *spu);
 StkElmsCmpVal StkTwoLastElmsCmp(StackID stk);
 
 int GetMaskForFunc();
+void SetRandomRam();
 
 void SpuAssert   (spu_t *compiler, const char *file, int line, const char *func);
 int  SpuVerify   (spu_t *spu);
