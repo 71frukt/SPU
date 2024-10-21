@@ -246,7 +246,8 @@ int main()
 
         case SETRNDRAM:
         {
-            fprintf(stderr, "random!\n");
+            SPU_ASSERT(&spu);
+            ON_SPU_DEBUG(fprintf(spu.logfile, "random!\n"));
             SetRandomRam();
             cmd->ip++;
             SPU_ASSERT(&spu);

@@ -17,11 +17,13 @@ JE DED_CELL:
 
 push CX
 push 4
-JE CELL_DYE:
+JAE CELL_DYE:
 
 push CX
 push 1
-JE CELL_DYE:
+JBE CELL_DYE:
+
+jump IT_END:
 
 DED_CELL:
 push CX
@@ -38,6 +40,7 @@ CELL_BORN:
 CELL_DYE:
     push 0
     pop [BX]
+    jump IT_END:
 
 IT_END:
 
@@ -56,16 +59,16 @@ jump NEW_FIELD:
 
 hlt
 
-    RAM_CAPA:
-push 100
-RET
-
     START_FIELD:
 push 11
 RET
 
     END_FIELD:
 push 88
+RET
+
+    RAM_CAPA:
+push 100
 RET
 
     RAM_SIZE_X:

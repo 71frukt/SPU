@@ -16,13 +16,13 @@ const size_t REGISTERS_NUM  = 10;
 
 const int    RAM_SIZE_X    = 10;
 const int    RAM_SIZE_Y    = 10;
-const int    PIXEL_SIZE    = 30;                         // одна €чейка RAM - пиксель (PIXEL_SIZE х PIXEL_SIZE)
+const int    PIXEL_SIZE    = 10;                         // одна €чейка RAM - пиксель (PIXEL_SIZE х PIXEL_SIZE)
 
 const int    RAM_SIZE      = RAM_SIZE_X * RAM_SIZE_Y;
 const int    WINDOW_SIZE_X = RAM_SIZE_X * PIXEL_SIZE;
 const int    WINDOW_SIZE_Y = RAM_SIZE_Y * PIXEL_SIZE;
 
-const size_t MAX_CMD_SIZE  = 500;
+const size_t MAX_CMD_SIZE  = 1000;
 
 const size_t REGISTER_POISON = 0xEBA1;
 const size_t CMD_POISON      = 0xFAFA;

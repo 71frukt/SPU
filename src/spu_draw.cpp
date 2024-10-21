@@ -15,11 +15,10 @@ void DrawInWindow()
     // fprintf(stderr, "NARISUY V OKNE!!\n");
 
     txSleep(500);
-
+    
     txSetFillColor(TX_BLACK);
     txClear();
     txSetFillColor(TX_LIGHTBLUE);
-
 
     for (size_t pos_y = 0; pos_y < RAM_SIZE_Y; pos_y++)
     {
@@ -30,7 +29,6 @@ void DrawInWindow()
 
             if (RAM[el_num] != 0)
             {
-                txSetFillColor(TX_LIGHTBLUE);
                 txSetFillColor(TX_LIGHTBLUE);
 
                 double x0 = (double) pos_x * PIXEL_SIZE;
