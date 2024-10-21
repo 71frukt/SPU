@@ -8,6 +8,7 @@ pop BX
 
 NEXT_PIXEL:
 call CountNegr:
+
 pop CX
 
 push [BX]
@@ -16,12 +17,15 @@ push 0
 JE DED_CELL:
 
 push CX
-push 4
-JAE CELL_DYE:
+push 3
+JA CELL_DYE:
 
 push CX
+push 2
+JB CELL_DYE:
+
 push 1
-JBE CELL_DYE:
+call PopExtraRamBX:
 
 jump IT_END:
 
@@ -61,12 +65,14 @@ jump NEW_FIELD:
 hlt
 
 
-    RAM_CAPA:
-push 1600
+    RAM_SIZE_X:
+push 20
 RET
 
-    RAM_SIZE_X:
-push 40
+    RAM_CAPA:
+call RAM_SIZE_X:
+call RAM_SIZE_X:
+mul
 RET
 
     START_FIELD:

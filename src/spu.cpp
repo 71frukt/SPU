@@ -69,7 +69,7 @@ StackElem_t *GetArg(spu_t *spu)
 {
     SPU_ASSERT(spu);
 
-    SPU_DUMP(spu);
+    // SPU_DUMP(spu);
 
     cmd_t *cmd = &spu->cmd;
 
@@ -151,9 +151,9 @@ void SetRandomRam()
 {
     fprintf(stderr, "Start rand!\n");
 
-    for (size_t i = RAM_SIZE_X; i < RAM_SIZE - RAM_SIZE_X; i++)     //первая и последняя колонка - границы, там жизни нет
+    for (size_t i = RAM_SIZE_X + 2; i < RAM_SIZE - RAM_SIZE_X - 2; i++)     //первая и последняя колонка - границы, там жизни нет
     {
-        int tmp = rand() % (int) (1 / START_CELL_FREQ);
+        int tmp = rand() % START_CELL_FREQ;
 
         if (tmp == 0)
             RAM[i] = 1;

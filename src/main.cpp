@@ -188,6 +188,8 @@ int main()
 
         case JBE:
         {
+            SPU_DUMP(&spu);
+
             StkElmsCmpVal cmp = StkTwoLastElmsCmp(data_stk);
 
             if (cmp == B || cmp == E)
