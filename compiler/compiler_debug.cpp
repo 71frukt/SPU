@@ -3,7 +3,7 @@
 
 void CompilerAssert(compiler_t *compiler, int *cmp_err, const char *file, int line, const char *func)
 {
-    *cmp_err = CompilerVerify(compiler);
+    *cmp_err |= CompilerVerify(compiler);
 
     if (*cmp_err != 0)
     {

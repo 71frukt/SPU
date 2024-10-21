@@ -397,7 +397,15 @@ void MakeFixUp(compiler_t *compiler)    //fixup_t *fixup, cmd_t *cmd, marklist_t
     for (size_t i = 0; i < fixup->ip; i++)
     {
         fixup_el_t cur_fixup_el = fixup->data[i]; 
+
 // fprintf(stderr, "i = %llu: cur_fixup_el.mark_ip = %llu,  mark address = %d\n", i, cur_fixup_el.mark_ip,(int) marklist->list[cur_fixup_el.num_in_marklist].address);
+
+        if (marklist->list[cur_fixup_el.num_in_marklist].address == MARK_POISON)
+        {
+            CompilerError_val |= FIXUP_ERR;
+            fprintf(stderr, "COMPILE ERROR: undefined mark: '%s'\n", marklist->list[cur_fixup_el.num_in_marklist].name);
+        }
+
         cmd->code[cur_fixup_el.mark_ip] = (int) marklist->list[cur_fixup_el.num_in_marklist].address;
     }
 
