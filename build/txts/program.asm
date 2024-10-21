@@ -7,12 +7,12 @@ call START_FIELD:
 pop BX
 
 NEXT_PIXEL:
-
 call CountNegr:
 pop CX
 
 push [BX]
 push 0
+
 JE DED_CELL:
 
 push CX
@@ -33,17 +33,16 @@ jump IT_END:
 
 CELL_BORN:
     push 1
-    pop [BX]
+    call PopExtraRamBX:
     jump IT_END:
 
 
 CELL_DYE:
     push 0
-    pop [BX]
+    call PopExtraRamBX:
     jump IT_END:
 
 IT_END:
-
     push BX
     push 1
     add
@@ -53,11 +52,22 @@ IT_END:
     call END_FIELD:
 JBE NEXT_PIXEL:
 
+call CopyExtraRamInRam:
+
 draw
 
 jump NEW_FIELD:
 
 hlt
+
+
+    RAM_CAPA:
+push 1600
+RET
+
+    RAM_SIZE_X:
+push 40
+RET
 
     START_FIELD:
 call RAM_SIZE_X:
@@ -73,13 +83,6 @@ push 2
 sub
 RET
 
-    RAM_CAPA:
-push 1600
-RET
-
-    RAM_SIZE_X:
-push 40
-RET
 
 CountNegr:
     call LU_IP:
@@ -123,6 +126,49 @@ CountNegr:
     add  
 RET
 
+PopExtraRamBX:
+    push BX
+    call RAM_CAPA:
+    add
+    pop BX
+
+    pop [BX]
+
+    push BX
+    call RAM_CAPA:
+    sub
+    pop BX
+RET
+
+CopyExtraRamInRam:
+    call START_FIELD:
+    pop BX
+
+
+    RAM_NOT_COPIED: 
+        push BX
+        call RAM_CAPA:
+        add
+        pop BX
+
+        push [BX]
+
+        push BX
+        call RAM_CAPA:
+        sub
+        pop BX
+
+        pop [BX]
+
+        push BX
+        push 1
+        add
+        pop BX
+
+        push BX
+        call END_FIELD:
+    JB RAM_NOT_COPIED:
+RET
 
 LU_IP:
     push BX
@@ -134,7 +180,6 @@ LU_IP:
 RET
 
 MU_IP:
-
     push BX
     push 0
     add

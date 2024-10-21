@@ -4,7 +4,7 @@
 
 extern int SpuErr_val;
 
-StackElem_t RAM[RAM_SIZE] = {};
+StackElem_t RAM[EXTRA_RAM_SIZE] = {};
 
 int main()
 {

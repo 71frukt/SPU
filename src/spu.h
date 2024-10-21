@@ -14,15 +14,17 @@
 
 const size_t REGISTERS_NUM  = 10;
 
-const int    RAM_SIZE_X      = 40;
-const int    RAM_SIZE_Y      = 40;
-const int    PIXEL_SIZE      = 10;                         // одна €чейка RAM - пиксель (PIXEL_SIZE х PIXEL_SIZE)
-const double START_CELL_FREQ = 0.3;
-const int    SLEEP_TIME      = 100;                         // в миллисекундах
+const int    RAM_SIZE_X       = 40;
+const int    RAM_SIZE_Y       = 40;
+const int    EXTRA_RAM_SIZE_Y = RAM_SIZE_Y * 2;
+const int    PIXEL_SIZE       = 10;                         // одна €чейка RAM - пиксель (PIXEL_SIZE х PIXEL_SIZE)
+const double START_CELL_FREQ  = 0.5;
+const int    SLEEP_TIME       = 100;                         // в миллисекундах
 
-const int    RAM_SIZE      = RAM_SIZE_X * RAM_SIZE_Y;
-const int    WINDOW_SIZE_X = RAM_SIZE_X * PIXEL_SIZE;
-const int    WINDOW_SIZE_Y = RAM_SIZE_Y * PIXEL_SIZE;
+const int    RAM_SIZE       = RAM_SIZE_X * RAM_SIZE_Y;
+const int    EXTRA_RAM_SIZE = RAM_SIZE_X * EXTRA_RAM_SIZE_Y;
+const int    WINDOW_SIZE_X  = RAM_SIZE_X * PIXEL_SIZE;
+const int    WINDOW_SIZE_Y  = RAM_SIZE_Y * PIXEL_SIZE;
 
 const size_t MAX_CMD_SIZE  = 1000;
 
