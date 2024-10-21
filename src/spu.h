@@ -9,14 +9,14 @@
 
 #include "stack.h"
 
-#define SPU_DEBUG
+// #define SPU_DEBUG
 #include "spu_debug.h"
 
-const size_t REGISTERS_NUM  = 5;
+const size_t REGISTERS_NUM  = 10;
 
-const int    RAM_SIZE_X    = 100;
-const int    RAM_SIZE_Y    = 100;
-const int    PIXEL_SIZE    = 5;                         // одна €чейка RAM - пиксель 5 х 5
+const int    RAM_SIZE_X    = 10;
+const int    RAM_SIZE_Y    = 10;
+const int    PIXEL_SIZE    = 30;                         // одна €чейка RAM - пиксель (PIXEL_SIZE х PIXEL_SIZE)
 
 const int    RAM_SIZE      = RAM_SIZE_X * RAM_SIZE_Y;
 const int    WINDOW_SIZE_X = RAM_SIZE_X * PIXEL_SIZE;
@@ -33,7 +33,7 @@ const int RANDOM_CONST = 5;
 
 enum StkElmsCmpVal
 {
-    A, AE, B, BE, E, NE
+    A, B, E
 };
 
 enum FuncCodes

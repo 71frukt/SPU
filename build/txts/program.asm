@@ -1,101 +1,178 @@
 crtwnd
+setrndram
+draw
 
-call CENTER_IP:
+NEW_FIELD:
+call START_FIELD:
+pop BX
+
+NEXT_PIXEL:
+
+call CountNegr:
 pop CX
 
-push 5
-pop [CX]
-
-
+push [BX]
 push 0
-pop BX
+JE DED_CELL:
 
-CYCLE:
+push CX
+push 4
+JE CELL_DYE:
 
-call PushCenterDist:
-call RADIUS:
-
-JA NEXT:
+push CX
 push 1
-pop [BX]
+JE CELL_DYE:
 
-NEXT:
-push BX
-push 1
-add
-pop BX
+DED_CELL:
+push CX
+push 3
+JE CELL_BORN:
+jump IT_END:
 
-push BX
-call RAM_SIZE:
+CELL_BORN:
+    push 1
+    pop [BX]
+    jump IT_END:
 
-JB CYCLE:
+
+CELL_DYE:
+    push 0
+    pop [BX]
+
+IT_END:
+
+    push BX
+    push 1
+    add
+    pop BX
+
+    push BX
+    call END_FIELD:
+JBE NEXT_PIXEL:
 
 draw
 
+jump NEW_FIELD:
+
 hlt
 
-PushCenterDist:
-                push BX
-                call RAM_SIZE_X:
-                mod
-
-                push CX
-                call RAM_SIZE_X:
-                mod
-            sub
-
-                push BX
-                call RAM_SIZE_X:
-                mod
-
-                push CX
-                call RAM_SIZE_X:
-                mod
-            sub
-        mul
-        
-
-                push BX
-                call RAM_SIZE_X:
-                div
-
-                push CX
-                call RAM_SIZE_X:
-                div
-            sub
-
-                push BX
-                call RAM_SIZE_X:
-                div
-
-                push CX
-                call RAM_SIZE_X:
-                div
-            sub
-        mul
-    add
-
-    sqrt
-RET
-
-
-
-DRAW:
-    draw
-RET
-
-    CENTER_IP:
-push 555
-RET
-
-    RADIUS: 
-push 30 
-RET
-
-    RAM_SIZE_X:
+    RAM_CAPA:
 push 100
 RET
 
-    RAM_SIZE:
-push 10000
+    START_FIELD:
+push 11
+RET
+
+    END_FIELD:
+push 88
+RET
+
+    RAM_SIZE_X:
+push 10
+RET
+
+CountNegr:
+    call LU_IP:
+            
+    pop DX
+    push [DX]
+
+    call MU_IP:
+    pop DX
+    push [DX]
+
+    call RU_IP:
+    pop DX
+    push [DX]
+
+    call LD_IP:
+    pop DX
+    push [DX]
+
+    call MD_IP:
+    pop DX
+    push [DX]
+
+    call RD_IP:
+    pop DX
+    push [DX]
+
+    call LM_IP:
+    pop DX
+    push [DX]
+
+    call RM_IP:
+    pop DX
+    push [DX]
+
+    add
+    add
+    add
+    add
+    add
+    add  
+RET
+
+
+LU_IP:
+    push BX
+    push 1
+    sub
+    call RAM_SIZE_X:
+    sub
+
+RET
+
+MU_IP:
+
+    push BX
+    push 0
+    add
+    call RAM_SIZE_X:
+    sub
+RET
+
+RU_IP:
+    push BX
+    push 1
+    add
+    call RAM_SIZE_X:
+    sub
+RET
+
+LD_IP:
+    push BX
+    push 1
+    sub
+    call RAM_SIZE_X:
+    add
+RET
+
+MD_IP:
+    push BX
+    push 0
+    add
+    call RAM_SIZE_X:
+    add
+RET
+
+RD_IP:
+    push BX
+    push 1
+    add
+    call RAM_SIZE_X:
+    add
+RET
+
+LM_IP:
+    push BX
+    push 1
+    sub
+RET
+
+RM_IP:
+    push BX
+    push 1
+    add
 RET

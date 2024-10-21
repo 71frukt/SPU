@@ -2,7 +2,7 @@
 #include "spu_debug.h"
 
 extern int SpuErr_val;
-extern int RAM[];
+extern StackElem_t RAM[];
 
 void SpuAssert(spu_t *spu, const char *file, int line, const char *func)
 {
@@ -107,18 +107,18 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 // 
     // fprintf(logfile, "\t}\n\n");
 // 
-    // fprintf(logfile, "\tRAM  [%p]:\n\t{\t\t\t", RAM);
-// 
-    // for (size_t i = 0; i < RAM_SIZE; i++)
-    // {
-        // if (i % (int) RAM_SIZE_X == 0)
-            // fprintf(logfile, "\n\t\t");
-        // 
-        // fprintf(logfile, "%3d ", RAM[i]); 
+    fprintf(logfile, "\tRAM  [%p]:\n\t{\t\t\t", RAM);
+
+    for (size_t i = 0; i < RAM_SIZE; i++)
+    {
+        if (i % (int) RAM_SIZE_X == 0)
+            fprintf(logfile, "\n\t\t");
+        
+        fprintf(logfile, "%3d ", RAM[i]); 
         // fprintf(stderr, "i = %llu, RAM_SIZE = %d\n", i, RAM_SIZE);
-    // }
-// 
-    // fprintf(logfile, "\n\t}\n");
+    }
+
+    fprintf(logfile, "\n\t}\n");
 
     fprintf(logfile, "}\n\n\n");
 

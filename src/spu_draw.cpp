@@ -1,6 +1,6 @@
 #include "spu.h"
 
-extern int RAM[];
+extern StackElem_t RAM[];
 
 void SpuCreateWindow()
 {
@@ -13,6 +13,8 @@ void SpuCreateWindow()
 void DrawInWindow()
 {
     // fprintf(stderr, "NARISUY V OKNE!!\n");
+
+    txSleep(500);
 
     txSetFillColor(TX_BLACK);
     txClear();

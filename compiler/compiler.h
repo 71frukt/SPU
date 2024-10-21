@@ -13,7 +13,7 @@ const int   MARK_NAME_LEN    = 30;
 const int   MAX_ARG_NAME_LEN = 30;
 const int   REG_NAME_LEN     = 2;
 
-const int   REGISTERS_NUM    = 5;
+const int   REGISTERS_NUM    = 10;
 
 const int   CMD_POISON       = -0xEBE;
 const int   MARK_POISON      = -0xDEB41C;
