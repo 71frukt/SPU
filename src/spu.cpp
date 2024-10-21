@@ -1,7 +1,7 @@
 #include "spu.h"
 #include "spu_debug.h"
 
-extern int RAM[];
+extern StackElem_t RAM[];
 
 const char  *code_file_name = "txts/program_code.txt";
 const char  *logs_file_name = "txts/logs/spu_logs.log";
@@ -126,20 +126,20 @@ StkElmsCmpVal StkTwoLastElmsCmp(StackID stk)
     StackPop  (stk, &val_2);
     StackPop  (stk, &val_1);
 
+    else if (val_1 == val_2)
+        return E;
+
+    else if (val_1 >= val_2)
+        return AE;
+
     if (val_1 > val_2)
         return A;
     
-    else if (val_1 >= val_2)
-        return AE;
-    
+    else if (val_1 <= val_2)
+        return BE;   
+
     else if (val_1 < val_2)
         return B;
-
-    else if (val_1 <= val_2)
-        return BE;
-
-    else if (val_1 == val_2)
-        return E;
 
     else
         return NE;
@@ -161,9 +161,9 @@ void SetRandomRam()
 
     for (size_t i = 0; i < RAM_SIZE; i++)
     {
-        RAM[i] = rand() % 2;
+        RAM[i] = (StackElem_t) (rand() % 2);
 
-        fprintf(stderr, "[%llu]\tram = %d\n", i, RAM[i]);
+        // fprintf(stderr, "[%llu]\tram = %d\n", i, RAM[i]);
     }
 
     fprintf(stderr, "endrand\n");
