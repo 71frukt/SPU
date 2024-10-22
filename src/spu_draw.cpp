@@ -17,7 +17,7 @@ void DrawInWindow()
     txSleep(SLEEP_TIME);
     
     txSetFillColor(TX_BLACK);
-    txClear();
+    txRectangle(0, 0, RAM_SIZE_X * PIXEL_SIZE, RAM_SIZE_Y * PIXEL_SIZE);
     txSetFillColor(TX_LIGHTBLUE);
 
     for (size_t pos_y = 0; pos_y < RAM_SIZE_Y; pos_y++)

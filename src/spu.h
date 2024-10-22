@@ -9,17 +9,17 @@
 
 #include "stack.h"
 
-// #define SPU_DEBUG
+#define SPU_DEBUG
 #include "spu_debug.h"
 
 const size_t REGISTERS_NUM  = 10;
 
-const int    RAM_SIZE_X       = 20;
-const int    RAM_SIZE_Y       = 20;
+const int    RAM_SIZE_X       = 100;
+const int    RAM_SIZE_Y       = RAM_SIZE_X;
 const int    EXTRA_RAM_SIZE_Y = RAM_SIZE_Y * 2;
 const int    PIXEL_SIZE       = 10;                         // одна €чейка RAM - пиксель (PIXEL_SIZE х PIXEL_SIZE)
 const int    START_CELL_FREQ  = 2;
-const int    SLEEP_TIME       = 300;                         // в миллисекундах
+const int    SLEEP_TIME       = 50;                         // в миллисекундах
 
 const int    RAM_SIZE       = RAM_SIZE_X * RAM_SIZE_Y;
 const int    EXTRA_RAM_SIZE = RAM_SIZE_X * EXTRA_RAM_SIZE_Y;
@@ -62,6 +62,7 @@ enum FuncCodes
     CRTWND = 18,
     DRAW   = 19,
     SETRNDRAM = 20,
+    DUMP   = 21,
 
     SPU_OUT = 0,
     HLT = 666

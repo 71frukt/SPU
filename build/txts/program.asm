@@ -3,7 +3,7 @@ setrndram
 draw
 
 NEW_FIELD:
-call START_FIELD:
+push 0
 pop BX
 
 NEXT_PIXEL:
@@ -24,16 +24,15 @@ push CX
 push 2
 JB CELL_DYE:
 
-push 1
-call PopExtraRamBX:
+jump CELL_BORN:
 
-jump IT_END:
 
 DED_CELL:
 push CX
 push 3
 JE CELL_BORN:
-jump IT_END:
+jump CELL_DYE:
+
 
 CELL_BORN:
     push 1
@@ -53,8 +52,8 @@ IT_END:
     pop BX
 
     push BX
-    call END_FIELD:
-JBE NEXT_PIXEL:
+    call RAM_CAPA:
+JB NEXT_PIXEL:
 
 call CopyExtraRamInRam:
 
@@ -65,8 +64,11 @@ jump NEW_FIELD:
 hlt
 
 
+
+
+
     RAM_SIZE_X:
-push 20
+push 100
 RET
 
     RAM_CAPA:
@@ -91,8 +93,7 @@ RET
 
 
 CountNegr:
-    call LU_IP:
-            
+    call LU_IP:        
     pop DX
     push [DX]
 
@@ -129,7 +130,10 @@ CountNegr:
     add
     add
     add
-    add  
+    add 
+    add
+
+
 RET
 
 PopExtraRamBX:
@@ -178,11 +182,18 @@ RET
 
 LU_IP:
     push BX
+
     push 1
     sub
+
     call RAM_SIZE_X:
     sub
 
+    call RAM_CAPA:
+    add
+
+    call RAM_CAPA:
+    mod
 RET
 
 MU_IP:
@@ -191,6 +202,10 @@ MU_IP:
     add
     call RAM_SIZE_X:
     sub
+    call RAM_CAPA:
+    add
+    call RAM_CAPA:
+    mod
 RET
 
 RU_IP:
@@ -199,6 +214,10 @@ RU_IP:
     add
     call RAM_SIZE_X:
     sub
+    call RAM_CAPA:
+    add
+    call RAM_CAPA:
+    mod
 RET
 
 LD_IP:
@@ -207,6 +226,10 @@ LD_IP:
     sub
     call RAM_SIZE_X:
     add
+    call RAM_CAPA:
+    add
+    call RAM_CAPA:
+    mod
 RET
 
 MD_IP:
@@ -215,24 +238,41 @@ MD_IP:
     add
     call RAM_SIZE_X:
     add
+    call RAM_CAPA:
+    add
+    call RAM_CAPA:
+    mod
 RET
 
 RD_IP:
     push BX
+
     push 1
     add
     call RAM_SIZE_X:
     add
+    call RAM_CAPA:
+    add
+    call RAM_CAPA:
+    mod
 RET
 
 LM_IP:
     push BX
     push 1
     sub
+    call RAM_CAPA:
+    add
+    call RAM_CAPA:
+    mod
 RET
 
 RM_IP:
     push BX
     push 1
     add
+    call RAM_CAPA:
+    add
+    call RAM_CAPA:
+    mod
 RET

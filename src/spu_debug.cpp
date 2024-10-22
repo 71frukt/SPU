@@ -108,7 +108,7 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
     // fprintf(logfile, "\t}\n\n");
 // 
     fprintf(logfile, "\tRAM  [%p]:\n\t{\t\t\t", RAM);
-    fprintf(logfile, "\tMAIN PART\n", RAM);
+    fprintf(logfile, "\tMAIN PART\n");
 
     for (size_t i = 0; i < RAM_SIZE; i++)
     {
@@ -119,7 +119,7 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
         // fprintf(stderr, "i = %llu, RAM_SIZE = %d\n", i, RAM_SIZE);
     }
 
-    fprintf(logfile, "\t\nADDITIONAL PART\n", RAM);
+    fprintf(logfile, "\t\nADDITIONAL PART\n");
 
     for (size_t i = RAM_SIZE; i < EXTRA_RAM_SIZE; i++)
     {

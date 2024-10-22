@@ -273,6 +273,16 @@ int main()
             break;
         }
 
+        case DUMP:
+        {
+            SPU_ASSERT(&spu);
+
+            SPU_DUMP(&spu);
+            cmd->ip++;
+
+            break;
+        }
+
         case MOD:
         {
             SPU_ASSERT(&spu);

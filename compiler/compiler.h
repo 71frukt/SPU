@@ -101,6 +101,7 @@ enum FuncCodes
     CRTWND = 18,
     DRAW   = 19,
     SETRNDRAM = 20,
+    DUMP   = 21,
 
     SPU_OUT = 0,
     HLT = 666

@@ -16,21 +16,22 @@ enum SPU_Error
     SYNTAX_ERR    = (1 << 6)
 };
 
+#define SPU_DUMP(spu_ptr)  SpuDump(spu_ptr, __FILE__, __LINE__, __func__)
+
+
 #ifdef SPU_DEBUG
 
 #define ON_SPU_DEBUG(...)  __VA_ARGS__
 
-#define SPU_DUMP(spu_ptr)  SpuDump(spu_ptr, __FILE__, __LINE__, __func__)
 
 #define SPU_ASSERT(spu)                                                     \
 {                                                                           \
     SpuAssert(spu, __FILE__, __LINE__, __func__);                           \
-    /*SPU_DUMP(spu);*/                                                          \
+    /*SPU_DUMP(spu);*/                                                      \
 }                                                                           \
 
 #else
 #define ON_SPU_DEBUG(...)
-#define SPU_DUMP 
 #define SPU_ASSERT(spu)
 #endif
 

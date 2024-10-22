@@ -278,6 +278,9 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     else if (strcmp(cur_command_name, "setrndram") == 0)
         cmd->code[cmd->ip++] = SETRNDRAM;    
 
+    else if (strcmp(cur_command_name, "dump") == 0)
+        cmd->code[cmd->ip++] = DUMP;   
+
     else if (strcmp(cur_command_name, "mod") == 0)
         cmd->code[cmd->ip++] = MOD;
 

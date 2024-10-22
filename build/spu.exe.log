@@ -8870,3 +8870,1881 @@ Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
 Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7DFD3EBA8 в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7DFFB7F30 (64-bit), Flags: CMdRe0, Thread: 0xAB28 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7DFD3EBA8 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 18:20:45, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 18:20:55
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7DFD3EBA8 в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7DFFB7F30 (64-bit), Flags: CMdRe0, Thread: 0xAB28 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7DFD3EBA8 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 18:20:45, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 18:20:54
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7BABDEBA8 в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7BAE58170 (64-bit), Flags: CMdRe0, Thread: 0x2CD4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7BABDEBA8 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 18:28:19, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 18:28:27
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7BABDEBA8 в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7BAE58170 (64-bit), Flags: CMdRe0, Thread: 0x2CD4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7BABDEBA8 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 18:28:19, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 18:28:27
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF64CA1EBA8 в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF64CC98170 (64-bit), Flags: CMdRe0, Thread: 0x5838 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF64CA1EBA8 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 18:31:03, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 18:31:11
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF64CA1EBA8 в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF64CC98170 (64-bit), Flags: CMdRe0, Thread: 0x5838 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF64CA1EBA8 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 18:31:03, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 18:31:11
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF630BCEBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF630E48170 (64-bit), Flags: CMdRe0, Thread: 0x8BA4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF630BCEBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 19:09:39, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 19:09:47
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF630BCEBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF630E48170 (64-bit), Flags: CMdRe0, Thread: 0x8BA4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF630BCEBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 19:09:39, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 19:09:47
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF65578EBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF655A08AD0 (64-bit), Flags: CMdRe0, Thread: 0x7090 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF65578EBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 19:37:28, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:20:22
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF65578EBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF655A08AD0 (64-bit), Flags: CMdRe0, Thread: 0x7090 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF65578EBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 19:37:28, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:20:22
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E85EBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x95C8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E85EBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:49:14
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E85EBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x95C8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E85EBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:49:14
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E85EBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x82BC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E85EBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:50:02
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E85EBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x82BC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E85EBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:50:02
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E85EBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0xEE0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E85EBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:50:38
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E85EBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0xEE0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E85EBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:50:38
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E85EBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x9334 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E85EBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:51:07
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E85EBAE в функции main(). Попытка прочесть данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x9334 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E85EBAE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:51:07
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E8BD201 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x2CBC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E8BD201 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF60E85EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:51:59
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E8BD201 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x2CBC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E8BD201 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF60E85EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:51:59
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E8BD201 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x2CE8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E8BD201 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF60E85EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:52:16
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E8BD201 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x2CE8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E8BD201 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF60E85EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:52:16
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E8BD201 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x480C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E8BD201 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF60E85EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:52:50
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E8BD201 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x480C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E8BD201 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF60E85EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:52:50
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E8BD201 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x660C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E8BD201 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF60E85EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:53:16
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF60E8BD201 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF60EAD9750 (64-bit), Flags: CMdRe0, Thread: 0x660C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF60E8BD201 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF60E85EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:27:49, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:53:16
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF76D7DD841 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF76D9F9750 (64-bit), Flags: CMdRe0, Thread: 0x4BA4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF76D7DD841 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF76D77EC5F in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:54:04, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:54:12
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF76D7DD841 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF76D9F9750 (64-bit), Flags: CMdRe0, Thread: 0x4BA4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF76D7DD841 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF76D77EC5F in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:54:04, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:54:12
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF76D7DD841 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF76D9F9750 (64-bit), Flags: CMdRe0, Thread: 0x5968 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF76D7DD841 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF76D77EC5F in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:54:04, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:59:30
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF76D7DD841 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF76D9F9750 (64-bit), Flags: CMdRe0, Thread: 0x5968 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF76D7DD841 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF76D77EC5F in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:54:04, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 20:59:30
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF76D7DD841 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF76D9F9750 (64-bit), Flags: CMdRe0, Thread: 0x3C28 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF76D7DD841 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF76D77EC5F in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:54:04, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 21:01:10
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF76D7DD841 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF76D9F9750 (64-bit), Flags: CMdRe0, Thread: 0x3C28 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF76D7DD841 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF76D77EC5F in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 20:54:04, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 21:01:11
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7BB11D871 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7BB339750 (64-bit), Flags: CMdRe0, Thread: 0x7490 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7BB11D871 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7BB0BEC5F in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 21:02:40, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 21:02:45
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7BB11D871 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7BB339750 (64-bit), Flags: CMdRe0, Thread: 0x7490 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7BB11D871 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7BB0BEC5F in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 21:02:40, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 21:02:45
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF783CDD871 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF783EF9750 (64-bit), Flags: CMdRe0, Thread: 0x45F8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF783CDD871 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF783C7EC5F in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 21:06:48, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 21:07:13
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF783CDD871 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF783EF9750 (64-bit), Flags: CMdRe0, Thread: 0x45F8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF783CDD871 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF783C7EC5F in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 21:06:48, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 21:07:13
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7E385D1F1 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7E3A79750 (64-bit), Flags: CMdRe0, Thread: 0x745C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7E385D1F1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7E37FEBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 21:14:17, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 21:18:14
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7E385D1F1 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7E3A79750 (64-bit), Flags: CMdRe0, Thread: 0x745C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7E385D1F1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7E37FEBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 21:14:17, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 21:18:14
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF68B86A570 (64-bit), Flags: CMdRe0, Thread: 0x8A04 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF68B638916 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: (anonymous namespace)::TX::_txError()
+# 1 0x00007FF68B638C28 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: (anonymous namespace)::TX::_txOnSignal()
+# 2 0x00007FFA0074E0AC in C:\Windows\System32\msvcrt.dll: raise()
+# 3 0x00007FFA0075255B in C:\Windows\System32\msvcrt.dll: abort()
+# 4 0x00007FFA0074EE8D in C:\Windows\System32\msvcrt.dll: assert()
+# 5 0x00007FF68B64B983 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: DrawInWindow()
+# 6 0x00007FF68B5EEFCE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 21:28:21, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 21:28:27
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7B7ABA570 (64-bit), Flags: CMdRe0, Thread: 0x4764 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7B7888916 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: (anonymous namespace)::TX::_txError()
+# 1 0x00007FF7B7888C28 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: (anonymous namespace)::TX::_txOnSignal()
+# 2 0x00007FFA0074E0AC in C:\Windows\System32\msvcrt.dll: raise()
+# 3 0x00007FFA0075255B in C:\Windows\System32\msvcrt.dll: abort()
+# 4 0x00007FFA0074EE8D in C:\Windows\System32\msvcrt.dll: assert()
+# 5 0x00007FF7B789B983 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: DrawInWindow()
+# 6 0x00007FF7B783EFCE in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 21:36:59, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 21 2024 21:37:04
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: #1: РљСѓС‡Р° Р±С‹Р»Р° РїРѕРІСЂРµР¶РґРµРЅР°. (0xC0000374) при выполнении кода по адресу 0x00007FFA0243CA39 в функции RtlIsZeroMemory() в модуле C:\Windows\SYSTEM32\ntdll.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0x3328 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFA0243CA39 in C:\Windows\SYSTEM32\ntdll.dll: RtlIsZeroMemory()
+# 2 0x00007FFA02445A9A in C:\Windows\SYSTEM32\ntdll.dll: _misaligned_access()
+# 3 0x00007FFA02445D7A in C:\Windows\SYSTEM32\ntdll.dll: _misaligned_access()
+# 4 0x00007FFA02451D75 in C:\Windows\SYSTEM32\ntdll.dll: _misaligned_access()
+# 5 0x00007FFA02445A23 in C:\Windows\SYSTEM32\ntdll.dll: _misaligned_access()
+# 6 0x00007FFA0236A291 in C:\Windows\SYSTEM32\ntdll.dll: RtlDeleteBoundaryDescriptor()
+# 7 0x00007FFA0236C304 in C:\Windows\SYSTEM32\ntdll.dll: RtlGetCurrentServiceSessionId()
+# 8 0x00007FFA0236AFD1 in C:\Windows\SYSTEM32\ntdll.dll: RtlFreeHeap()
+# 9 0x00007FFA0073CADC in C:\Windows\System32\msvcrt.dll: free()
+#10 0x00007FF7A1A8D05D in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackDtor()
+#11 0x00007FF7A1A4DDD3 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: SpuDtor()
+#12 0x00007FF7A1A2F1FF in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:35:57
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: #1: РљСѓС‡Р° Р±С‹Р»Р° РїРѕРІСЂРµР¶РґРµРЅР°. (0xC0000374) при выполнении кода по адресу 0x00007FFA0243CA39 в функции RtlIsZeroMemory() в модуле C:\Windows\SYSTEM32\ntdll.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+С помощью функции _set_se_translator() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0x3328 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FFA0243CA39 in C:\Windows\SYSTEM32\ntdll.dll: RtlIsZeroMemory()
+# 2 0x00007FFA02445A9A in C:\Windows\SYSTEM32\ntdll.dll: _misaligned_access()
+# 3 0x00007FFA02445D7A in C:\Windows\SYSTEM32\ntdll.dll: _misaligned_access()
+# 4 0x00007FFA02451D75 in C:\Windows\SYSTEM32\ntdll.dll: _misaligned_access()
+# 5 0x00007FFA02445A23 in C:\Windows\SYSTEM32\ntdll.dll: _misaligned_access()
+# 6 0x00007FFA0236A291 in C:\Windows\SYSTEM32\ntdll.dll: RtlDeleteBoundaryDescriptor()
+# 7 0x00007FFA0236C304 in C:\Windows\SYSTEM32\ntdll.dll: RtlGetCurrentServiceSessionId()
+# 8 0x00007FFA0236AFD1 in C:\Windows\SYSTEM32\ntdll.dll: RtlFreeHeap()
+# 9 0x00007FFA0073CADC in C:\Windows\System32\msvcrt.dll: free()
+#10 0x00007FF7A1A8D05D in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackDtor()
+#11 0x00007FF7A1A4DDD3 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: SpuDtor()
+#12 0x00007FF7A1A2F1FF in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:35:57
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7A1A8D231 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0x5408 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7A1A8D231 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7A1A2EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:38:53
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7A1A8D231 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0x5408 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7A1A8D231 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7A1A2EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:38:53
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7A1A8D231 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0x2F8C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7A1A8D231 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7A1A2EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:39:22
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7A1A8D231 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0x2F8C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7A1A8D231 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7A1A2EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:39:22
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7A1A8D231 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0x8EE8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7A1A8D231 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7A1A2EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:40:28
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7A1A8D231 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0x8EE8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7A1A8D231 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7A1A2EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:40:28
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7A1A8D231 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0x7E4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7A1A8D231 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7A1A2EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:41:37
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7A1A8D231 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0x7E4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7A1A8D231 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7A1A2EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:41:36
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7A1A8D231 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0xC388 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7A1A8D231 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7A1A2EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:43:19
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00007FF7A1A8D231 в функции StackPop(). Попытка записать данные по адресу NULL в модуле C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x00007FF7A1CB1A90 (64-bit), Flags: CMdRe0, Thread: 0xC388 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7A1A8D231 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: StackPop()
+# 1 0x00007FF7A1A2EBF1 in C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe: main()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	TXLib.h
+Compiled:	Oct 21 2024 23:49:41, GNU g++ 13.2.0, std=201703L, MinGW-W64 Runtime 11.0.1 (alpha - rev. 0) 0000-00-00, 64-bit, Debug
+Started:	Oct 22 2024 12:43:19
+
+Run file:	C:\Users\71fru\Documents\GitHub\SPU\build\spu.exe
+Directory:	C:\Users\71fru\Documents\GitHub\SPU\build
+
+--------------------------------------------------
