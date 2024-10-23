@@ -151,7 +151,7 @@ void SetRandomRam()
 {
     fprintf(stderr, "Start rand!\n");
 
-    for (size_t i = 0; i < RAM_SIZE; i++)     //первая и последняя колонка - границы, там жизни нет
+    for (size_t i = 0; i < RAM_SIZE; i++)     // первая и последняя колонка - границы, там жизни нет
     {
         int tmp = rand() % START_CELL_FREQ;
 

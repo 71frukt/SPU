@@ -1,37 +1,39 @@
 crtwnd
 setrndram
 draw
+call NEW_FIELD:
+hlt
 
 NEW_FIELD:
-push 0
-pop BX
+    push 0
+    pop BX
 
 NEXT_PIXEL:
-call CountNegr:
+    call CountNegr:
 
-pop CX
+    pop CX
 
-push [BX]
-push 0
+    push [BX]
+    push 0
 
-JE DED_CELL:
+JE DEAD_CELL:
 
-push CX
-push 3
-JA CELL_DYE:
+    push CX
+    push 3
+    JA CELL_DIE:
 
-push CX
-push 2
-JB CELL_DYE:
+    push CX
+    push 2
+    JB CELL_DIE:
 
-jump CELL_BORN:
+    jump CELL_BORN:
 
 
-DED_CELL:
-push CX
-push 3
-JE CELL_BORN:
-jump CELL_DYE:
+DEAD_CELL:
+    push CX
+    push 3
+    JE CELL_BORN:
+    jump CELL_DIE:
 
 
 CELL_BORN:
@@ -40,7 +42,7 @@ CELL_BORN:
     jump IT_END:
 
 
-CELL_DYE:
+CELL_DIE:
     push 0
     call PopExtraRamBX:
     jump IT_END:
@@ -53,43 +55,38 @@ IT_END:
 
     push BX
     call RAM_CAPA:
-JB NEXT_PIXEL:
+    JB NEXT_PIXEL:
 
-call CopyExtraRamInRam:
+    call CopyExtraRamInRam:
+    draw
+    jump NEW_FIELD:
 
-draw
-
-jump NEW_FIELD:
-
-hlt
+    RET
 
 
+RAM_SIZE_X:
+    push 120
+    RET
 
+RAM_CAPA:
+    call RAM_SIZE_X:
+    call RAM_SIZE_X:
+    mul
+    RET
 
+START_FIELD:
+    call RAM_SIZE_X:
+    push 1
+    add
+    RET
 
-    RAM_SIZE_X:
-push 100
-RET
-
-    RAM_CAPA:
-call RAM_SIZE_X:
-call RAM_SIZE_X:
-mul
-RET
-
-    START_FIELD:
-call RAM_SIZE_X:
-push 1
-add
-RET
-
-    END_FIELD:
-call RAM_CAPA:
-call RAM_SIZE_X:
-sub
-push 2
-sub
-RET
+END_FIELD:
+    call RAM_CAPA:
+    call RAM_SIZE_X:
+    sub
+    push 2
+    sub
+    RET
 
 
 CountNegr:
@@ -132,9 +129,8 @@ CountNegr:
     add
     add 
     add
-
-
-RET
+    
+    RET
 
 PopExtraRamBX:
     push BX
@@ -148,37 +144,39 @@ PopExtraRamBX:
     call RAM_CAPA:
     sub
     pop BX
-RET
+    
+    RET
 
 CopyExtraRamInRam:
     call START_FIELD:
     pop BX
 
 
-    RAM_NOT_COPIED: 
-        push BX
-        call RAM_CAPA:
-        add
-        pop BX
+RAM_NOT_COPIED: 
+    push BX
+    call RAM_CAPA:
+    add
+    pop BX
 
-        push [BX]
+    push [BX]
 
-        push BX
-        call RAM_CAPA:
-        sub
-        pop BX
+    push BX
+    call RAM_CAPA:
+    sub
+    pop BX
 
-        pop [BX]
+    pop [BX]
 
-        push BX
-        push 1
-        add
-        pop BX
+    push BX
+    push 1
+    add
+    pop BX
 
-        push BX
-        call END_FIELD:
+    push BX
+    call END_FIELD:
     JB RAM_NOT_COPIED:
-RET
+    
+    RET
 
 LU_IP:
     push BX
@@ -194,7 +192,8 @@ LU_IP:
 
     call RAM_CAPA:
     mod
-RET
+
+    RET
 
 MU_IP:
     push BX
@@ -206,7 +205,8 @@ MU_IP:
     add
     call RAM_CAPA:
     mod
-RET
+
+    RET
 
 RU_IP:
     push BX
@@ -218,7 +218,8 @@ RU_IP:
     add
     call RAM_CAPA:
     mod
-RET
+
+    RET
 
 LD_IP:
     push BX
@@ -230,7 +231,8 @@ LD_IP:
     add
     call RAM_CAPA:
     mod
-RET
+
+    RET
 
 MD_IP:
     push BX
@@ -242,7 +244,8 @@ MD_IP:
     add
     call RAM_CAPA:
     mod
-RET
+    
+    RET
 
 RD_IP:
     push BX
@@ -255,7 +258,8 @@ RD_IP:
     add
     call RAM_CAPA:
     mod
-RET
+  
+    RET
 
 LM_IP:
     push BX
@@ -265,7 +269,8 @@ LM_IP:
     add
     call RAM_CAPA:
     mod
-RET
+    
+    RET
 
 RM_IP:
     push BX
@@ -275,4 +280,5 @@ RM_IP:
     add
     call RAM_CAPA:
     mod
-RET
+    
+    RET

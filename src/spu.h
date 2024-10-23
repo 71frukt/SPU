@@ -14,12 +14,12 @@
 
 const size_t REGISTERS_NUM  = 10;
 
-const int    RAM_SIZE_X       = 100;
+const int    RAM_SIZE_X       = 120;
 const int    RAM_SIZE_Y       = RAM_SIZE_X;
 const int    EXTRA_RAM_SIZE_Y = RAM_SIZE_Y * 2;
-const int    PIXEL_SIZE       = 10;                         // одна €чейка RAM - пиксель (PIXEL_SIZE х PIXEL_SIZE)
-const int    START_CELL_FREQ  = 2;
-const int    SLEEP_TIME       = 50;                         // в миллисекундах
+const int    PIXEL_SIZE       = 5;                         // одна €чейка RAM - пиксель (PIXEL_SIZE х PIXEL_SIZE)
+const int    START_CELL_FREQ  = 3;
+const int    SLEEP_TIME       = 0;                         // в миллисекундах
 
 const int    RAM_SIZE       = RAM_SIZE_X * RAM_SIZE_Y;
 const int    EXTRA_RAM_SIZE = RAM_SIZE_X * EXTRA_RAM_SIZE_Y;
@@ -42,27 +42,31 @@ enum StkElmsCmpVal
 
 enum FuncCodes
 {
-    PUSH   = 1,
-    POP    = 2,
-    JUMP   = 3,
-    CALL   = 4,
-    RET    = 5,
-    JA     = 6,
-    JAE    = 7,
-    JB     = 8,
-    JBE    = 9,
-    JE     = 10,
-    JNE    = 11,
-    ADD    = 12,
-    SUB    = 13,
-    MUL    = 14,
-    DIV    = 15,
-    SQRT   = 16,
-    MOD    = 17,
-    CRTWND = 18,
-    DRAW   = 19,
-    SETRNDRAM = 20,
-    DUMP   = 21,
+    PUSH      = 1,
+    POP       = 2,
+    CALL      = 3,
+    RET       = 4,
+    JUMP      = 5,
+    JA        = 6,
+    JAE       = 7,
+    JB        = 8,
+    JBE       = 9,
+    JE        = 10,
+    JNE       = 11,
+    ADD       = 12,
+    SUB       = 13,
+    MUL       = 14,
+    DIV       = 15,
+    SQRT      = 16,
+    MOD       = 17,
+    SIN       = 18,
+    COS       = 19,
+    TG        = 20,
+    CTG       = 21,
+    CRTWND    = 22,
+    DRAW      = 23,
+    SETRNDRAM = 24,
+    DUMP      = 25,
 
     SPU_OUT = 0,
     HLT = 666

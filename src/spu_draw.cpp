@@ -5,20 +5,19 @@ extern StackElem_t RAM[];
 void SpuCreateWindow()
 {
     txCreateWindow(WINDOW_SIZE_X, WINDOW_SIZE_Y);
-
     txSetColor(TX_BLACK);
-    txSetFillColor(TX_LIGHTBLUE);
+    txSetFillColor(TX_LIGHTCYAN);
 }
 
 void DrawInWindow()
 {
     // fprintf(stderr, "NARISUY V OKNE!!\n");
 
-    txSleep(SLEEP_TIME);
-    
+    txBegin();
+
     txSetFillColor(TX_BLACK);
     txRectangle(0, 0, RAM_SIZE_X * PIXEL_SIZE, RAM_SIZE_Y * PIXEL_SIZE);
-    txSetFillColor(TX_LIGHTBLUE);
+    txSetFillColor(TX_LIGHTCYAN);
 
     for (size_t pos_y = 0; pos_y < RAM_SIZE_Y; pos_y++)
     {
@@ -29,7 +28,8 @@ void DrawInWindow()
 
             if (RAM[el_num] != 0)
             {
-                txSetFillColor(TX_LIGHTBLUE);
+                txSetFillColor(TX_BLACK);
+                txSetFillColor(TX_LIGHTCYAN);
 
                 double x0 = (double) pos_x * PIXEL_SIZE;
                 double y0 = (double) pos_y * PIXEL_SIZE;
@@ -41,6 +41,10 @@ void DrawInWindow()
             }
         }
     }
+
+    txEnd();
+
+    txSleep(SLEEP_TIME);
 }
 
 void DrawInConsole()

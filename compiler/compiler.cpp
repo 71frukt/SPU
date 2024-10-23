@@ -13,8 +13,6 @@ ON_DEBUG(const char *logfile_name = "txts/logs/compiler_logs.log");
 
 static int CompilerError_val = 0;
 
-// TODO: make errno and compiler_assert
-
 void CompilerCtor(compiler_t *compiler)
 {
     ON_DEBUG(FILE **logfile =  &compiler->logfile);
@@ -155,31 +153,6 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
             cmd->code[cmd->ip++] = res_imm;
     }
 
-    // else if (strcmp(cur_command_name, "PUSHR") == 0)
-    // {
-    //     cmd->code[cmd->ip++] = PUSHR;
-
-    //     char reg_name[REG_NAME_LEN] = {};
-    //     fscanf(asm_file, "%s", reg_name);
-
-    //     int elem = ReadRegister(reg_name);
-
-    //     cmd->code[cmd->ip++] = elem;
-    // }
-
-    // else if (strcmp(cur_command_name, "POP") == 0)
-    // {
-    //     cmd->code[cmd->ip++] = POP;
-
-    //     char reg_name[REG_NAME_LEN] = {};
-    //     fscanf(asm_file, "%s", reg_name);
-
-    //     int elem = ReadRegister(reg_name);
-
-    //     cmd->code[cmd->ip++] = elem;
-    // }
-
-
     else if (strstr( "jump call JA JAE JB JBE JE JNE", cur_command_name) != NULL)
     {
         if(strcmp(cur_command_name, "call") == 0)
@@ -268,6 +241,18 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
     else if (strcmp(cur_command_name, "sqrt") == 0)
         cmd->code[cmd->ip++] = SQRT;
+
+    else if (strcmp(cur_command_name, "sin") == 0)
+        cmd->code[cmd->ip++] = SIN;
+    
+    else if (strcmp(cur_command_name, "cos") == 0)
+        cmd->code[cmd->ip++] = COS;
+
+    else if (strcmp(cur_command_name, "tg") == 0)
+        cmd->code[cmd->ip++] = TG;
+
+    else if (strcmp(cur_command_name, "ctg") == 0)
+        cmd->code[cmd->ip++] = CTG;
         
     else if (strcmp(cur_command_name, "crtwnd") == 0)
         cmd->code[cmd->ip++] = CRTWND;

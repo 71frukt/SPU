@@ -96,9 +96,9 @@ int main()
 
             StackPush(data_stk, a * b);
             cmd->ip++;
-
             break;
         }
+
 
         case DIV:
         {
@@ -249,9 +249,11 @@ int main()
         case SETRNDRAM:
         {
             SPU_ASSERT(&spu);
-            ON_SPU_DEBUG(fprintf(spu.logfile, "random!\n"));
+            // ON_SPU_DEBUG(fprintf(spu.logfile, "random!\n"));
+
             SetRandomRam();
             cmd->ip++;
+
             SPU_ASSERT(&spu);
             break;
         }
@@ -270,6 +272,20 @@ int main()
             cmd->ip++;
 
             SPU_ASSERT(&spu);
+            break;
+        }
+
+        case SIN:
+        {
+            SPU_ASSERT(&spu);
+
+            StackElem_t var = 0;
+
+            StackPop(data_stk, &var);
+
+            StackPush(data_stk, sin(var));
+            cmd->ip++;
+
             break;
         }
 
