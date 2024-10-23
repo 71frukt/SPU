@@ -4,7 +4,9 @@
 #define DEBUG
 
 #include <stdio.h>
+
 #include "compiler_debug.h"
+#include "../commands_enum.h"
 
 #define MARK_SYMBOL ":"
 
@@ -79,37 +81,37 @@ struct compiler_t
     marklist_t marklist;
 };
 
-enum FuncCodes
-{
-    PUSH      = 1,
-    POP       = 2,
-    CALL      = 3,
-    RET       = 4,
-    JUMP      = 5,
-    JA        = 6,
-    JAE       = 7,
-    JB        = 8,
-    JBE       = 9,
-    JE        = 10,
-    JNE       = 11,
-    ADD       = 12,
-    SUB       = 13,
-    MUL       = 14,
-    DIV       = 15,
-    SQRT      = 16,
-    MOD       = 17,
-    SIN       = 18,
-    COS       = 19,
-    TG        = 20,
-    CTG       = 21,
-    CRTWND    = 22,
-    DRAW      = 23,
-    SETRNDRAM = 24,
-    DUMP      = 25,
+// enum FuncCodes
+// {
+//     PUSH      = 1,
+//     POP       = 2,
+//     CALL      = 3,
+//     RET       = 4,
+//     JUMP      = 5,
+//     JA        = 6,
+//     JAE       = 7,
+//     JB        = 8,
+//     JBE       = 9,
+//     JE        = 10,
+//     JNE       = 11,
+//     ADD       = 12,
+//     SUB       = 13,
+//     MUL       = 14,
+//     DIV       = 15,
+//     SQRT      = 16,
+//     MOD       = 17,
+//     SIN       = 18,
+//     COS       = 19,
+//     TG        = 20,
+//     CTG       = 21,
+//     CRTWND    = 22,
+//     DRAW      = 23,
+//     SETRNDRAM = 24,
+//     DUMP      = 25,
 
-    SPU_OUT = 0,
-    HLT = 666
-};
+//     SPU_OUT = 0,
+//     HLT = 666
+// };
 
 enum ManagerBits
 {

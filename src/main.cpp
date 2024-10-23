@@ -283,7 +283,7 @@ int main()
 
             StackPop(data_stk, &var);
 
-            StackPush(data_stk, sin(var));
+            StackPush(data_stk, (StackElem_t) sin(var));
             cmd->ip++;
 
             break;
