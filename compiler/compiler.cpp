@@ -7,13 +7,13 @@
 #include "compiler_debug.h"
 
 // const char *trans_file_name = "txts/translator.txt";
-const char *asm_file_name   = "txts/program.asm";
+// const char *asm_file_name   = "txts/program.asm";
 const char *code_file_name  = "txts/program_code.txt";
 ON_DEBUG(const char *logfile_name = "txts/logs/compiler_logs.log");
 
 static int CompilerError_val = 0;
 
-void CompilerCtor(compiler_t *compiler)
+void CompilerCtor(compiler_t *compiler, const char *asm_file_name)
 {
     ON_DEBUG(FILE **logfile =  &compiler->logfile);
     FILE       **code_file  =  &compiler->code_file;
@@ -24,9 +24,9 @@ void CompilerCtor(compiler_t *compiler)
     fixup_t          *fixup          = &compiler->fixup;
     marklist_t       *marklist       = &compiler->marklist;
 
-    *asm_file  = fopen(asm_file_name,  "r");
-    *code_file = fopen(code_file_name, "w");
-    ON_DEBUG(*logfile = fopen(logfile_name, "w"));
+    *asm_file         = fopen(asm_file_name,  "r");
+    *code_file        = fopen(code_file_name, "w");
+    ON_DEBUG(*logfile = fopen(logfile_name,   "w"));
 
     // GetCommands(trans_file_name, &compiler->trans_commands);
 

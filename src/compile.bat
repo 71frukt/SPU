@@ -1,3 +1,3 @@
 cd ../build
-compiler.exe
+compiler.exe ../build/txts/run_circle.asm
 cd ../src

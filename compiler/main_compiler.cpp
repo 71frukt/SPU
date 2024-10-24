@@ -4,11 +4,11 @@
 #include "compiler.h"
 #include "compiler_debug.h"
 
-int main()
+int main(const int argc, const char *argv[])
 {
     compiler_t compiler = {};
 
-    CompilerCtor(&compiler);
+    CompilerCtor(&compiler, argv[1]);
 
     char cur_command_name[COMMAND_NAME_LEN] = {};
 

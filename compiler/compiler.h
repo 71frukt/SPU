@@ -77,7 +77,7 @@ enum ManagerBits
     RAM_BIT = 1 << (FUNC_CODE_BYTE_SIZE + 2)
 };
 
-void    CompilerCtor     (compiler_t *compiler);
+void    CompilerCtor     (compiler_t *compiler, const char *code_file_name);
 void    CompilerDtor     (compiler_t *compiler);
 
 size_t  GetCountOfLines  (FILE *text);

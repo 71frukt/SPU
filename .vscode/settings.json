@@ -2,13 +2,17 @@
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
         "cstring": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "xlocale": "cpp",
+        "format": "cpp"
     },
     "cSpell.words": [
         "CAPA",
         "crtwnd",
+        "endrand",
         "HWND",
         "KONSOLI",
+        "LIGHTCYAN",
         "marklist",
         "NARISUY",
         "Negr",
