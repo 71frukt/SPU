@@ -223,6 +223,13 @@ DEF_CMD_ (DUMP, 25,
     cmd->ip++;
 })
 
+DEF_CMD_ (SPU_IN, 26,
+{
+    int read_val = 0;
+    scanf("%d", &read_val);
+    StackPush(data_stk, (StackElem_t) read_val);
+    cmd->ip++;
+})
      
 DEF_CMD_ (SPU_OUT, 0,
 {

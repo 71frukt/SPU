@@ -14,6 +14,12 @@ int main()
 
     while (fscanf(compiler.asm_file, "%s", cur_command_name) == 1)
     {
+        if (strchr(cur_command_name, COMMENT_SYMBOL) != NULL)
+        {
+            fscanf(compiler.asm_file, "%*[^\n]");
+            continue;
+        }
+
         if (IsMark(cur_command_name))
         {
             char mark_name[MARK_NAME_LEN] = {};

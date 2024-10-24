@@ -8,11 +8,12 @@
 #include "../commands_enum.h"
 #include "compiler_debug.h"
 
-#define MARK_SYMBOL ":"
+#define MARK_SYMBOL     ":"
+#define COMMENT_SYMBOL  ';'
 
-const int   COMMAND_NAME_LEN = 30;
-const int   MARK_NAME_LEN    = 30;
-const int   MAX_ARG_NAME_LEN = 30;
+const int   COMMAND_NAME_LEN = 100;
+const int   MARK_NAME_LEN    = 100;
+const int   MAX_ARG_NAME_LEN = 100;
 const int   REG_NAME_LEN     = 2;
 
 const int   REGISTERS_NUM    = 10;
