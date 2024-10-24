@@ -6,7 +6,7 @@
 #include "compiler.h"
 #include "compiler_debug.h"
 
-const char *trans_file_name = "txts/translator.txt";
+// const char *trans_file_name = "txts/translator.txt";
 const char *asm_file_name   = "txts/program.asm";
 const char *code_file_name  = "txts/program_code.txt";
 ON_DEBUG(const char *logfile_name = "txts/logs/compiler_logs.log");
@@ -19,7 +19,7 @@ void CompilerCtor(compiler_t *compiler)
     FILE       **code_file  =  &compiler->code_file;
     FILE       **asm_file   =  &compiler->asm_file;
 
-    trans_commands_t *trans_commands = &compiler->trans_commands;
+    // trans_commands_t *trans_commands = &compiler->trans_commands;
     cmd_t            *cmd            = &compiler->cmd;
     fixup_t          *fixup          = &compiler->fixup;
     marklist_t       *marklist       = &compiler->marklist;
@@ -28,7 +28,7 @@ void CompilerCtor(compiler_t *compiler)
     *code_file = fopen(code_file_name, "w");
     ON_DEBUG(*logfile = fopen(logfile_name, "w"));
 
-    GetCommands(trans_file_name, &compiler->trans_commands);
+    // GetCommands(trans_file_name, &compiler->trans_commands);
 
     cmd->ip = 0;
     cmd->size = GetCountOfWords(*asm_file);
@@ -65,7 +65,7 @@ void CompilerDtor(compiler_t *compiler)
     FILE       *code_file  =  compiler->code_file;
     FILE       *asm_file   =  compiler->asm_file;
 
-    trans_commands_t *trans_commands = &compiler->trans_commands;
+    // trans_commands_t *trans_commands = &compiler->trans_commands;
     cmd_t            *cmd            = &compiler->cmd;
     fixup_t          *fixup          = &compiler->fixup;
     marklist_t       *marklist       = &compiler->marklist;
@@ -74,7 +74,7 @@ void CompilerDtor(compiler_t *compiler)
     fclose(code_file);
     fclose(asm_file);
 
-    free(trans_commands->commands);
+    // free(trans_commands->commands);
     free(cmd->code);
     free(fixup->data);
     free(marklist->list);
@@ -87,19 +87,24 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     assert(cur_command_name);
     COMPILER_ASSERT(compiler);
 
+
     FILE       *asm_file =  compiler->asm_file;
     cmd_t      *cmd      = &compiler->cmd;
     fixup_t    *fixup    = &compiler->fixup;
     marklist_t *marklist = &compiler->marklist;
 
-    if (strstr("push pop", cur_command_name) != NULL)
+    #define DEF_CMD_PP_(command_name, command_num, ...)                         \
+        if (strcmp(cur_command_name, #command_name) == 0)               \
+            command_code |= command_num;                                   
+
+    #define DEF_CMD_JMP_(...)
+    #define DEF_CMD_(...)    
+
+    if (strstr("PUSH POP", cur_command_name) != NULL)
     {
         int command_code = 0;
 
-        if (strcmp(cur_command_name, "push") == 0)
-            command_code |= PUSH;
-        else
-            command_code |= POP;
+        #include "../commands.h" 
         
         int res_imm  = CMD_POISON;
         int res_reg  = CMD_POISON;
@@ -123,7 +128,6 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
         if (sscanf(cur_ptr, "%[ A-Z]", tmp_str) == 1)     // есть регистр
         {
-        // fprintf(stderr, "REGISTER IN PYK = %s\n", tmp_str);
             if (IsRegister(tmp_str))
             {
                 command_code |= REG_BIT;
@@ -153,32 +157,21 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
             cmd->code[cmd->ip++] = res_imm;
     }
 
-    else if (strstr( "jump call JA JAE JB JBE JE JNE", cur_command_name) != NULL)
+    #undef DEF_CMD_PP_
+    #undef DEF_CMD_JMP_
+    #undef DEF_CMD_
+
+
+    #define DEF_CMD_JMP_(command_name, command_num, ...)                             \
+        if (strcmp(cur_command_name, #command_name) == 0)               \
+            cmd->code[cmd->ip++] = command_num;
+
+    #define DEF_CMD_PP_(...)
+    #define DEF_CMD_(...)  
+
+    else if (strstr( "JMP CALL JA JAE JB JBE JE JNE", cur_command_name) != NULL)
     {
-        if(strcmp(cur_command_name, "call") == 0)
-            cmd->code[cmd->ip++] = CALL;
-
-        else if (strcmp(cur_command_name, "jump") == 0)
-            cmd->code[cmd->ip++] = JUMP;
-
-        else if (strcmp(cur_command_name, "JA") == 0)
-            cmd->code[cmd->ip++] = JA;
-
-        else if (strcmp(cur_command_name, "JAE") == 0)
-            cmd->code[cmd->ip++] = JAE;
-
-        else if (strcmp(cur_command_name, "JB") == 0)
-            cmd->code[cmd->ip++] = JB;
-        
-        else if (strcmp(cur_command_name, "JBE") == 0)
-            cmd->code[cmd->ip++] = JBE;
-
-        else if (strcmp(cur_command_name, "JE") == 0)
-            cmd->code[cmd->ip++] = JE;
-
-        else if (strcmp(cur_command_name, "JNE") == 0)
-            cmd->code[cmd->ip++] = JNE;
-
+        #include "../commands.h"
 
         char arg_str[MARK_NAME_LEN] = {};
 
@@ -190,7 +183,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
 
             int num_in_marklist = FindMarkInList(arg_str, marklist);
             mark_t *mark = &marklist->list[num_in_marklist];
-// fprintf(stderr, "jump etc:  mark name = '%s'   num in marklist = %d\n\n", arg_str, num_in_marklist);
+// fprintf(stderr, "jump etc:  mark name = '%s'   command_num in marklist = %d\n\n", arg_str, num_in_marklist);
             if (num_in_marklist < 0)
             {
                 mark = &marklist->list[marklist->ip];
@@ -221,59 +214,26 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
         }
     }
 
-    else if (strcmp(cur_command_name, "RET") == 0)
-        cmd->code[cmd->ip++] = RET;
+    #undef DEF_CMD_PP_
+    #undef DEF_CMD_JMP_
+    #undef DEF_CMD_
 
-    else if (strcmp(cur_command_name, "add") == 0)
-        cmd->code[cmd->ip++] = ADD;
-    
-    else if (strcmp(cur_command_name, "sub") == 0)
-        cmd->code[cmd->ip++] = SUB;
 
-    else if (strcmp(cur_command_name, "mul") == 0)
-        cmd->code[cmd->ip++] = MUL;
+    #define DEF_CMD_(command_name, command_num, ...)                                     \
+        else if (strcmp(cur_command_name, #command_name) == 0)              \
+            cmd->code[cmd->ip++] = command_num;                                     
 
-    else if (strcmp(cur_command_name, "div") == 0)
-        cmd->code[cmd->ip++] = DIV;
+    #define DEF_CMD_PP_(...)
+    #define DEF_CMD_JMP_(...)  
 
-    else if (strcmp(cur_command_name, "out") == 0)
-        cmd->code[cmd->ip++] = SPU_OUT;
-
-    else if (strcmp(cur_command_name, "sqrt") == 0)
-        cmd->code[cmd->ip++] = SQRT;
-
-    else if (strcmp(cur_command_name, "sin") == 0)
-        cmd->code[cmd->ip++] = SIN;
-    
-    else if (strcmp(cur_command_name, "cos") == 0)
-        cmd->code[cmd->ip++] = COS;
-
-    else if (strcmp(cur_command_name, "tg") == 0)
-        cmd->code[cmd->ip++] = TG;
-
-    else if (strcmp(cur_command_name, "ctg") == 0)
-        cmd->code[cmd->ip++] = CTG;
-        
-    else if (strcmp(cur_command_name, "crtwnd") == 0)
-        cmd->code[cmd->ip++] = CRTWND;
-
-    else if (strcmp(cur_command_name, "draw") == 0)
-        cmd->code[cmd->ip++] = DRAW;
-
-    else if (strcmp(cur_command_name, "setrndram") == 0)
-        cmd->code[cmd->ip++] = SETRNDRAM;    
-
-    else if (strcmp(cur_command_name, "dump") == 0)
-        cmd->code[cmd->ip++] = DUMP;   
-
-    else if (strcmp(cur_command_name, "mod") == 0)
-        cmd->code[cmd->ip++] = MOD;
-
-    else if (strcmp(cur_command_name, "hlt") == 0)
-        cmd->code[cmd->ip++] = HLT;
+    #include "../commands.h"
 
     else
         fprintf(stderr, "COMPILE ERROR: Unknown command: '%s'\n", cur_command_name);
+
+    #undef DEF_CMD_PP_
+    #undef DEF_CMD_JMP_
+    #undef DEF_CMD_
 
     COMPILER_ASSERT(compiler);
 }
@@ -337,26 +297,26 @@ void PrintCMD(compiler_t *compiler)
         fprintf(compiler->code_file, "%d ", compiler->cmd.code[i]);
 }
 
-void GetCommands(const char *file_name, trans_commands_t *trans_commands)
-{
-    FILE *trans_file = fopen(file_name, "r");
+// void GetCommands(const char *file_name, trans_commands_t *trans_commands)
+// {
+//     FILE *trans_file = fopen(file_name, "r");
 
-    size_t num_trans_lines = GetCountOfLines(trans_file);
+//     size_t num_trans_lines = GetCountOfLines(trans_file);
 
-    trans_commands->size = num_trans_lines;
+//     trans_commands->size = num_trans_lines;
 
-    command_t *commands_tmp = (command_t *) calloc(num_trans_lines, sizeof(command_t));
+//     command_t *commands_tmp = (command_t *) calloc(num_trans_lines, sizeof(command_t));
 
-    for (size_t i = 0; i < num_trans_lines; i++)
-    {
-        fscanf(trans_file, "%s",  commands_tmp[i].name);
-        fscanf(trans_file, "%d", &commands_tmp[i].key);
-    }
+//     for (size_t i = 0; i < num_trans_lines; i++)
+//     {
+//         fscanf(trans_file, "%s",  commands_tmp[i].name);
+//         fscanf(trans_file, "%d", &commands_tmp[i].key);
+//     }
 
-    trans_commands->commands = commands_tmp;
+//     trans_commands->commands = commands_tmp;
 
-    fclose(trans_file);
-}
+//     fclose(trans_file);
+// }
 
 bool IsMark(char *str)
 {
@@ -374,10 +334,9 @@ int FindMarkInList(char *mark_name, marklist_t *marklist)
     return -1;
 }
 
-void MakeFixUp(compiler_t *compiler)    //fixup_t *fixup, cmd_t *cmd, marklist_t *marklist
+void MakeFixUp(compiler_t *compiler)
 {
     COMPILER_ASSERT(compiler);
-// fprintf(stderr, "\n\n\nFIXUP!\n\n");
     cmd_t      *cmd      = &compiler->cmd;
     fixup_t    *fixup    = &compiler->fixup;
     marklist_t *marklist = &compiler->marklist;

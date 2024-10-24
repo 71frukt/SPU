@@ -41,7 +41,7 @@ int CompilerVerify(compiler_t *compiler)
     cmd_t            *cmd            = &compiler->cmd;
     fixup_t          *fixup          = &compiler->fixup;
     marklist_t       *marklist       = &compiler->marklist;
-    trans_commands_t *trans_commands = &compiler->trans_commands;
+    // trans_commands_t *trans_commands = &compiler->trans_commands;
 
     int res_err = 0;
 
@@ -66,8 +66,8 @@ int CompilerVerify(compiler_t *compiler)
     if (marklist == NULL || marklist->list == NULL || marklist->ip > marklist->size)
         res_err |= MARKLIST_ERR;
 
-    if (trans_commands == NULL || trans_commands->commands == NULL)
-        res_err |= TRANS_ERR;
+    // if (trans_commands == NULL || trans_commands->commands == NULL)
+    //     res_err |= TRANS_ERR;
 
     return res_err;
 }
