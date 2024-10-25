@@ -1,8 +1,6 @@
 #ifndef COMPILER_DEBUG_H
 #define COMPILER_DEBUG_H
 
-#include "compiler.h"
-
 enum CompilerError
 {
     CMP_OK = 0,

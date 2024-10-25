@@ -36,13 +36,13 @@ void CompilerCtor(compiler_t *compiler, const char *asm_file_name)
     fixup_t          *fixup          = &compiler->fixup;
     marklist_t       *marklist       = &compiler->marklist;
 
-    *asm_file         = fopen(asm_file_name,  "r");
-    *code_file        = fopen(code_file_name, "w");
+    *asm_file  = fopen(asm_file_name,  "r");
+    *code_file = fopen(code_file_name, "w");
     ON_COMPILER_DEBUG(*logfile = fopen(logfile_name,   "w"));
 
     // GetCommands(trans_file_name, &compiler->trans_commands);
 
-    cmd->ip = 0;
+    cmd->ip   = 0;
     cmd->size = GetCountOfWords(*asm_file);
     cmd->code = (int *)  calloc(cmd->size, sizeof(int));
     
@@ -56,15 +56,17 @@ void CompilerCtor(compiler_t *compiler, const char *asm_file_name)
     for (size_t i = 0; i < marklist->size; i++)
         marklist->list[i].address = MARK_POISON;
 
-    fixup->ip = 0;
+    fixup->ip   = 0;
     fixup->size = cmd->size;      // максимум меток = количество команд
     fixup->data = (fixup_el_t *) calloc(fixup->size, sizeof(fixup_el_t));
     
     for (size_t i = 0; i < fixup->size; i++)
     {
         fixup->data[i].num_in_marklist  = MARK_POISON;        
-        fixup->data[i].mark_ip = MARK_POISON;
+        fixup->data[i].mark_ip          = MARK_POISON;
     }
+
+    compiler->compiler_err = 0;
 
     COMPILER_ASSERT(compiler);
 }
@@ -73,14 +75,14 @@ void CompilerDtor(compiler_t *compiler)
 {
     COMPILER_ASSERT(compiler);  
 
-    ON_COMPILER_DEBUG(FILE *logfile =  compiler->logfile);
-    FILE       *code_file  =  compiler->code_file;
-    FILE       *asm_file   =  compiler->asm_file;
+    ON_COMPILER_DEBUG(FILE *logfile = compiler->logfile);
+    FILE *code_file = compiler->code_file;
+    FILE *asm_file  = compiler->asm_file;
 
     // trans_commands_t *trans_commands = &compiler->trans_commands;
-    cmd_t            *cmd            = &compiler->cmd;
-    fixup_t          *fixup          = &compiler->fixup;
-    marklist_t       *marklist       = &compiler->marklist;
+    cmd_t      *cmd      = &compiler->cmd;
+    fixup_t    *fixup    = &compiler->fixup;
+    marklist_t *marklist = &compiler->marklist;
 
     ON_COMPILER_DEBUG(fclose(logfile));
     fclose(code_file);

@@ -64,6 +64,7 @@ struct spu_t
 
     FILE *code_file;
     ON_SPU_DEBUG(FILE *logfile); 
+    int spu_err;
 };
 
 void SpuCtor(spu_t *spu);

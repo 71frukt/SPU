@@ -23,7 +23,6 @@ enum SPU_Error
 
 #define ON_SPU_DEBUG(...)  __VA_ARGS__
 
-
 #define SPU_ASSERT(spu)                                                     \
 {                                                                           \
     SpuAssert(spu, __FILE__, __LINE__, __func__);                           \

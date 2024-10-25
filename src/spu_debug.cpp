@@ -1,17 +1,15 @@
 #include "spu.h"
 #include "spu_debug.h"
 
-extern int SpuErr_val;
 extern StackElem_t RAM[];
 
 void SpuAssert(spu_t *spu, const char *file, int line, const char *func)
 {
-    SpuErr_val |= SpuVerify(spu);
-
-    if (SpuErr_val != 0)
+    spu->spu_err |= SpuVerify(spu);
+    if (spu->spu_err != 0)
     {
         fprintf(stderr, "my assertion failed in\t%s:%d\t(%s)\nErrors:\t", file, line, func);
-        PrintSpuErr(SpuErr_val);
+        PrintSpuErr(spu->spu_err);
     }
 }
 
@@ -50,7 +48,6 @@ int SpuVerify(spu_t *spu)
     FILE  *code_file =  spu->code_file;
     ON_SPU_DEBUG(FILE *logfile = spu->logfile);
 
-
     if (cmd == NULL || cmd->code == NULL || cmd->ip > cmd->size)
         res_err |= CMD_ERR;
 
@@ -68,10 +65,8 @@ int SpuVerify(spu_t *spu)
     return res_err;
 }
 
-ON_SPU_DEBUG(
 void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 {
-       
     int   *registers =  spu->registers;
     cmd_t *cmd       = &spu->cmd;
     // FILE  *code_file =  spu->code_file;
@@ -133,6 +128,4 @@ void SpuDump(spu_t *spu, const char *file, int line, const char *func)
     fprintf(logfile, "\n\t}\n");
 
     fprintf(logfile, "}\n\n\n");
-
 }
-)

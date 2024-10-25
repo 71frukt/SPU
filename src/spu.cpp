@@ -6,8 +6,6 @@ extern StackElem_t RAM[];
 const char  *code_file_name = "txts/program_code.txt";
 const char  *logs_file_name = "txts/logs/spu_logs.log";
 
-int SpuErr_val = 0;
-
 void SpuCtor(spu_t *spu)
 {
     cmd_t    *cmd       = &spu->cmd;
@@ -33,6 +31,8 @@ void SpuCtor(spu_t *spu)
         if (fscanf(*code_file, "%d", cmd->code + cmd->size) != 1)
             break;
     }
+
+    spu->spu_err = 0;
 
     STACK_CTOR(func_stk, 20);
     STACK_CTOR(data_stk, 20);
@@ -83,8 +83,8 @@ StackElem_t *GetArg(spu_t *spu)
 
     if ((func_code & REG_BIT) && (func_code & IMM_BIT) && !(func_code & RAM_BIT))
     {
-        fprintf(stderr, "perhaps you forgot the \"[]\"?\n");
-        SpuErr_val |= SYNTAX_ERR;
+        fprintf(stderr, "perhaps you forgot the \"[]\"?\n"); // TODO: fix error message
+        spu->spu_err |= SYNTAX_ERR;
     }
 
     if (func_code & REG_BIT)
@@ -105,7 +105,7 @@ StackElem_t *GetArg(spu_t *spu)
             arg_ptr = (int *) &RAM[arg_val];
         
         else
-            SpuErr_val |= RAM_ERR;
+            spu->spu_err |= RAM_ERR;
     }
 
     else if (func_code & REG_BIT)
