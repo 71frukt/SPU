@@ -10,17 +10,17 @@ Factorial:
 
     PUSH BX
     PUSH 1
-    JA Recurse:
+    JBE End:
 
-    PUSH 1                  ; if (arg < 2) return 1
+    PUSH BX
+    PUSH BX
+    PUSH 1
+    SUB         
+    CALL Factorial:            
+
+    MUL                     ; if (arg > 1) return arg * Factorial(arg - 1)
     RET
 
-    Recurse:                ; else
-        PUSH BX
-        PUSH BX
-        PUSH 1
-        SUB         
-        CALL Factorial:            
-        
-        MUL                 ;return arg * Factorial(arg - 1)
+    End:
+        PUSH 1              ; else if (arg <= 1) return 1
         RET
