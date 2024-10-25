@@ -1,7 +1,7 @@
 #ifndef COMPILER_H
 #define COMPILER_H
 
-#define DEBUG
+#define CMP_DEBUG
 
 #include <stdio.h>
 
@@ -18,9 +18,9 @@ const int   REG_NAME_LEN     = 2;
 
 const int   REGISTERS_NUM    = 10;
 
-const int   CMD_POISON       = -0xEBE;
-const int   MARK_POISON      = -0xDEB41C;
-const int   REGISTER_POISON  = -0xACCCCC;
+const size_t   CMD_POISON       = 0xEBEFF;
+const size_t   MARK_POISON      = 0xDEB41C;
+const size_t   REGISTER_POISON  = 0xACCCCC;
 
 const int   FUNC_CODE_BYTE_SIZE = 13;
 
@@ -59,15 +59,16 @@ struct fixup_t
 
 struct compiler_t
 {
-    FILE *logfile;
-
-    FILE *asm_file;    
-    FILE *code_file;
-
     // trans_commands_t trans_commands;
     cmd_t cmd;
     fixup_t fixup;
     marklist_t marklist;
+
+    FILE *asm_file;
+    FILE *code_file;
+    
+    ON_COMPILER_DEBUG (FILE *logfile);
+    int compiler_err;
 };
 
 enum ManagerBits
@@ -95,7 +96,7 @@ bool    IsMark           (char *str);
 
 void    PrintCMD         (compiler_t *compiler);
 
-void CompilerAssert      (compiler_t *compiler, int *cmp_err, const char *file, int line, const char *func);
+void CompilerAssert      (compiler_t *compiler, const char *file, int line, const char *func);
 int  CompilerVerify      (compiler_t *compiler);
 void CompilerDump        (compiler_t *compiler, const char *file, int line, const char *func);
 void PrintCompilerErr    (int error);

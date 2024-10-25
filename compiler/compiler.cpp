@@ -6,16 +6,28 @@
 #include "compiler.h"
 #include "compiler_debug.h"
 
-// const char *trans_file_name = "txts/translator.txt";
-// const char *asm_file_name   = "txts/program.asm";
 const char *code_file_name  = "txts/program_code.txt";
-ON_DEBUG(const char *logfile_name = "txts/logs/compiler_logs.log");
+ON_COMPILER_DEBUG(const char *logfile_name = "txts/logs/compiler_logs.log");
 
-static int CompilerError_val = 0;
+// TODO: log files:
+// FILE *log_file = OpenLogFile();
+
+// FILE *OpenLogFile {
+
+//     FILE *log_file_ptr = fopen (...);
+//     atexit (CloseLogFile);
+// }
+
+// void CloseLogFile (void) {
+
+//     fclose (log_file);
+// }
+
+// static int CompilerError_val = 0;
 
 void CompilerCtor(compiler_t *compiler, const char *asm_file_name)
 {
-    ON_DEBUG(FILE **logfile =  &compiler->logfile);
+    ON_COMPILER_DEBUG(FILE **logfile =  &compiler->logfile);
     FILE       **code_file  =  &compiler->code_file;
     FILE       **asm_file   =  &compiler->asm_file;
 
@@ -26,7 +38,7 @@ void CompilerCtor(compiler_t *compiler, const char *asm_file_name)
 
     *asm_file         = fopen(asm_file_name,  "r");
     *code_file        = fopen(code_file_name, "w");
-    ON_DEBUG(*logfile = fopen(logfile_name,   "w"));
+    ON_COMPILER_DEBUG(*logfile = fopen(logfile_name,   "w"));
 
     // GetCommands(trans_file_name, &compiler->trans_commands);
 
@@ -61,7 +73,7 @@ void CompilerDtor(compiler_t *compiler)
 {
     COMPILER_ASSERT(compiler);  
 
-    ON_DEBUG(FILE *logfile =  compiler->logfile);
+    ON_COMPILER_DEBUG(FILE *logfile =  compiler->logfile);
     FILE       *code_file  =  compiler->code_file;
     FILE       *asm_file   =  compiler->asm_file;
 
@@ -70,7 +82,7 @@ void CompilerDtor(compiler_t *compiler)
     fixup_t          *fixup          = &compiler->fixup;
     marklist_t       *marklist       = &compiler->marklist;
 
-    ON_DEBUG(fclose(logfile));
+    ON_COMPILER_DEBUG(fclose(logfile));
     fclose(code_file);
     fclose(asm_file);
 
@@ -87,13 +99,12 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     assert(cur_command_name);
     COMPILER_ASSERT(compiler);
 
-
     FILE       *asm_file =  compiler->asm_file;
     cmd_t      *cmd      = &compiler->cmd;
     fixup_t    *fixup    = &compiler->fixup;
     marklist_t *marklist = &compiler->marklist;
 
-    #define DEF_CMD_PP_(command_name, command_num, ...)                         \
+    #define DEF_CMD_PP_(command_name, command_num, ...)                 \
         if (strcmp(cur_command_name, #command_name) == 0)               \
             command_code |= command_num;                                   
 
@@ -162,7 +173,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     #undef DEF_CMD_
 
 
-    #define DEF_CMD_JMP_(command_name, command_num, ...)                             \
+    #define DEF_CMD_JMP_(command_name, command_num, ...)                \
         if (strcmp(cur_command_name, #command_name) == 0)               \
             cmd->code[cmd->ip++] = command_num;
 
@@ -189,7 +200,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
                 mark = &marklist->list[marklist->ip];
                 mark->address = MARK_POISON;      //создать метку с ядовитым значением чтобы потом доопределить
                 sscanf(arg_str, "%[^" MARK_SYMBOL "]", mark->name);
-                num_in_marklist = marklist->ip++;
+                num_in_marklist = (int) marklist->ip++;
             }
 
             if (mark->address == MARK_POISON)
@@ -219,7 +230,7 @@ void WriteCommandCode(char *cur_command_name, compiler_t *compiler)
     #undef DEF_CMD_
 
 
-    #define DEF_CMD_(command_name, command_num, ...)                                     \
+    #define DEF_CMD_(command_name, command_num, ...)                        \
         else if (strcmp(cur_command_name, #command_name) == 0)              \
             cmd->code[cmd->ip++] = command_num;                                     
 
@@ -325,7 +336,7 @@ bool IsMark(char *str)
 
 int FindMarkInList(char *mark_name, marklist_t *marklist)
 {
-    for (int i = 0; i < marklist->ip; i++)
+    for (int i = 0; i < (int) marklist->ip; i++)
     {
         if (strcmp(mark_name, marklist->list[i].name) == 0)
             return i;
@@ -349,7 +360,7 @@ void MakeFixUp(compiler_t *compiler)
 
         if (marklist->list[cur_fixup_el.num_in_marklist].address == MARK_POISON)
         {
-            CompilerError_val |= FIXUP_ERR;
+            compiler->compiler_err |= FIXUP_ERR;
             fprintf(stderr, "COMPILE ERROR: undefined mark: '%s'\n", marklist->list[cur_fixup_el.num_in_marklist].name);
         }
 

@@ -1,14 +1,14 @@
 #include "compiler.h"
 #include "compiler_debug.h"
 
-void CompilerAssert(compiler_t *compiler, int *cmp_err, const char *file, int line, const char *func)
+void CompilerAssert(compiler_t *compiler, const char *file, int line, const char *func)
 {
-    *cmp_err |= CompilerVerify(compiler);
+    compiler->compiler_err |= CompilerVerify(compiler);
 
-    if (*cmp_err != 0)
+    if (compiler->compiler_err != 0)
     {
-        fprintf(stderr, "my assertion failed in\t%s:%d\nErrors:\t", file, line);
-        PrintCompilerErr(*cmp_err);
+        fprintf(stderr, "my assertion failed in\t%s:%d  (%s)\nErrors:\t", file, line, func);
+        PrintCompilerErr(compiler->compiler_err);
     }
 }
 
@@ -74,8 +74,8 @@ int CompilerVerify(compiler_t *compiler)
 
 void CompilerDump(compiler_t *compiler, const char *file, int line, const char *func)
 {
-    ON_DEBUG(FILE *logfile =  compiler->logfile);
-    FILE       *asm_file   =  compiler->asm_file;
+    ON_COMPILER_DEBUG(FILE *logfile =  compiler->logfile);
+    // FILE       *asm_file   =  compiler->asm_file;
     cmd_t      *cmd        = &compiler->cmd;
     fixup_t    *fixup      = &compiler->fixup;
     marklist_t *marklist   = &compiler->marklist;

@@ -25,13 +25,13 @@ EXECUTABLE = compiler
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJ) lib
-	$(CXX) $(FLAGS) $(OBJ_PATH) $(LIB_OBJ_PATH) -o $(BUILD_DIR)/$(EXECUTABLE) 
+	$(CXX) $(OBJ_PATH) $(LIB_OBJ_PATH) -o $(BUILD_DIR)/$(EXECUTABLE) 
 
 lib:
 	$(MAKE) --directory=$(LIB_STACK)
 
 %.o: %.cpp
-	$(CXX) -c $< -o $(OBJECTS_DIR)/$@ $(INCLUDE_PATH)
+	$(CXX) -c $< -o $(OBJECTS_DIR)/$@ $(INCLUDE_PATH) $(FLAGS)
 
 clean:
 	rm -rf *.exe

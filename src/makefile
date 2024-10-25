@@ -31,7 +31,7 @@ lib:
 	$(MAKE) --directory=$(LIB_STACK)
 
 %.o: %.cpp
-	$(CXX) -c $< -o $(OBJECTS_DIR)/$@ $(INCLUDE_PATH)
+	$(CXX) -c $< -o $(OBJECTS_DIR)/$@ $(INCLUDE_PATH) $(FLAGS)
 
 clean:
 	rm -rf *.exe

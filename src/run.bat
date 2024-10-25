@@ -1,3 +1,3 @@
 cd ../build
-spu.exe
+spu.exe 
 cd ../src

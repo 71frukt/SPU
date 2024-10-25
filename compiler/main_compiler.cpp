@@ -8,13 +8,15 @@ int main(const int argc, const char *argv[])
 {
     compiler_t compiler = {};
 
-    CompilerCtor(&compiler, argv[1]);
+    // CmdArgsCheck
+
+    CompilerCtor(&compiler, argv[1]); // GetInputFile
 
     char cur_command_name[COMMAND_NAME_LEN] = {};
 
-    while (fscanf(compiler.asm_file, "%s", cur_command_name) == 1)
+    while (fscanf(compiler.asm_file, "%s", cur_command_name) == 1) // TODO: function Run
     {
-        if (strchr(cur_command_name, COMMENT_SYMBOL) != NULL)
+        if (strchr(cur_command_name, COMMENT_SYMBOL) != NULL)  // TODO: function SkipCommentary
         {
             fscanf(compiler.asm_file, "%*[^\n]");
             continue;
@@ -48,7 +50,7 @@ int main(const int argc, const char *argv[])
             else if(mark->address != MARK_POISON)
             {
                 fprintf(stderr, "ERROR: redefinition of mark '%s'\n", cur_command_name);
-                ON_DEBUG(fprintf(compiler.logfile, "ERROR: redefinition of mark '%s'\n", cur_command_name));
+                ON_COMPILER_DEBUG(fprintf(compiler.logfile, "ERROR: redefinition of mark '%s'\n", cur_command_name));
             }
             
             continue;
