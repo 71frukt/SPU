@@ -24,6 +24,9 @@ const size_t   REGISTER_POISON  = 0xACCCCC;
 
 const int   FUNC_CODE_BYTE_SIZE = 13;
 
+const char *code_file_name  = "txts/program_code.txt";
+ON_COMPILER_DEBUG(const char *logfile_name = "txts/logs/compiler_logs.log");
+
 struct cmd_t
 {
     size_t    ip;

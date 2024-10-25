@@ -6,8 +6,8 @@
 #include "compiler.h"
 #include "compiler_debug.h"
 
-const char *code_file_name  = "txts/program_code.txt";
-ON_COMPILER_DEBUG(const char *logfile_name = "txts/logs/compiler_logs.log");
+// const char *code_file_name  = "txts/program_code.txt";
+// ON_COMPILER_DEBUG(const char *logfile_name = "txts/logs/compiler_logs.log");
 
 // TODO: log files:
 // FILE *log_file = OpenLogFile();
