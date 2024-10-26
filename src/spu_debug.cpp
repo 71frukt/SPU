@@ -26,7 +26,7 @@ void PrintSpuErr(int error)
     PRINT_ERROR (error, REGISTERS_ERR);
     PRINT_ERROR (error, RAM_ERR);
     PRINT_ERROR (error, CMD_ERR);
-    PRINT_ERROR (error, CODE_ERR);
+    PRINT_ERROR (error, CODEFILE_ERR);
     PRINT_ERROR (error, LOGFILE_ERR);
     PRINT_ERROR (error, SYNTAX_ERR);
 
@@ -55,7 +55,7 @@ int SpuVerify(spu_t *spu)
         res_err |= REGISTERS_ERR;
 
     if (code_file == NULL)
-        res_err |= CODE_ERR;
+        res_err |= CODEFILE_ERR;
 
     ON_SPU_DEBUG(
         if (logfile == NULL)

@@ -1,3 +1,5 @@
+#include <sys\stat.h>
+
 #include "spu.h"
 #include "spu_debug.h"
 
@@ -21,17 +23,23 @@ void SpuCtor(spu_t *spu)
         registers[i] = REGISTER_POISON;
     }
 
-    *code_file = fopen(code_file_name, "r");
+    *code_file = fopen(code_file_name, "rb");
     ON_SPU_DEBUG(*logfile = fopen(logs_file_name, "w"));
 
     *cmd = {};
+    struct stat file_info = {};
 
-    for (cmd->size = 0; cmd->size < MAX_CMD_SIZE; cmd->size++)
+    if (fstat(fileno(*code_file), &file_info) < 0)
     {
-        if (fscanf(*code_file, "%d", cmd->code + cmd->size) != 1)
-            break;
+        printf("Error reading files\n");
+        spu->spu_err |= CODEFILE_ERR;
     }
-
+    
+    cmd->size = file_info.st_size / sizeof(cmd->code[0]);
+    fprintf(stderr, "code size = %llu\n", cmd->size);
+    
+    fread(cmd->code, sizeof(cmd->code[0]), cmd->size, *code_file);
+    
     spu->spu_err = 0;
 
     STACK_CTOR(func_stk, 20);

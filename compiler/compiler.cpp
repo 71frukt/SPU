@@ -37,7 +37,7 @@ void CompilerCtor(compiler_t *compiler, const char *asm_file_name)
     marklist_t       *marklist       = &compiler->marklist;
 
     *asm_file  = fopen(asm_file_name,  "r");
-    *code_file = fopen(CODE_FILE_NAME, "w");
+    *code_file = fopen(CODE_FILE_NAME, "wb");
     ON_COMPILER_DEBUG(*logfile = fopen(LOGFILE_NAME,   "w"));
 
     // GetCommands(trans_file_name, &compiler->trans_commands);
@@ -358,8 +358,11 @@ void PrintCMD(compiler_t *compiler)
 {
     COMPILER_ASSERT(compiler);
 
-    for (size_t i = 0; i < compiler->cmd.ip; i++)
-        fprintf(compiler->code_file, "%d ", compiler->cmd.code[i]);
+    cmd_t cmd = compiler->cmd;
+    fwrite(cmd.code, sizeof(cmd.code[0]), compiler->cmd.size, compiler->code_file);
+
+    // for (size_t i = 0; i < compiler->cmd.ip; i++)
+        // fwrite(compiler->code_file, "%d ", compiler->cmd.code[i]);
 }
 
 // void GetCommands(const char *file_name, trans_commands_t *trans_commands)
