@@ -11,7 +11,7 @@ enum SPU_Error
     REGISTERS_ERR = (1 << 1),
     RAM_ERR       = (1 << 2),
     CMD_ERR       = (1 << 3),
-    CODEFILE_ERR      = (1 << 4),
+    CODEFILE_ERR  = (1 << 4),
     LOGFILE_ERR   = (1 << 5),
     SYNTAX_ERR    = (1 << 6)
 };

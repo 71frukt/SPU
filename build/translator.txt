@@ -1,0 +1,10 @@
+push    1
+add     2
+sub     3
+mul     4
+div     5
+pop     7
+jump    8
+call    9
+out     0
+hlt    -1

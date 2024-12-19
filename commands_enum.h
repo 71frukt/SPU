@@ -15,5 +15,3 @@ enum FuncCodes
 #undef DEF_CMD_PP_
 #undef DEF_CMD_JMP_
 #undef DEF_CMD_
-
-// TODO: SPU_(name)

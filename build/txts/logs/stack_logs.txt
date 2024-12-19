@@ -1,0 +1,225 @@
+
+RECALLOC!
+Stack_t[000001676fb01480] at stack.cpp:247 born at main.cpp:26:
+{
+	size     = 0
+	capacity = 0
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01518 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01518
+
+	data hash  = -4693247985338678096
+
+	data [000001676fb01480]: { 
+	}
+}
+
+Stack_t[000001676fb01480] at stack.cpp:87 born at main.cpp:26:
+{
+	size     = 0
+	capacity = 0
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01518 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01518
+
+	data hash  = -4693247985338678096
+
+	data [000001676fb01480]: { 
+	}
+}
+
+Stack_t[000001676fb01480] at stack.cpp:126 born at main.cpp:26:
+{
+	size     = 0
+	capacity = 0
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01518 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01518
+
+	data hash  = -4693247985338678096
+
+	data [000001676fb01480]: { 
+	}
+}
+
+Stack_t[000001676fb01480] at stack.cpp:190 born at main.cpp:26:
+{
+	size     = 0
+	capacity = 0
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01518 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01518
+
+	data hash  = -4693247985338678096
+
+	data [000001676fb01480]: { 
+	}
+}
+
+
+RECALLOC!
+Stack_t[000001676fb01480] at stack.cpp:247 born at main.cpp:26:
+{
+	size     = 0
+	capacity = 2
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01520 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01520
+
+	data hash  = -4831128989689005198
+
+	data [000001676fb01480]: { 
+		data[0] = -POISON-
+		data[1] = -POISON-
+	}
+}
+
+Stack_t[000001676fb01480] at stack.cpp:139 born at main.cpp:26:
+{
+	size     = 1
+	capacity = 2
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01520 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01520
+
+	data hash  = -8427136526342647465
+
+	data [000001676fb01480]: { 
+		data[0] = 30 
+		data[1] = -POISON-
+	}
+}
+
+Stack_t[000001676fb01480] at stack.cpp:126 born at main.cpp:26:
+{
+	size     = 1
+	capacity = 2
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01520 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01520
+
+	data hash  = -8427136526342647465
+
+	data [000001676fb01480]: { 
+		data[0] = 30 
+		data[1] = -POISON-
+	}
+}
+
+Stack_t[000001676fb01480] at stack.cpp:139 born at main.cpp:26:
+{
+	size     = 2
+	capacity = 2
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01520 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01520
+
+	data hash  = 5202704409180085572
+
+	data [000001676fb01480]: { 
+		data[0] = 30 
+		data[1] = 40 
+	}
+}
+
+Stack_t[000001676fb01480] at stack.cpp:126 born at main.cpp:26:
+{
+	size     = 2
+	capacity = 2
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01520 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01520
+
+	data hash  = 5202704409180085572
+
+	data [000001676fb01480]: { 
+		data[0] = 30 
+		data[1] = 40 
+	}
+}
+
+Stack_t[000001676fb01480] at stack.cpp:190 born at main.cpp:26:
+{
+	size     = 2
+	capacity = 2
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01520 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01520
+
+	data hash  = 5202704409180085572
+
+	data [000001676fb01480]: { 
+		data[0] = 30 
+		data[1] = 40 
+	}
+}
+
+
+RECALLOC!
+Stack_t[000001676fb01480] at stack.cpp:247 born at main.cpp:26:
+{
+	size     = 2
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01528 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01528
+
+	data hash  = 2941263570154864006
+
+	data [000001676fb01480]: { 
+		data[0] = 30 
+		data[1] = 40 
+		data[2] = -POISON-
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[000001676fb01480] at stack.cpp:205 born at main.cpp:26:
+{
+	size     = 2
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01528 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01528
+
+	data hash  = 2941263570154864006
+
+	data [000001676fb01480]: { 
+		data[0] = 30 
+		data[1] = 40 
+		data[2] = -POISON-
+		data[3] = -POISON-
+	}
+}
+
+Stack_t[000001676fb01480] at stack.cpp:139 born at main.cpp:26:
+{
+	size     = 3
+	capacity = 4
+
+	left canar : 3735928559			right canar:  3735928559
+	&left canar: 000001676fb01510	&right:       000001676fb01528 
+	&data[0]   : 000001676fb01518	&data[capa] : 000001676fb01528
+
+	data hash  = -2167140337314369475
+
+	data [000001676fb01480]: { 
+		data[0] = 30 
+		data[1] = 40 
+		data[2] = 50 
+		data[3] = -POISON-
+	}
+}
+

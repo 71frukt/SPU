@@ -58,8 +58,8 @@ int SpuVerify(spu_t *spu)
         res_err |= CODEFILE_ERR;
 
     ON_SPU_DEBUG(
-        if (logfile == NULL)
-            res_err |= LOGFILE_ERR;
+    if (logfile == NULL)
+        res_err |= LOGFILE_ERR;
     )
 
     return res_err;
@@ -68,7 +68,7 @@ int SpuVerify(spu_t *spu)
 void SpuDump(spu_t *spu, const char *file, int line, const char *func)
 {
     int   *registers =  spu->registers;
-    cmd_t *cmd       = &spu->cmd;
+    // cmd_t *cmd       = &spu->cmd;
     // FILE  *code_file =  spu->code_file;
     FILE  *logfile   =  spu->logfile;
 

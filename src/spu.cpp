@@ -42,8 +42,8 @@ void SpuCtor(spu_t *spu)
     
     spu->spu_err = 0;
 
-    STACK_CTOR(func_stk, 20);
-    STACK_CTOR(data_stk, 20);
+    STACK_CTOR(func_stk, 0);
+    STACK_CTOR(data_stk, 0);
     
     SPU_ASSERT(spu);
 }
@@ -91,7 +91,7 @@ StackElem_t *GetArg(spu_t *spu)
 
     if ((func_code & REG_BIT) && (func_code & IMM_BIT) && !(func_code & RAM_BIT))
     {
-        fprintf(stderr, "perhaps you forgot the \"[]\"?\n"); // TODO: fix error message
+        fprintf(stderr, "perhaps you forgot the \"[]\"?\n");
         spu->spu_err |= SYNTAX_ERR;
     }
 

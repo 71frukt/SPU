@@ -21,6 +21,6 @@ Factorial:
     MUL                     ; if (arg > 1) return arg * Factorial(arg - 1)
     RET
 
-    End:
-        PUSH 1              ; else if (arg <= 1) return 1
-        RET
+End:
+    PUSH 1              ; else if (arg <= 1) return 1
+    RET

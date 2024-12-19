@@ -13,11 +13,9 @@ int main()
     SPU_DUMP(&spu);
 
     cmd_t   *cmd       = &spu.cmd;
-    // int     *registers = spu.registers;
     StackID  data_stk  = spu.data_stk;
     StackID  func_stk  = spu.func_stk;
 
-    // FILE  *code_file =  spu.code_file;
     ON_SPU_DEBUG(FILE *logfile = spu.logfile);
 
     int mask = GetMaskForFunc();   // mask = 111..110001111111111111
@@ -25,13 +23,13 @@ int main()
     bool keep_doing = true;
 // fprintf(stderr, "-1 & mask: %d\n", (-1) & mask); // 100..001
 
-    #define DEF_CMD_PP_(command_name, command_num, ...)     \
+    #define DEF_CMD_PP_(command_name, command_num, ...)                                         \
         case command_num : SPU_ASSERT(&spu); __VA_ARGS__; SPU_ASSERT(&spu); break;
 
-    #define DEF_CMD_JMP_(command_name, command_num, ...)    \
+    #define DEF_CMD_JMP_(command_name, command_num, ...)                                        \
         case command_num : SPU_ASSERT(&spu); __VA_ARGS__; SPU_ASSERT(&spu); break;
 
-    #define DEF_CMD_(command_name, command_num, ...)         \
+    #define DEF_CMD_(command_name, command_num, ...)                                            \
         case command_num : SPU_ASSERT(&spu); __VA_ARGS__; SPU_ASSERT(&spu); break;
 
     while (cmd->ip < cmd->size && keep_doing)

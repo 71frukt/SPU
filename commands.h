@@ -13,6 +13,9 @@ DEF_CMD_PP_ (POP, 2,
 DEF_CMD_JMP_ (CALL,3,
 {
     StackPush(func_stk, (StackElem_t)(cmd->ip + 2));
+    
+// PUSH (ARG (+2))    
+    
     goto JUMP_MARK;
 })
 
