@@ -108,7 +108,6 @@ StackElem_t *GetArg(spu_t *spu)
 
     if (func_code & RAM_BIT)    // записываем в RAM
     {
-    // fprintf(stderr, "fuck_code = %d!\n", arg_val);
         if (arg_val < EXTRA_RAM_SIZE)
             arg_ptr = (int *) &RAM[arg_val];
         
