@@ -23,6 +23,7 @@ SRC_DIR   = src
 BUILD_DIR = build
 OBJ_DIR   = $(BUILD_DIR)/obj
 DEP_DIR   = $(BUILD_DIR)/.deps
+
 LOGS_DIR  = $(BUILD_DIR)/logs
 
 RELEASE_DIRS_MK    = SRC_DIR BUILD_DIR OBJ_DIR DEP_DIR
@@ -35,9 +36,6 @@ DEBUG_DIRS_MK	   = LOGS_DIR
 DEFINE_VARS =
 #------------------------------------------------------------------------------------------
 
-RES_ASM_NAME ?= ../run_circle.asm
-
-
 
 ARCHIVES_DEBUG_FLAGS = $(foreach project,  $(ARCHIVES_NAMES),-D $(shell echo $(project) | tr '[:lower:]' '[:upper:]')_DEBUG)
 ARCHIVE_NAMES_FLAGS  = $(addprefix -l,     $(ARCHIVES_NAMES))
@@ -46,7 +44,7 @@ ARCHIVES_DIRS_FLAGS  = $(foreach arch_dir, $(ARCHIVES_DIRS), -L$(arch_dir)/$(OBJ
 
 DEFINE_VARS_FLAGS 	 = $(foreach var,$(DEFINE_VARS),-D $(var)=$($(var)))
 
-DEBUG_FLAGS   = -D COMPILER_DEBUG -D _DEBUG  -ggdb -Og -g3 -D_FORTIFY_SOURCES=3 $(SANITIZER) $(ARCHIVES_DEBUG_FLAGS)
+DEBUG_FLAGS   = -D FRONTEND_DEBUG -D _DEBUG  -ggdb -Og -g3 -D_FORTIFY_SOURCES=3 $(SANITIZER) $(ARCHIVES_DEBUG_FLAGS)
 RELEASE_FLAGS = -DNDEBUG -O3
 
 INCLUDES      = lib $(ARCHIVES_DIRS_LIBS)
@@ -59,7 +57,7 @@ THIS_PROJ_DEP  = $(patsubst $(SRC_DIR)/%.cpp,$(DEP_DIR)/%.d,$(THIS_PROJ_CPP))
 
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.d
 
-EXECUTABLE ?= compiler
+EXECUTABLE ?= spu
 TARGET      = $(BUILD_DIR)/$(EXECUTABLE) 
 
 FLAGS  = -Wall -Wextra -Weffc++ -Waggressive-loop-optimizations -Wc++14-compat -Wmissing-declarations -Wcast-align -Wcast-qual                									\
@@ -89,10 +87,10 @@ FLAGS += $(DEFINE_VARS_FLAGS)
 all: $(TARGET) $(foreach dir, $(RELEASE_DIRS_MK), $($(dir)))  $(if $(USE_DEBUG), $(foreach dir, $(DEBUG_DIRS_MK), $($(dir))))
 
 run:
-	$(TARGET) $(RES_ASM_NAME)
+	$(TARGET)
 
 gdb:
-	gdb $(TARGET) $(RES_ASM_NAME)
+	gdb $(TARGET)
 
 clean:
 	rm -rf $(BUILD_DIR)

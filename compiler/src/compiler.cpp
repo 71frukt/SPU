@@ -1,0 +1,413 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
+
+#include "compiler.h"
+#include "compiler_debug.h"
+
+void CompilerCtor(compiler_t *compiler, const char *asm_file_name)
+{
+    fprintf(stderr, "file_name = '%s'\n", asm_file_name);
+
+    ON_COMPILER_DEBUG(FILE **logfile =  &compiler->logfile);
+    FILE       **code_file  =  &compiler->code_file;
+    FILE       **asm_file   =  &compiler->asm_file;
+
+    // trans_commands_t *trans_commands = &compiler->trans_commands;
+    cmd_t            *cmd            = &compiler->cmd;
+    fixup_t          *fixup          = &compiler->fixup;
+    marklist_t       *marklist       = &compiler->marklist;
+
+    *asm_file  = fopen(asm_file_name,  "r");
+    assert(*asm_file);
+
+    *code_file = fopen(CODE_FILE_NAME, "wb");
+    ON_COMPILER_DEBUG(*logfile = fopen(LOGFILE_NAME,   "w"));
+assert(*logfile);
+    // GetCommands(trans_file_name, &compiler->trans_commands);
+
+    cmd->ip   = 0;
+    cmd->size = GetCountOfWords(*asm_file);
+    cmd->code = (int *)  calloc(cmd->size, sizeof(int));
+    
+    for (size_t i = 0; i < cmd->size; i++)
+        cmd->code[i] = CMD_POISON;
+
+    marklist->size = cmd->size;
+    marklist->ip   = 0;
+    marklist->list = (mark_t *) calloc(marklist->size, sizeof(mark_t));
+
+    for (size_t i = 0; i < marklist->size; i++)
+        marklist->list[i].address = MARK_POISON;
+
+    fixup->ip   = 0;
+    fixup->size = cmd->size;      // �������� ����� = ���������� ������
+    fixup->data = (fixup_el_t *) calloc(fixup->size, sizeof(fixup_el_t));
+    
+    for (size_t i = 0; i < fixup->size; i++)
+    {
+        fixup->data[i].num_in_marklist  = MARK_POISON;        
+        fixup->data[i].mark_ip          = MARK_POISON;
+    }
+
+    compiler->compiler_err = 0;
+
+    COMPILER_ASSERT(compiler);
+}
+
+void CompilerDtor(compiler_t *compiler)
+{
+    COMPILER_ASSERT(compiler);  
+
+    ON_COMPILER_DEBUG(FILE *logfile = compiler->logfile);
+    FILE *code_file = compiler->code_file;
+    FILE *asm_file  = compiler->asm_file;
+
+    // trans_commands_t *trans_commands = &compiler->trans_commands;
+    cmd_t      *cmd      = &compiler->cmd;
+    fixup_t    *fixup    = &compiler->fixup;
+    marklist_t *marklist = &compiler->marklist;
+
+    ON_COMPILER_DEBUG(fclose(logfile));
+    fclose(code_file);
+    fclose(asm_file);
+
+    // free(trans_commands->commands);
+    free(cmd->code);
+    free(fixup->data);
+    free(marklist->list);
+
+    *compiler = {};
+}
+
+void Compile(compiler_t *compiler)
+{
+    char cur_command_name[COMMAND_NAME_LEN] = {};
+
+    while (fscanf(compiler->asm_file, "%s", cur_command_name) == 1)
+    {
+        if (strchr(cur_command_name, COMMENT_SYMBOL) != NULL)
+        {
+            fscanf(compiler->asm_file, "%*[^\n]");
+            continue;
+        }
+
+        if (IsMark(cur_command_name))
+        {
+            char mark_name[MARK_NAME_LEN] = {};
+            sscanf(cur_command_name, "%[^" MARK_SYMBOL "]", mark_name);            
+
+            // mark_t *mark = FindMarkInList(mark_name, &compiler->marklist);
+            int num_in_marklist = FindMarkInList(mark_name, &compiler->marklist);
+            mark_t *mark = &compiler->marklist.list[num_in_marklist];
+
+            if (num_in_marklist < 0)
+            {    
+                size_t list_ip = compiler->marklist.ip;     //TODO: make func
+                compiler->marklist.list[list_ip].address = compiler->cmd.ip;
+                strncat(compiler->marklist.list[list_ip].name, mark_name, MARK_NAME_LEN - 1);
+                // sscanf(cur_command_name, "%[^" MARK_SYMBOL "]", marklist.list[marklist.ip].name);
+                compiler->marklist.ip++;
+            }
+
+            else if (num_in_marklist >= 0 && mark->address == MARK_POISON)
+            {
+                mark->address = compiler->cmd.ip;
+            }
+
+            else if(mark->address != MARK_POISON)
+            {
+                fprintf(stderr, "ERROR: redefinition of mark '%s'\n", cur_command_name);
+                ON_COMPILER_DEBUG(fprintf(compiler->logfile, "ERROR: redefinition of mark '%s'\n", cur_command_name));
+            }
+            
+            continue;
+        }
+
+        WriteCommandCode(cur_command_name, compiler);
+
+        COMPILER_DUMP(compiler);
+    }
+}
+
+void WriteCommandCode(char *cur_command_name, compiler_t *compiler)    
+{
+    assert(cur_command_name);
+    COMPILER_ASSERT(compiler);
+
+    FILE       *asm_file =  compiler->asm_file;
+    cmd_t      *cmd      = &compiler->cmd;
+    fixup_t    *fixup    = &compiler->fixup;
+    marklist_t *marklist = &compiler->marklist;
+
+    #define DEF_CMD_PP_(command_name, command_num, ...)                 \
+        if (strcmp(cur_command_name, #command_name) == 0)               \
+            command_code |= command_num;                                   
+
+    #define DEF_CMD_JMP_(...)
+    #define DEF_CMD_(...)    
+
+    if (strstr("PUSH POP", cur_command_name) != NULL)
+    {
+        int command_code = 0;
+
+        #include "../../commands.h" 
+        
+        int res_imm  = CMD_POISON;
+        int res_reg  = CMD_POISON;
+
+        char  arg_str[MAX_ARG_NAME_LEN] = {};
+        char  tmp_str[MAX_ARG_NAME_LEN] = {};        
+        char *cur_ptr = NULL;
+
+        fscanf(asm_file, "%[^\n]", arg_str);
+
+        cur_ptr = strchr(arg_str, '[');
+        
+        if (cur_ptr != NULL)
+        {
+            cur_ptr++;  //�� ��������� ������ ����� '['
+            command_code |= RAM_BIT;
+        }
+        else
+            cur_ptr = arg_str + 1;      // ������ ������ ������ ������
+
+
+        if (sscanf(cur_ptr, "%[ A-Z]", tmp_str) == 1)     // ���� �������
+        {
+            if (IsRegister(tmp_str))
+            {
+                command_code |= REG_BIT;
+                int elem = ReadRegister(tmp_str);
+                res_reg = elem;
+            }
+            
+            else 
+                fprintf(stderr, "ERROR: invalid register in push: '%s'\n", tmp_str);
+        }
+
+        char *ptr; 
+        if ((ptr = strchr(cur_ptr, '+')) != NULL)
+            cur_ptr = ptr + 1;
+
+        if (sscanf(cur_ptr, "%d", &res_imm) == 1)    // ���� immediate const
+            command_code |= IMM_BIT;
+
+        cmd->code[cmd->ip++] = command_code;
+
+        // fprintf(stderr, "command code = %d\n", command_code);
+
+        if (res_reg != CMD_POISON)
+            cmd->code[cmd->ip++] = res_reg;
+        
+        if (res_imm != CMD_POISON)
+            cmd->code[cmd->ip++] = res_imm;
+    }
+
+    #undef DEF_CMD_PP_
+    #undef DEF_CMD_JMP_
+    #undef DEF_CMD_
+
+
+    #define DEF_CMD_JMP_(command_name, command_num, ...)                \
+        if (strcmp(cur_command_name, #command_name) == 0)               \
+            cmd->code[cmd->ip++] = command_num;
+
+    #define DEF_CMD_PP_(...)
+    #define DEF_CMD_(...)  
+
+    else if (strstr( "JMP CALL JA JAE JB JBE JE JNE", cur_command_name) != NULL)
+    {
+        #include "../../commands.h"
+
+        char arg_str[MARK_NAME_LEN] = {};
+
+        fscanf(asm_file, "%s", arg_str);
+
+        if (IsMark(arg_str))
+        {
+            sscanf(arg_str, "%[^" MARK_SYMBOL "]", arg_str);   
+
+            int num_in_marklist = FindMarkInList(arg_str, marklist);
+            mark_t *mark = &marklist->list[num_in_marklist];
+// fprintf(stderr, "jump etc:  mark name = '%s'   command_num in marklist = %d\n\n", arg_str, num_in_marklist);
+            if (num_in_marklist < 0)
+            {
+                mark = &marklist->list[marklist->ip];
+                mark->address = MARK_POISON;      //������� ����� � �������� ��������� ����� ����� ������������
+                sscanf(arg_str, "%[^" MARK_SYMBOL "]", mark->name);
+                num_in_marklist = (int) marklist->ip++;
+            }
+
+            if (mark->address == MARK_POISON)
+            {                
+                fixup->data[fixup->ip].mark_ip         = cmd->ip;
+                fixup->data[fixup->ip].num_in_marklist = num_in_marklist;
+                fixup->ip++;
+            }
+
+            cmd->code[cmd->ip++] = (int) mark->address;
+        }
+
+        else
+        {
+            int elem = 0;
+
+            if (sscanf(arg_str, "%d", &elem) == 1)
+                cmd->code[cmd->ip++] = elem;
+                
+            else
+                fprintf(stderr, "COMPILE ERROR: Invalid mark: '%s'\n", arg_str);
+        }
+    }
+
+    #undef DEF_CMD_PP_
+    #undef DEF_CMD_JMP_
+    #undef DEF_CMD_
+
+
+    #define DEF_CMD_(command_name, command_num, ...)                        \
+        else if (strcmp(cur_command_name, #command_name) == 0)              \
+            cmd->code[cmd->ip++] = command_num;                                     
+
+    #define DEF_CMD_PP_(...)
+    #define DEF_CMD_JMP_(...)  
+
+    #include "../../commands.h"
+
+    else
+        fprintf(stderr, "COMPILE ERROR: Unknown command: '%s'\n", cur_command_name);
+
+    #undef DEF_CMD_PP_
+    #undef DEF_CMD_JMP_
+    #undef DEF_CMD_
+
+    COMPILER_ASSERT(compiler);
+}
+
+
+int ReadRegister(char *reg_name)
+{
+    int elem = REGISTER_POISON;
+
+    if (!IsRegister(reg_name))
+    {
+        fprintf(stderr, "ERROR: incorrect register: '%s'\n", reg_name);
+        return REGISTER_POISON;
+    }
+
+    elem = reg_name[0] - 'A' + 1;       // AX - ������ �������
+
+    return elem;
+}
+
+bool IsRegister(char *reg_name)
+{
+    return (strlen(reg_name) >= 2 && reg_name[1] == 'X' && reg_name[0] >= 'A' && reg_name[0] <= 'A' + REGISTERS_NUM);
+}
+
+size_t GetCountOfLines(FILE *text)
+{
+    size_t num_lines = 0;
+
+    char cur_ch = 0;
+    while ((cur_ch = (char) getc(text)) != EOF)
+    {
+        if (cur_ch == '\n')
+        num_lines++;
+    }
+
+    num_lines++;    //in the end of file is no \n
+    
+    fseek(text, 0, SEEK_SET);
+    return num_lines;
+}
+
+size_t GetCountOfWords(FILE *text)
+{
+    assert(text);
+
+    size_t num_words = 0;
+
+    char cur_word[COMMAND_NAME_LEN] = {};
+
+    while (fscanf(text, "%s", cur_word) == 1)
+        num_words++;
+
+    fseek(text, 0, SEEK_SET);
+    return num_words;
+}
+
+void PrintCMD(compiler_t *compiler)
+{
+    COMPILER_ASSERT(compiler);
+
+    cmd_t cmd = compiler->cmd;
+    fwrite(cmd.code, sizeof(cmd.code[0]), compiler->cmd.size, compiler->code_file);
+
+    // for (size_t i = 0; i < compiler->cmd.ip; i++)
+        // fwrite(compiler->code_file, "%d ", compiler->cmd.code[i]);
+}
+
+// void GetCommands(const char *file_name, trans_commands_t *trans_commands)
+// {
+//     FILE *trans_file = fopen(file_name, "r");
+
+//     size_t num_trans_lines = GetCountOfLines(trans_file);
+
+//     trans_commands->size = num_trans_lines;
+
+//     command_t *commands_tmp = (command_t *) calloc(num_trans_lines, sizeof(command_t));
+
+//     for (size_t i = 0; i < num_trans_lines; i++)
+//     {
+//         fscanf(trans_file, "%s",  commands_tmp[i].name);
+//         fscanf(trans_file, "%d", &commands_tmp[i].key);
+//     }
+
+//     trans_commands->commands = commands_tmp;
+
+//     fclose(trans_file);
+// }
+
+bool IsMark(char *str)
+{
+    return (strstr(str, MARK_SYMBOL) ? true : false);
+}
+
+int FindMarkInList(char *mark_name, marklist_t *marklist)
+{
+    for (int i = 0; i < (int) marklist->ip; i++)
+    {
+        if (strcmp(mark_name, marklist->list[i].name) == 0)
+            return i;
+    }
+
+    return -1;
+}
+
+void MakeFixUp(compiler_t *compiler)
+{
+    COMPILER_ASSERT(compiler);
+    cmd_t      *cmd      = &compiler->cmd;
+    fixup_t    *fixup    = &compiler->fixup;
+    marklist_t *marklist = &compiler->marklist;
+
+    for (size_t i = 0; i < fixup->ip; i++)
+    {
+        fixup_el_t cur_fixup_el = fixup->data[i]; 
+
+// fprintf(stderr, "i = %lu: cur_fixup_el.mark_ip = %lu,  mark address = %d\n", i, cur_fixup_el.mark_ip,(int) marklist->list[cur_fixup_el.num_in_marklist].address);
+
+        if (marklist->list[cur_fixup_el.num_in_marklist].address == MARK_POISON)
+        {
+            compiler->compiler_err |= FIXUP_ERR;
+            fprintf(stderr, "COMPILE ERROR: undefined mark: '%s'\n", marklist->list[cur_fixup_el.num_in_marklist].name);
+        }
+
+        cmd->code[cur_fixup_el.mark_ip] = (int) marklist->list[cur_fixup_el.num_in_marklist].address;
+    }
+
+    COMPILER_ASSERT(compiler);
+}

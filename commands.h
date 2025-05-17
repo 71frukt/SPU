@@ -208,8 +208,8 @@ DEF_CMD_ (CRTWND, 22,
 
 DEF_CMD_ (DRAW, 23,
 {
-    DrawInWindow();
-    // DrawInConsole();
+    // DrawInWindow();
+    DrawInConsole();
 
     cmd->ip++;
 })
